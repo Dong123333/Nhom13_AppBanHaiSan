@@ -314,7 +314,42 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="598dp"
+            android:layout_marginLeft="-413dp"
+            android:layout_marginRight="1dp"
+            android:orientation="horizontal"
 
+            android:background="@drawable/color_gradient">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/home"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/heart"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/shopping_cart"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/notification"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/menu"/>
+
+        </LinearLayout>
 
         </LinearLayout>
 
