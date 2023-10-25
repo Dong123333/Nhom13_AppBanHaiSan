@@ -32,13 +32,12 @@
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="#58E0FA"
+        android:gravity="center_vertical|center_horizontal"
         android:layout_marginTop="60dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="10dp">
+            android:orientation="horizontal">
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="35dp"
@@ -53,7 +52,6 @@
             android:layout_width="70dp"
             android:layout_height="35dp"
             android:orientation="horizontal"
-            android:layout_marginTop="13dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/btnsanpham"
             android:gravity="center_vertical|center_horizontal">
@@ -76,7 +74,7 @@
             android:layout_height="35dp"
             android:orientation="horizontal"
             android:background="@drawable/textinput"
-            android:layout_marginTop="13dp"
+
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical|center_horizontal">
             <TextView
@@ -91,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="13dp"
+
             android:layout_marginLeft="10dp">
             <ImageView
                 android:layout_width="32dp"
@@ -111,19 +109,18 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical">
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="#C7E1F9"
                 android:src="@drawable/fish1"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -170,7 +167,6 @@
                 android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|center_horizontal">
                 <ImageView
@@ -189,19 +185,18 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical">
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="#C7E1F9"
                 android:src="@drawable/fish1"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -248,7 +243,6 @@
                 android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|center_horizontal">
                 <ImageView
@@ -267,19 +261,18 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical">
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="#C7E1F9"
                 android:src="@drawable/fish1"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -326,7 +319,6 @@
                 android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|center_horizontal">
                 <ImageView
@@ -345,19 +337,18 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical">
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="#C7E1F9"
                 android:src="@drawable/fish1"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -404,7 +395,6 @@
                 android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|center_horizontal">
                 <ImageView
