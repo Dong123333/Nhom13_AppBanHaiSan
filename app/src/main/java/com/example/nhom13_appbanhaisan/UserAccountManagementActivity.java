@@ -2,7 +2,7 @@ package com.example.nhom13_appbanhaisan;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-public class UserAccountManagement extends  AppCompatActivity{
+public class UserAccountManagementActivity extends  AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
