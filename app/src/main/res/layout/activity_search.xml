@@ -7,20 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:background="#33DAFF">
     <ImageView
         android:id="@+id/backspace"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@drawable/backspace"
-        android:layout_marginTop="28dp"
         android:layout_marginLeft="15dp"
         />
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@drawable/search_round"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:fontFamily="@font/roboto_bold"
         android:hint="Cá mú"
@@ -33,7 +32,6 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@drawable/filter"
-        android:layout_marginTop="28dp"
         android:layout_marginLeft="24dp"
         />
 
@@ -42,56 +40,59 @@
         android:layout_width="match_parent"
         android:layout_height="700dp"
         android:layout_marginTop="100dp"
-
         android:background="#CCE5FF"
         android:orientation="vertical">
         <LinearLayout
             android:id="@+id/timkiem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+           android:gravity="center_vertical"
             android:paddingBottom="10dp">
             <TextView
                 android:id="@+id/textsearch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="KẾT QUẢ TÌM KIẾM"
                 android:textSize="18dp"
                 android:textColor="@color/black"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"
                 />
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="-158dp"
-                android:background="@drawable/btnstocking"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Còn hàng"
-                android:textSize="16dp"
-                android:textAllCaps="false"
-                />
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/btnoutofstock"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Đã ngưng bán/hết hàng"
-                android:textSize="16dp"
-                android:textAllCaps="false"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/btnstocking"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Còn hàng"
+                    android:textSize="16dp"
+                    android:textAllCaps="false"
+                    />
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/btnoutofstock"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Đã ngưng bán/hết hàng"
+                    android:textSize="16dp"
+                    android:textAllCaps="false"
+                    />
+            </LinearLayout>
+
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,14 +109,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
             <LinearLayout
                 android:layout_width="165dp"
                 android:layout_height="170dp"
-                android:layout_marginLeft="20dp"
                 android:orientation="vertical"
                 android:background="#FFFFFF">
                 <ImageView
@@ -223,14 +222,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="165dp"
                 android:layout_height="170dp"
-                android:layout_marginLeft="20dp"
                 android:orientation="vertical"
                 android:background="#FFFFFF">
                 <ImageView
