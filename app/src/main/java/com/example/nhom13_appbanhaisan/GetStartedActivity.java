@@ -18,20 +18,20 @@ public class GetStartedActivity extends AppCompatActivity {
         btnlogin = findViewById(R.id.btn_login);
         btnsignup = findViewById(R.id.btn_signup);
         btnlater = findViewById(R.id.btn_later);
-//        btnlogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        btnsignup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnsignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
+                startActivity(intent);
+            }
+        });
         btnlater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

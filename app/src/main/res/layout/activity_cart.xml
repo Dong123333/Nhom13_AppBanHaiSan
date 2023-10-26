@@ -843,6 +843,7 @@
                 android:textColor="#FD1E00"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/muahang"
             android:layout_width="120dp"
             android:layout_height="48dp"
             android:layout_marginLeft="31dp"

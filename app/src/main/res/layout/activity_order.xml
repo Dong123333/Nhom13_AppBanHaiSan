@@ -13,7 +13,7 @@
         android:id="@+id/back"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:background="@drawable/back"
+        android:background="@drawable/arrow_left"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         />
@@ -737,6 +737,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/dathang"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"

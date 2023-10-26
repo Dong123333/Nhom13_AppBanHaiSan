@@ -29,6 +29,14 @@
             android:exported="false">
 
         </activity>
+        <activity android:name=".LoginActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".SignupActivity"
+            android:exported="false">
+
+        </activity>
         <activity android:name=".SearchActivity"
             android:exported="false">
 
@@ -46,6 +54,35 @@
 
         </activity>
         <activity android:name=".UserAccountManagementActivity"
+            android:exported="false">
+
+        </activity>
+
+        <activity android:name=".OrderActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".PayActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".NotificationActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".UpdateProductActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".DetailProductActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".ChatActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".PersonalInfoManagementActivity"
             android:exported="false">
 
         </activity>

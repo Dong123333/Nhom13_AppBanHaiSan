@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".NotificationActivity"
     android:background="@drawable/color_gradient">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -29,6 +27,7 @@
             android:textSize="20sp"
             android:textColor="#000000" />
         <ImageView
+            android:id="@+id/chat"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/chat"
@@ -62,247 +61,253 @@
             />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="42dp"
         android:layout_marginTop="92dp"
-        android:orientation="vertical"
-        android:background="#C7F9F9">
+        android:layout_marginBottom="42dp"
+        android:fillViewport="true">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/fish"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#C7F9F9">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Đang vận chuyển"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/fish"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Cá Mú Sống của đơn hàng ABCXYZ đang  được giao đến khách hàng"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đang vận chuyển"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Cá Mú Sống của đơn hàng ABCXYZ đang  được giao đến khách hàng"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-           >
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/crab"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Đang vận chuyển"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/crab"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Cua Hoàng Đế của đơn hàng ABCXYZ đang được giao đến khách hàng"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đang vận chuyển"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Cua Hoàng Đế của đơn hàng ABCXYZ đang được giao đến khách hàng"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/shrimp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giao hàng thành công"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/shrimp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Tôm Hùm Alaska của đơn hàng ABCXYZ
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giao hàng thành công"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Tôm Hùm Alaska của đơn hàng ABCXYZ
 đã được giao đến khách hàng"/>
 
-            </LinearLayout>
+                </LinearLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/squid"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giao hàng thành công"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/squid"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Mực Ống của đơn hàng ABCXYZ đã được giao đến khách hàng"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giao hàng thành công"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Mực Ống của đơn hàng ABCXYZ đã được giao đến khách hàng"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/mollusc"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giao hàng thành công"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/mollusc"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Sò Mai của đơn hàng ABCXYZ đã được giao đến khách hàng"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giao hàng thành công"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Sò Mai của đơn hàng ABCXYZ đã được giao đến khách hàng"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/sea_urchin"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giao hàng thành công"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/sea_urchin"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/black"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:text="Kiện hàng Cá Mú Sống của đơn hàng ABCXYZ đang  được giao đến khách hàng"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giao hàng thành công"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:text="Kiện hàng Cá Mú Sống của đơn hàng ABCXYZ đang  được giao đến khách hàng"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xem thêm"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/arrow_down"
+                android:layout_gravity="center"
+                />
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xem thêm"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            />
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:src="@drawable/arrow_down"
-            android:layout_gravity="center"
-            />
-    </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:layout_marginTop="690dp"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/color_gradient">
         <ImageView
+            android:id="@+id/home"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/home"/>
@@ -318,16 +323,16 @@
             android:layout_marginLeft="50dp"
             android:background="@drawable/shopping_cart"/>
         <ImageView
+            android:id="@+id/notif"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"
             android:background="@drawable/notification"/>
         <ImageView
+            android:id="@+id/menu"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"
             android:background="@drawable/menu"/>
     </LinearLayout>
-    
 </RelativeLayout>
-</ScrollView>

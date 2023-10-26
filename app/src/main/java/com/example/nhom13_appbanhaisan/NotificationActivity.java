@@ -3,28 +3,26 @@ package com.example.nhom13_appbanhaisan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
-    private ImageView btncart,btnNoti,btnMenu,btnChat;
-    private EditText inputSearch;
-
+public class NotificationActivity extends AppCompatActivity {
+    private ImageView btnhome,btncart,btnNoti,btnMenu,btnChat;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_notification);
         btncart = findViewById(R.id.btn_cart);
-        inputSearch = findViewById(R.id.input_search);
-        btnNoti = findViewById(R.id.btn_noti);
-        btnChat = findViewById(R.id.btn_chat);
-        btnMenu = findViewById(R.id.btn_menu);
-        findViewById(R.id.btn_detail).setOnClickListener(new View.OnClickListener() {
+        btnhome=findViewById(R.id.home);
+        btnNoti = findViewById(R.id.notif);
+        btnMenu = findViewById(R.id.menu);
+        btnChat=findViewById(R.id.chat);
+        btnhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -32,13 +30,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CartActivity.class);
-                startActivity(intent);
-            }
-        });
-        inputSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
                 startActivity(intent);
             }
         });

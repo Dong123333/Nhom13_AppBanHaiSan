@@ -1,30 +1,33 @@
 package com.example.nhom13_appbanhaisan;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
-    private ImageView btncart,btnNoti,btnMenu,btnChat;
-    private EditText inputSearch;
-
+public class PersonalInfoManagementActivity extends AppCompatActivity {
+    private ImageView btnhome,btncart,btnNoti,btnMenu,btnChat;
+    private Button btnlogout;
+    @SuppressLint("MissingInflatedId")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.personal_infor_management);
         btncart = findViewById(R.id.btn_cart);
-        inputSearch = findViewById(R.id.input_search);
-        btnNoti = findViewById(R.id.btn_noti);
-        btnChat = findViewById(R.id.btn_chat);
+        btnhome=findViewById(R.id.btn_home);
+        btnNoti = findViewById(R.id.btn_notif);
         btnMenu = findViewById(R.id.btn_menu);
-        findViewById(R.id.btn_detail).setOnClickListener(new View.OnClickListener() {
+        btnChat=findViewById(R.id.imageView4);
+        btnlogout=findViewById(R.id.button3);
+        btnhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -32,13 +35,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CartActivity.class);
-                startActivity(intent);
-            }
-        });
-        inputSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,5 +59,20 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.choxacnhan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),PurchaseOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),GetStartedActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
