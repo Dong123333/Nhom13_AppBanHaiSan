@@ -292,7 +292,7 @@
                         android:id="@+id/anhhangone"
                         android:layout_marginLeft="20dp"
                         android:background="#C7F9F9"
-                        android:src="@drawable/muc"
+                        android:src="@drawable/squid1"
                         />
                     <LinearLayout
                         android:layout_width="315dp"
@@ -353,7 +353,7 @@
                         android:id="@+id/anhhangtwo"
                         android:layout_marginLeft="20dp"
                         android:background="#C7F9F9"
-                        android:src="@drawable/cua"
+                        android:src="@drawable/crab1"
                         />
                     <LinearLayout
                         android:layout_width="315dp"
@@ -521,7 +521,7 @@
                         android:layout_width="20dp"
                         android:layout_height="18dp"
                         android:id="@+id/ship"
-                        android:src="@drawable/ship"
+                        android:src="@drawable/truck"
                         android:layout_marginLeft="15dp"
                         />
                     <TextView
@@ -535,7 +535,7 @@
                         android:layout_marginLeft="12sp"/>
                 </LinearLayout>
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="340dp"
                     android:layout_height="20dp"
                     android:id="@+id/voucher"
                     android:fontFamily="@font/roboto_regular"
@@ -543,10 +543,13 @@
                     android:textSize="12sp"
                     android:text="Shop voucher giảm đến 20% cho đơn hàng trên 2 triệu"
                     android:paddingLeft="10dp"
-                    android:drawableRight="@drawable/next"
                     android:paddingRight="10dp"
                     android:paddingTop="3dp"
                     android:layout_marginTop="3dp"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/next"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -688,7 +691,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginLeft="30dp"/>
                     <TextView
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="15dp"
                         android:id="@+id/dieukhoan"
                         android:fontFamily="@font/roboto_regular"

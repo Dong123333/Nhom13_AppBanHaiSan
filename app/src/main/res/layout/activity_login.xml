@@ -14,7 +14,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/back"
-                android:src="@drawable/back"
+                android:src="@drawable/arrow_left"
                 android:layout_margin="15dp"/>
 
             <ImageView
@@ -118,14 +118,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/google"
-                    />
+                    android:src="@drawable/google"/>
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/fb"
-                    />
+                    android:src="@drawable/fb"/>
 
                 <ImageView
                     android:layout_width="50dp"
