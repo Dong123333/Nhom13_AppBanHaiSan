@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="60dp"
+       android:background="#33DAFF">
+       <ImageView
+           android:layout_width="24dp"
+           android:layout_height="24dp"
+           android:src="@drawable/arrow"
+           android:layout_marginTop="15dp"
+           android:layout_marginLeft="15dp"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Cập Nhật Sản Phẩm"
+           android:layout_marginLeft="80dp"
+           android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_bold"
+           android:textSize="20sp"
+           android:textColor="#000000" />
+
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="730dp"
+        android:background="#C7F9F9"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/fish"
+                android:background="@drawable/bk_image1"
+                />
+            <TextView
+                android:layout_width="49dp"
+                android:layout_height="17dp"
+                android:text="Upload"
+                android:textColor="#027A0E"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="14dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="70dp"/>
+        </LinearLayout>
+        
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên hải sản"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quy cách"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tình trạng"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xuất xứ"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Món ngon"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng"
+            android:textSize="17dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/input_round"/>
+        <Button
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:text="Lưu"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
+</ScrollView>
