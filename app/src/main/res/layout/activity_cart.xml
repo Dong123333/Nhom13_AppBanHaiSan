@@ -75,7 +75,7 @@
             android:background="@drawable/color_gradient">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="205dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,15 +102,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/roboto_bold"
                             android:text="Cá mú sống"
                             android:textSize="16sp"
                             android:textColor="#000000"/>
                         <LinearLayout
-                            android:layout_width="185dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:background="#C7F9F9"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -134,8 +133,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 490.000đ/1kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000"/>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -143,8 +141,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 2.3kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -188,7 +185,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
@@ -228,7 +225,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="205dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -255,19 +252,18 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/roboto_bold"
                             android:text="Tôm sú"
                             android:textSize="16sp"
                             android:textColor="#000000"/>
                         <TextView
-                            android:layout_width="185dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 170.000đ/1kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -275,8 +271,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1.5kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -320,7 +315,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
@@ -360,7 +355,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="205dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -387,15 +382,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/roboto_bold"
                             android:text="Cua hoàng đế"
                             android:textSize="16sp"
                             android:textColor="#000000"/>
                         <LinearLayout
-                            android:layout_width="185dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:background="#C7F9F9"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -413,23 +407,21 @@
                                 android:background="@drawable/arrow_down"/>
                         </LinearLayout>
                         <TextView
-                            android:layout_width="185dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 970.000đ/1kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1.8kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -473,7 +465,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
@@ -513,7 +505,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="205dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -540,28 +532,26 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/roboto_bold"
                             android:text="Mực ống"
                             android:textSize="16sp"
                             android:textColor="#000000"/>
                         <TextView
-                            android:layout_width="185dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 450.000đ/1kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1kg"
                             android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:background="#C7F9F9"/>
+                            android:textColor="#000000" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -605,7 +595,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
@@ -646,7 +636,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="205dp"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -673,15 +663,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/roboto_bold"
                                 android:text="Tôm hùm"
                                 android:textSize="16sp"
                                 android:textColor="#000000"/>
                             <LinearLayout
-                                android:layout_width="185dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:background="#C7F9F9"
                                 android:orientation="horizontal">
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -699,23 +688,21 @@
                                     android:background="@drawable/arrow_down"/>
                             </LinearLayout>
                             <TextView
-                                android:layout_width="185dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/roboto_regular"
                                 android:text="Giá: 5.970.000đ/1kg"
                                 android:textSize="14sp"
-                                android:textColor="#000000"
-                                android:background="#C7F9F9"/>
+                                android:textColor="#000000" />
                             <TextView
-                                android:layout_width="100dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/roboto_regular"
                                 android:text="Số kg: 7kg"
                                 android:textSize="14sp"
-                                android:textColor="#000000"
-                                android:background="#C7F9F9"/>
+                                android:textColor="#000000" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -759,7 +746,7 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="35dp"
                         android:orientation="horizontal"
                         android:background="@drawable/bk_voucher">
                         <LinearLayout
@@ -805,25 +792,31 @@
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="@drawable/bk_footer">
-        <CheckBox
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="center_vertical"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Chọn tất cả"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+        android:background="@drawable/bk_footer"
+        android:weightSum="3">
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Chọn tất cả"
+                android:textSize="12sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
             <TextView
@@ -846,13 +839,15 @@
             android:id="@+id/muahang"
             android:layout_width="120dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="31dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:background="@drawable/bk_purchase">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Mua hàng"
                 android:textSize="16sp"
@@ -860,7 +855,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:fontFamily="@font/roboto_regular"
                 android:text="(0)"
                 android:textSize="14sp"
