@@ -46,6 +46,7 @@
             android:layout_marginRight="10dp"
             android:paddingTop="15dp"
             android:hint="Họ và tên"
+
             android:paddingBottom="15dp"
             android:paddingLeft="20dp"
             android:background="@drawable/input_round"/>
@@ -56,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:maxLines="1"
+            android:maxLength="10"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
@@ -138,7 +140,8 @@
             android:layout_height="50dp"
             android:id="@+id/btndangki"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:textColor="@android:color/white"
             android:text="Đăng kí"
             android:fontFamily="@font/roboto_regular"
