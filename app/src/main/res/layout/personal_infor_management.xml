@@ -167,6 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
                         android:text="Đang chờ xác nhận"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -192,6 +193,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:text="Chờ lấy hàng"
+                        android:textColor="@color/black"
                         android:textSize="10sp" />
 
                 </LinearLayout>
@@ -217,6 +219,7 @@
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="8dp"
                         android:text="Đang giao"
+                        android:textColor="@color/black"
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -241,6 +244,7 @@
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="8dp"
                         android:text="Đánh giá"
+                        android:textColor="@color/black"
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -278,6 +282,7 @@
                         android:layout_width="80dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:layout_marginStart="16dp"
                         android:text="Thiết lập tài khoản" />
 
@@ -305,6 +310,7 @@
                         android:layout_width="62dp"
                         android:layout_height="34dp"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:text="Bảo mật xác thực" />
 
@@ -347,6 +353,7 @@
                         android:layout_height="45dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="14dp"
+                        android:textColor="@color/black"
                         android:text="Quyền riêng tư"
                         android:textAlignment="center" />
 
@@ -375,6 +382,7 @@
                         android:layout_height="37dp"
                         android:layout_marginStart="20dp"
                         android:layout_gravity="center"
+                        android:textColor="@color/black"
                         android:text="Lịch sử hoạt động
                 " />
                 </LinearLayout>
@@ -413,6 +421,7 @@
                         android:layout_height="48dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="16dp"
+                        android:textColor="@color/black"
                         android:text="Xóa dữ liệu cá nhân" />
                 </LinearLayout>
 
@@ -438,6 +447,7 @@
                         android:layout_height="42dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="16dp"
+                        android:textColor="@color/black"
                         android:text="Báo cáo phản hồi" />
                 </LinearLayout>
 
