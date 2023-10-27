@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PersonalInfoManagementActivity extends AppCompatActivity {
-    private ImageView btnhome,btncart,btnNoti,btnMenu,btnChat;
+    private ImageView btnhome,btncart,btnNoti,btnMenu,btnChat, btnSetting;
     private Button btnlogout;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -24,6 +24,7 @@ public class PersonalInfoManagementActivity extends AppCompatActivity {
         btnMenu = findViewById(R.id.btn_menu);
         btnChat=findViewById(R.id.imageView4);
         btnlogout=findViewById(R.id.button3);
+        btnSetting = findViewById(R.id.setting);
         btnhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +71,14 @@ public class PersonalInfoManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),GetStartedActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SettingActivity.class);
                 startActivity(intent);
             }
         });
