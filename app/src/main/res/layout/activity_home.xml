@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:gravity="center_vertical|center_horizontal"
         android:background="#33DAFF">
         <EditText
             android:id="@+id/input_search"
@@ -17,18 +16,21 @@
             android:layout_height="wrap_content"
             android:background="@drawable/search_round"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:paddingLeft="11dp"
             android:drawableLeft="@drawable/search"/>
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/cart"
+            android:layout_marginTop="28dp"
             android:layout_marginLeft="20dp" />
         <ImageView
             android:id="@+id/btn_chat"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/chat"
+            android:layout_marginTop="28dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
