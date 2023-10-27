@@ -31,6 +31,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Chi tiết sản phẩm"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -166,6 +167,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:text="Quy cách:"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -176,6 +178,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="12dp"
                         android:text="từ 1Kg -1,5Kg/con"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -193,6 +196,7 @@
                         android:layout_marginTop="14dp"
                         android:text="Tình trạng: "
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -201,6 +205,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="20dp"
+                        android:textColor="@color/black"
                         android:text="giao sống tận nơi hoặc sơ chế theo yêu cầu, (cân và báo cho khách trước khi giao, tỷ lệ hao hụt khi làm sạch từ 13%-17%)"
                         android:textSize="16sp" />
 
@@ -219,6 +224,7 @@
                         android:layout_marginTop="12dp"
                         android:text="Xuất xứ: "
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -227,6 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="31dp"
                         android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
                         android:text="Tam Tiến - Núi Thành"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -243,6 +250,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:text="Món ngon: "
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -252,6 +260,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
                         android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
                         android:text="Hấp Hồng Kong, chưng tương hành gừng , nấu cháo,..."
                         android:textSize="16sp" />
 
@@ -270,6 +279,7 @@
                         android:layout_marginTop="10dp"
                         android:text="Chọn: "
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <Button
@@ -309,17 +319,18 @@
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical"
                         android:text="Số lượng: "
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btnadd"
-                        android:layout_width="58dp"
-                        android:layout_height="58dp"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/btnqualyti"
-                        android:text="+"
+                        android:text="-"
                         android:textSize="20sp" />
 
                     <TextView
@@ -329,17 +340,18 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="20dp"
                         android:text="1"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btntru"
-                        android:layout_width="58dp"
-                        android:layout_height="58dp"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/btnqualyti"
-                        android:text="-"
+                        android:text="+"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -347,13 +359,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    android:weightSum="2"
+                    >
 
                     <Button
                         android:id="@+id/btnaddcart"
-                        android:layout_width="90dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
@@ -362,11 +375,9 @@
 
                     <Button
                         android:id="@+id/button6"
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="4dp"
                         android:layout_weight="1"
                         android:background="@drawable/btndefault"
                         android:text="Mua ngay" />
@@ -389,6 +400,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
                     android:text="Nhận xét"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -401,6 +413,7 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Nhập nhận xét của bạn....."
+                    android:textColor="@color/black"
                     android:inputType="text" />
 
                 <Button
@@ -448,6 +461,7 @@
                         android:layout_marginTop="22dp"
                         android:text="Username"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -470,6 +484,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
                         android:text="Cá mú có nhiều xương, thân hình dẹp và miệng rộng. Có nhiều đốm vàng trên thân cá mà dân biển còn gọi là bông hay sao" />
                 </LinearLayout>
 
@@ -497,6 +512,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="14dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:text="phản hồi"
                         android:textSize="16sp" />
 
@@ -514,6 +530,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Xem Thêm"
+                    android:textColor="@color/black"
                     android:gravity="center"
                     />
 

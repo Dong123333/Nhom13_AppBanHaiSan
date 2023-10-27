@@ -8,13 +8,15 @@
         android:layout_height="100dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="#33DAFF">
+        android:background="#33DAFF"
+        android:weightSum="3">
     <ImageView
         android:id="@+id/backspace"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@drawable/backspace"
         android:layout_marginLeft="15dp"
+        android:layout_weight="1"
         />
     <EditText
         android:layout_width="250dp"
@@ -26,23 +28,30 @@
         android:textColorHint="@color/black"
         android:textSize="16dp"
         android:paddingLeft="20dp"
+        android:layout_weight="2"
         />
     <ImageView
         android:id="@+id/fitter"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@drawable/filter"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="3"
         />
 
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
         android:background="#CCE5FF"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="5">
         <LinearLayout
             android:id="@+id/timkiem"
             android:layout_width="match_parent"
@@ -65,8 +74,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="2"
-                android:gravity="center_horizontal|center_vertical">
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="10dp"
+                android:weightSum="2"
+                android:paddingRight="10dp">
                 <Button
+                    android:layout_weight="1"
                     android:layout_width="150dp"
                     android:layout_height="36dp"
                     android:background="@drawable/btnstocking"
@@ -76,6 +89,7 @@
                     android:textAllCaps="false"
                     />
                 <Button
+                    android:layout_weight="2"
                     android:layout_width="200dp"
                     android:layout_height="36dp"
                     android:layout_marginLeft="20dp"
@@ -94,7 +108,8 @@
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,6 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
+            android:layout_weight="1"
             android:gravity="center_horizontal">
             <LinearLayout
                 android:layout_width="165dp"
@@ -226,12 +242,15 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            >
             <LinearLayout
                 android:layout_width="165dp"
                 android:layout_height="170dp"
                 android:orientation="vertical"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:weightSum="3">
                 <ImageView
                     android:layout_width="164dp"
                     android:layout_height="115dp"
@@ -244,8 +263,10 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Cá mú sống"
                     android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                    android:layout_weight="1"/>
                 <LinearLayout
+                    android:layout_weight="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -273,13 +294,15 @@
                 android:layout_height="170dp"
                 android:layout_marginLeft="20dp"
                 android:orientation="vertical"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:weightSum="3">
                 <ImageView
                     android:layout_width="164dp"
                     android:layout_height="115dp"
                     android:src="@drawable/fish1"
                     android:background="#33DAFF"/>
                 <TextView
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -288,6 +311,7 @@
                     android:textSize="16sp"
                     android:textColor="#000000"/>
                 <LinearLayout
+                    android:layout_weight="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -312,6 +336,7 @@
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="42dp"
@@ -345,5 +370,6 @@
             android:layout_marginLeft="50dp"
             android:background="@drawable/menu"/>
     </LinearLayout>
+
 
 </RelativeLayout>

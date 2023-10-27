@@ -44,7 +44,7 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154dp"
+                android:layout_height="180dp"
                 android:orientation="vertical"
                 android:layout_marginTop="5dp">
                 <LinearLayout
@@ -73,16 +73,16 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="320dp"
-                    android:layout_height="35dp"
+                    android:layout_height="45dp"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
                     <LinearLayout
                         android:layout_width="115dp"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="60dp"
-                            android:layout_height="14dp"
+                            android:layout_height="18dp"
                             android:id="@+id/txthoten"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Họ tên"
@@ -93,10 +93,9 @@
                         <EditText
                             android:id="@+id/inputhoten"
                             android:layout_width="115dp"
-                            android:layout_height="15dp"
+                            android:layout_height="20dp"
                             android:background="@drawable/inputtext_stroke"
                             android:fontFamily="@font/roboto_regular"
-                            android:hint="Đỗ Trần Tuyến"
                             android:paddingLeft="5dp"
                             android:paddingTop="2dp"
                             android:layout_marginTop="5dp"
@@ -105,23 +104,24 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="115dp"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
                         android:orientation="vertical"
                         android:layout_marginLeft="85dp">
                         <TextView
                             android:id="@+id/textsdt"
                             android:layout_width="100dp"
-                            android:layout_height="15dp"
+                            android:layout_height="18dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số điện thoại"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                         <EditText
                             android:layout_width="110dp"
-                            android:layout_height="15dp"
+                            android:layout_height="20dp"
                             android:id="@+id/inputsdt"
+                            android:maxLines="1"
+                            android:maxLength="10"
                             android:fontFamily="@font/roboto_regular"
-                            android:hint="0123456789"
                             android:background="@drawable/inputtext_stroke"
                             android:textSize="12sp"
                             android:textColorHint="@color/black"
@@ -132,13 +132,13 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="320dp"
-                    android:layout_height="35dp"
+                    android:layout_height="45dp"
                     android:orientation="vertical"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp">
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="15dp"
+                        android:layout_height="18dp"
                         android:id="@+id/txtdc"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Số nhà, tên đường..."
@@ -146,10 +146,9 @@
                         android:textColor="@color/black" />
                     <EditText
                         android:layout_width="310dp"
-                        android:layout_height="15dp"
+                        android:layout_height="20dp"
                         android:id="@+id/inputdc"
                         android:fontFamily="@font/roboto_regular"
-                        android:hint="48 Cao Thắng"
                         android:background="@drawable/inputtext_stroke"
                         android:textSize="12sp"
                         android:textColorHint="@color/black"
@@ -164,7 +163,7 @@
                     android:layout_marginTop="5dp">
                     <LinearLayout
                         android:layout_width="86dp"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="86dp"
@@ -177,7 +176,7 @@
                             />
                         <EditText
                             android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_height="20dp"
                             android:id="@+id/inputtp"
                             android:fontFamily="@font/roboto_regular"
                             android:hint="Đà Nẵng"
@@ -185,12 +184,11 @@
                             android:textSize="12sp"
                             android:textColorHint="@color/black"
                             android:paddingLeft="10dp"
-                            android:drawableRight="@drawable/down"
-                            android:layout_marginTop="5dp"/>
+                            android:drawableRight="@drawable/down" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="86dp"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
                         android:orientation="vertical"
                         android:layout_marginLeft="25dp">
                         <TextView
@@ -203,7 +201,7 @@
                             android:textColor="@color/black"/>
                         <EditText
                             android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_height="20dp"
                             android:id="@+id/inputquan"
                             android:fontFamily="@font/roboto_regular"
                             android:hint="Hải Châu"
@@ -212,12 +210,11 @@
                             android:textColorHint="@color/black"
                             android:paddingLeft="10dp"
                             android:drawableRight="@drawable/down"
-                            android:layout_marginTop="5dp"
                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="86dp"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
                         android:orientation="vertical"
                         android:layout_marginLeft="25dp">
                         <TextView
@@ -231,7 +228,7 @@
                             />
                         <EditText
                             android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_height="20dp"
                             android:id="@+id/inputphuong"
                             android:fontFamily="@font/roboto_regular"
                             android:hint="Thanh Bình"
@@ -239,7 +236,6 @@
                             android:textSize="12sp"
                             android:textColorHint="@color/black"
                             android:drawableRight="@drawable/down"
-                            android:layout_marginTop="5dp"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -418,12 +414,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
                     android:background="#C7F9F9">
+                    <CheckBox
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/checkvoucher"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"/>
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="20dp"
@@ -435,8 +439,6 @@
                         android:text="Vận chuyển nhanh"
                         android:textSize="14sp"
                         android:paddingLeft="10dp"
-                        android:drawableLeft="@drawable/checkbox"
-                        android:drawablePadding="20dp"
                         />
                     <TextView
                         android:layout_width="60dp"
@@ -447,13 +449,15 @@
                         android:text="80.000đ"
                         android:textSize="14sp"
                         android:layout_marginLeft="100dp"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"/>
                 </LinearLayout>
                 <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="2dp">
                     <TextView
                         android:layout_width="140dp"
                         android:layout_height="15dp"
@@ -470,13 +474,15 @@
                         android:id="@+id/inputluuy"
                         android:background="@drawable/inputtext_stroke"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="3dp"/>
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="2dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="2dp">
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="18dp"
@@ -505,14 +511,17 @@
                         android:textColor="#FD1E00"
                         android:textSize="14sp"
                         android:gravity="right"
-                        android:layout_marginLeft="90dp" />
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginRight="2dp"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal"
-                android:background="@drawable/strokeblack">
+                android:background="@drawable/strokeblack"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp">
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="30dp"
@@ -534,27 +543,36 @@
                         android:text="Voucher"
                         android:layout_marginLeft="12sp"/>
                 </LinearLayout>
-                <TextView
-                    android:layout_width="340dp"
-                    android:layout_height="20dp"
-                    android:id="@+id/voucher"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="#361692"
-                    android:textSize="12sp"
-                    android:text="Shop voucher giảm đến 20% cho đơn hàng trên 2 triệu"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="3dp"
-                    android:layout_marginTop="3dp"/>
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/next"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="2dp">
+                    <TextView
+                        android:layout_width="340dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/voucher"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="#361692"
+                        android:textSize="12sp"
+                        android:text="Shop voucher giảm đến 20% cho đơn hàng trên 2 triệu"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="3dp"
+                        android:layout_marginTop="3dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/next"
+                        android:layout_marginRight="2dp"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="195dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -581,7 +599,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp">
                     <TextView
                         android:layout_width="160dp"
                         android:layout_height="20dp"
@@ -600,13 +619,15 @@
                         android:textSize="14sp"
                         android:gravity="right"
                         android:text="2.196.000đ"
-                        android:layout_marginLeft="120dp"/>
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginRight="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp">
                     <TextView
                         android:layout_width="160dp"
                         android:layout_height="20dp"
@@ -625,7 +646,8 @@
                         android:textSize="14sp"
                         android:gravity="right"
                         android:text="80.000đ"
-                        android:layout_marginLeft="120dp"/>
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginRight="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -650,13 +672,15 @@
                         android:textSize="14sp"
                         android:gravity="right"
                         android:text="329.400đ"
-                        android:layout_marginLeft="120dp"/>
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginRight="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp">
                     <TextView
                         android:layout_width="160dp"
                         android:layout_height="20dp"
@@ -676,6 +700,7 @@
                         android:gravity="right"
                         android:text="1.866.600đ"
                         android:layout_marginLeft="120dp"
+                        android:layout_marginRight="5dp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -683,11 +708,10 @@
                     android:layout_height="30dp"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp">
-                    <ImageView
+                    <CheckBox
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:id="@+id/checkdieukhoan"
-                        android:src="@drawable/checkbox"
                         android:layout_marginTop="8dp"
                         android:layout_marginLeft="30dp"/>
                     <TextView
@@ -708,7 +732,8 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:layout_alignParentBottom="true">
+    android:layout_alignParentBottom="true"
+    android:layout_marginRight="1dp">
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -741,7 +766,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/strokett2">
+        android:background="@drawable/strokett2"
+        android:layout_marginRight="1dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"

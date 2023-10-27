@@ -12,14 +12,19 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SettingActivity extends AppCompatActivity {
 
     private ImageView arrowback;
-    private TextView aboutus;
 
     @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_setting);
         arrowback = (ImageView) findViewById(R.id.btnback);
-        aboutus = (TextView) findViewById(R.id.thanhviennhom);
+        findViewById(R.id.member).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         arrowback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,12 +34,5 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
-        aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PersonalInfoManagementActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
