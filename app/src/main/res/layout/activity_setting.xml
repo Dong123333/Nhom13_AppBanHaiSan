@@ -16,7 +16,7 @@
 
         <ImageView
 
-            android:id="@+id/imageView6"
+            android:id="@+id/btnback"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_weight="0.75"
@@ -241,7 +241,7 @@
             android:weightSum="10">
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/thanhviennhom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="8.25"
