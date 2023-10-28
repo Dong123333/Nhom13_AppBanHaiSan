@@ -96,12 +96,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="Cá mú sống"
                             android:textSize="16sp"
@@ -110,6 +110,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -124,12 +125,13 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
                                 android:layout_gravity="center_vertical"
-                                android:background="@drawable/arrow_down"/>
+                                android:src="@drawable/arrow_down"/>
                         </LinearLayout>
                         <TextView
                             android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 490.000đ/1kg"
                             android:textSize="14sp"
@@ -138,6 +140,7 @@
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 2.3kg"
                             android:textSize="14sp"
@@ -146,6 +149,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="1.127.000 đ"
                             android:textSize="16sp"
@@ -154,6 +158,7 @@
                             android:layout_width="92dp"
                             android:layout_height="24dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal"
                             android:background="@drawable/bk_minus">
                             <Button
@@ -187,21 +192,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:orientation="horizontal"
+                    android:weightSum="3"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/truck"/>
+                            android:src="@drawable/truck"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:layout_marginLeft="18dp"
                             android:text="Voucher"
                             android:textSize="8sp"
                             android:textColor="#FD1E00"/>
@@ -211,6 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Shop Voucher giảm đến 15%"
                         android:textSize="12sp"
@@ -219,8 +227,8 @@
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="160dp"
-                        android:background="@drawable/next"/>
+                        android:layout_weight="1"
+                        android:src="@drawable/next"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -246,12 +254,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="Tôm sú"
                             android:textSize="16sp"
@@ -260,6 +268,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 170.000đ/1kg"
                             android:textSize="14sp"
@@ -268,6 +277,7 @@
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1.5kg"
                             android:textSize="14sp"
@@ -276,6 +286,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="225.000 đ"
                             android:textSize="16sp"
@@ -284,6 +295,7 @@
                             android:layout_width="92dp"
                             android:layout_height="24dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal"
                             android:background="@drawable/bk_minus">
                             <Button
@@ -317,21 +329,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:orientation="horizontal"
+                    android:weightSum="3"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/truck"/>
+                            android:src="@drawable/truck"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:layout_marginLeft="18dp"
                             android:text="Voucher"
                             android:textSize="8sp"
                             android:textColor="#FD1E00"/>
@@ -339,7 +353,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Shop Voucher giảm đến 8%"
@@ -349,8 +363,8 @@
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="200dp"
-                        android:background="@drawable/next"/>
+                        android:layout_weight="1"
+                        android:src="@drawable/next"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -376,12 +390,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="Cua hoàng đế"
                             android:textSize="16sp"
@@ -390,6 +404,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -404,12 +419,13 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
                                 android:layout_gravity="center_vertical"
-                                android:background="@drawable/arrow_down"/>
+                                android:src="@drawable/arrow_down"/>
                         </LinearLayout>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 970.000đ/1kg"
                             android:textSize="14sp"
@@ -418,6 +434,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1.8kg"
                             android:textSize="14sp"
@@ -426,6 +443,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="1.746.000 đ"
                             android:textSize="16sp"
@@ -434,6 +452,7 @@
                             android:layout_width="92dp"
                             android:layout_height="24dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal"
                             android:background="@drawable/bk_minus">
                             <Button
@@ -467,21 +486,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:orientation="horizontal"
+                    android:weightSum="3"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/truck"/>
+                            android:src="@drawable/truck"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:layout_marginLeft="18dp"
                             android:text="Voucher"
                             android:textSize="8sp"
                             android:textColor="#FD1E00"/>
@@ -489,7 +510,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Shop Voucher giảm đến 15%"
@@ -498,9 +519,9 @@
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="200dp"
-                        android:background="@drawable/next"/>
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@drawable/next"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -526,12 +547,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="Mực ống"
                             android:textSize="16sp"
@@ -540,6 +561,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Giá: 450.000đ/1kg"
                             android:textSize="14sp"
@@ -548,6 +570,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số kg: 1kg"
                             android:textSize="14sp"
@@ -556,6 +579,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:fontFamily="@font/roboto_bold"
                             android:text="450.000 đ"
                             android:textSize="16sp"
@@ -564,6 +588,7 @@
                             android:layout_width="92dp"
                             android:layout_height="24dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="20dp"
                             android:orientation="horizontal"
                             android:background="@drawable/bk_minus">
                             <Button
@@ -597,21 +622,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:orientation="horizontal"
+                    android:weightSum="3"
                     android:background="@drawable/bk_voucher">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_marginLeft="20dp"
                             android:background="@drawable/truck"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:layout_marginLeft="18dp"
                             android:text="Voucher"
                             android:textSize="8sp"
                             android:textColor="#FD1E00"/>
@@ -619,7 +646,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Shop Voucher giảm đến 8%"
@@ -628,9 +655,9 @@
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="200dp"
-                        android:background="@drawable/next"/>
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@drawable/next"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -657,12 +684,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="20dp"
                             android:orientation="vertical">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Tôm hùm"
                                 android:textSize="16sp"
@@ -671,6 +698,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:orientation="horizontal">
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -691,6 +719,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:fontFamily="@font/roboto_regular"
                                 android:text="Giá: 5.970.000đ/1kg"
                                 android:textSize="14sp"
@@ -699,6 +728,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:fontFamily="@font/roboto_regular"
                                 android:text="Số kg: 7kg"
                                 android:textSize="14sp"
@@ -707,6 +737,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="7.746.000 đ"
                                 android:textSize="16sp"
@@ -715,6 +746,7 @@
                                 android:layout_width="92dp"
                                 android:layout_height="24dp"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginLeft="20dp"
                                 android:orientation="horizontal"
                                 android:background="@drawable/bk_minus">
                                 <Button
@@ -748,21 +780,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:orientation="horizontal"
+                        android:weightSum="3"
                         android:background="@drawable/bk_voucher">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:orientation="vertical">
                             <ImageView
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="20dp"
                                 android:background="@drawable/truck"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/roboto_bold"
-                                android:layout_marginLeft="18dp"
                                 android:text="Voucher"
                                 android:textSize="8sp"
                                 android:textColor="#FD1E00"/>
@@ -770,7 +804,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
                             android:layout_gravity="center_vertical"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Shop Voucher giảm đến 8%"
@@ -779,9 +813,9 @@
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="200dp"
-                            android:background="@drawable/next"/>
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/next"/>
                     </LinearLayout>
                 </LinearLayout>
 
