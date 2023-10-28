@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/viewDetail"
+        android:layout_width="165dp"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+        <ImageView
+            android:id="@+id/imageProduct"
+            android:layout_width="164dp"
+            android:layout_height="115dp"
+            android:src="@drawable/fish1"
+            android:background="#33DAFF"/>
+        <TextView
+            android:id="@+id/nameProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Cá mú sống"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="490.000VNĐ"
+                android:textSize="14sp"
+                android:textColor="#FD1E00"/>
+            <TextView
+                android:id="@+id/sold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginLeft="12dp"
+                android:text="Đã bán 1k+"
+                android:textSize="12sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
