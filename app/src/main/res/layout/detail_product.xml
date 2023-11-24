@@ -172,7 +172,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/quyCachProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -200,13 +200,14 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/tinhTrangProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginEnd="0dp"
+                        android:text="Còn hàng"
                         android:textColor="@color/black"
-                        android:text="giao sống tận nơi hoặc sơ chế theo yêu cầu, (cân và báo cho khách trước khi giao, tỷ lệ hao hụt khi làm sạch từ 13%-17%)"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -228,7 +229,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/xuatXuProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="31dp"
@@ -255,13 +256,13 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/monNgonProduct"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="17dp"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="12dp"
-                        android:textColor="@color/black"
                         android:text="Hấp Hồng Kong, chưng tương hành gừng , nấu cháo,..."
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -283,7 +284,7 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/btn_nomal"
+                        android:id="@+id/btn_select"
                         android:layout_width="wrap_content"
                         android:layout_height="44dp"
                         android:layout_marginStart="38dp"
@@ -292,16 +293,6 @@
                         android:text="1kg"
                         android:textSize="16sp"
                         app:rippleColor="@color/design_default_color_background" />
-
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="44dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/costum_select"
-                        android:text="1.5kg"
-                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -324,7 +315,7 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/btnadd"
+                        android:id="@+id/btnGiam"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:layout_marginStart="24dp"
@@ -345,7 +336,7 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/btntru"
+                        android:id="@+id/btnTang"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:layout_marginStart="16dp"
