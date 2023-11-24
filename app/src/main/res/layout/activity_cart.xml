@@ -39,7 +39,9 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Sửa"
+                android:text="Xóa"
+                android:clickable="true"
+                android:focusable="true"
                 android:textSize="16sp"
                 android:textColor="#000000"/>
             <ImageView
@@ -52,12 +54,28 @@
                 android:background="@drawable/chat"/>
         </RelativeLayout>
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listCart"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="48dp"/>
+        android:layout_marginBottom="48dp">
+        <TextView
+            android:id="@+id/gioHangTrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:text="Trống"
+            android:textColor="#80000000"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+        <ListView
+            android:id="@+id/listCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+
     <LinearLayout
         android:layout_width="260dp"
         android:layout_height="48dp"
@@ -72,6 +90,7 @@
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
             <CheckBox
+                android:id="@+id/chonTatCa"
                 android:layout_width="24dp"
                 android:layout_height="24dp"/>
             <TextView

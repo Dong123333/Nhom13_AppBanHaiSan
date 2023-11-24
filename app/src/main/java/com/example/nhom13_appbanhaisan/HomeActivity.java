@@ -1,6 +1,6 @@
 package com.example.nhom13_appbanhaisan;
 
-import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import org.lucasr.twowayview.TwoWayView;
-
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,12 +33,11 @@ public class HomeActivity extends AppCompatActivity {
     CategoryAdapter categoryAdapter;
     ProductAdapter productAdapter;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        btncart = findViewById(R.id.btn_cart);
+        btncart = findViewById(R.id.btn_cart1);
         inputSearch = findViewById(R.id.input_search);
         btnNoti = findViewById(R.id.btn_noti);
         btnChat = findViewById(R.id.btn_chat);
@@ -51,7 +48,24 @@ public class HomeActivity extends AppCompatActivity {
         arrayListCategory = new ArrayList<>();
         arrayListProduct = new ArrayList<>();
         categoryAdapter = new CategoryAdapter(HomeActivity.this,R.layout.category_layout,arrayListCategory);
-        productAdapter = new ProductAdapter(HomeActivity.this,R.layout.product_layout,arrayListProduct);
+        //set sự kiện click vào sản phẩm để truyền sang trang chi tiêết
+        productAdapter = new ProductAdapter(HomeActivity.this,arrayListProduct, new ProductAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(Product product) {
+            // Chuyển đến trang chi tiết và truyền dữ liệu
+                Intent intent = new Intent(HomeActivity.this, DetailProductActivity.class);
+                intent.putExtra("IMAGE_URL", product.getAnh());
+                intent.putExtra("TEN", product.getTen_san_pham());
+                intent.putExtra("GIA", product.getGia());
+                intent.putExtra("QUY_CACH", product.getQuy_cach());
+                intent.putExtra("TINH_TRANG", product.getTinh_trang());
+                intent.putExtra("XUAT_XU", product.getXuat_xu());
+                intent.putExtra("MON_NGON", product.getMon_ngon());
+                intent.putExtra("SO_LUONG_CON", product.getSo_luong_ton_kho());
+                intent.putExtra("SO_LUONG_DA_BAN", product.getSo_luong_da_ban());
+                startActivity(intent);
+            }
+        });
         listProduct1.setAdapter(productAdapter);
         listProduct2.setAdapter(productAdapter);
         listCategory.setAdapter(categoryAdapter);

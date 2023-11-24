@@ -1,66 +1,95 @@
 package com.example.nhom13_appbanhaisan.Adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
 
+import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
+import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
 
-import java.text.DecimalFormat;
+import org.greenrobot.eventbus.EventBus;
+
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
-    Context context;
-    List<Cart> list;
+public class CartAdapter extends ArrayAdapter<Cart> {
+    Activity context;
+    int resource;
+    List<Cart> objects;
+    private int selectedPosition = -1;
 
-    public CartAdapter(Context context, List<Cart> list) {
-        this.context = context;
-        this.list = list;
+    public void setSelectedPosition(int position) {
+        selectedPosition = position;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView image;
-        TextView ten,quyCach,gia,soCan,soTien;
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            image = itemView.findViewById(R.id.imageCart);
-            ten = itemView.findViewById(R.id.nameCart);
-            quyCach = itemView.findViewById(R.id.quyCach);
-            gia = itemView.findViewById(R.id.gia);
-            soCan = itemView.findViewById(R.id.soCan);
-            soTien = itemView.findViewById(R.id.soTien);
-        }
+    public int getSelectedPosition() {
+        return selectedPosition;
     }
+
+    public CartAdapter(@NonNull Activity context, int resource, @NonNull List<Cart> objects) {
+        super(context, resource, objects);
+        this.context=context;
+        this.resource = resource;
+        this.objects = objects;
+    }
+
     @NonNull
     @Override
-    public CartAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_layout,parent,false);
-        return new MyViewHolder(view);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = this.context.getLayoutInflater();
+        convertView = inflater.inflate(this.resource, null);
+        Cart cart = this.objects.get(position);
+        ImageView image = convertView.findViewById(R.id.imageCart);
+        TextView ten = convertView.findViewById(R.id.nameCart);
+        TextView quyCach = convertView.findViewById(R.id.quyCach);
+        TextView gia = convertView.findViewById(R.id.gia);
+        TextView soCan = convertView.findViewById(R.id.soCan);
+        TextView soTien = convertView.findViewById(R.id.soTien);
+        Picasso.get().load(cart.getAnh()).into(image);
+        ten.setText(cart.getTen());
+        quyCach.setText("Quy cách: "+cart.getQuyCach());
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+        gia.setText("Giá: "+format.format(cart.getGia()));
+        soCan.setText(cart.getSoCan() + "kg");
+        soTien.setText(format.format(cart.getSoTien()));
+        CheckBox checkBox = convertView.findViewById(R.id.checkboxCart);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int itemPrice = getItem(position).getSoTien();
+                EventBus.getDefault().post(new UpdateTotalEvent(isChecked ? itemPrice : -itemPrice));
+                handleCheckboxClick(position);
+            }
+        });
+        return convertView;
+    }
+    private void handleCheckboxClick(int position) {
+        selectedPosition = position;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
-        Cart cart = list.get(position);
-        holder.ten.setText(cart.getTen());
-        holder.quyCach.setText(cart.getQuyCach());
-        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        holder.gia.setText(cart.getGia());
-        holder.soCan.setText(decimalFormat.format(cart.getSoCan())+"kg");
-        long tongTien = cart.getSoCan()*Long.parseLong(cart.getGia());
-        holder.soTien.setText(decimalFormat.format(tongTien));
-        Picasso.get().load(cart.getAnh()).into(holder.image);
+    public void clearSelection() {
+        selectedPosition = -1;
     }
-
-    @Override
-    public int getItemCount() {
-        return list.size();
+    public void removeItem(int position) {
+        if (objects != null && position >= 0 && position < objects.size()) {
+            objects.remove(position);
+            notifyDataSetChanged();
+        }
     }
 }

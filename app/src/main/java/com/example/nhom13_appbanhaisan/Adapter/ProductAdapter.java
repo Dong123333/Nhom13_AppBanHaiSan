@@ -16,17 +16,22 @@ import com.example.nhom13_appbanhaisan.Model.Product;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
     Activity context;
     int resource;
     List<Product> objects;
-    public ProductAdapter(@NonNull Activity context, int resource, @NonNull List<Product> objects) {
-        super(context,resource,objects);
+
+    private OnItemClickListener listener;
+    public ProductAdapter(@NonNull Activity context,  @NonNull List<Product> objects, OnItemClickListener listener) {
+        super(context,R.layout.product_layout,objects);
         this.context=context;
-        this.resource=resource;
+        this.resource=R.layout.product_layout;
         this.objects=objects;
+        this.listener = listener;
     }
 
     @NonNull
@@ -40,9 +45,24 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView sold = convertView.findViewById(R.id.sold);
         Product product = this.objects.get(position);
         name.setText(Html.fromHtml(product.getTen_san_pham(), Html.FROM_HTML_MODE_LEGACY));
-        price.setText(product.getGia());
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+        price.setText(format.format(product.getGia()));
         sold.setText("Đã bán "+product.getSo_luong_da_ban());
         Picasso.get().load(product.getAnh()).into(img);
+
+        // Gọi sự kiện click khi item được nhấn
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onItemClick(getItem(position));
+                }
+            }
+        });
         return convertView;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Product product);
     }
 }

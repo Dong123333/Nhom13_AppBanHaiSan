@@ -11,30 +11,121 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom13_appbanhaisan.Adapter.ProductAdapter;
+import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.Model.Product;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DetailProductActivity extends AppCompatActivity {
-    private ImageView back;
-    private TextView soLuong;
-    private Button btncart,btnpay;
-    Product product;
-    List<Cart> list;
+    private ImageView back, imgProduct, imgView1, imgView2, imgView3, imgView4;
+    private TextView tenSanPham, donGia, quyCach, tinhTrang, xuatXu, monNgon, soLuong;
+    private Button btnAddCart,btnpay, btnGiam, btnTang, btnChon;
+    private boolean isCustomBackground = false;
+
+    private int currentQuantity = 0;
+    private static final int MAX_QUANTITY = 10;
+    private static final int MIN_QUANTITY = 0;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_product);
+
+        //anh xa cac doi tuong
         back=findViewById(R.id.imageView);
-        btncart=findViewById(R.id.btnaddcart);
+        btnAddCart=findViewById(R.id.btnaddcart);
         btnpay=findViewById(R.id.button6);
         soLuong = findViewById(R.id.indexquality);
-        list = new ArrayList<>();
-        product = new Product();
+        //textview
+        imgProduct = findViewById(R.id.imgselect);
+        tenSanPham = findViewById(R.id.nameproduct);
+        donGia = findViewById(R.id.price);
+        quyCach = findViewById(R.id.quyCachProduct);
+        tinhTrang = findViewById(R.id.tinhTrangProduct);
+        xuatXu = findViewById(R.id.xuatXuProduct);
+        monNgon = findViewById(R.id.monNgonProduct);
+        //button
+        btnGiam = findViewById(R.id.btnGiam);
+        btnTang = findViewById(R.id.btnTang);
+        btnChon = findViewById(R.id.btn_select);
+        //hinh anh
+        imgView1 = findViewById(R.id.img1);
+        imgView2 = findViewById(R.id.img2);
+        imgView3 = findViewById(R.id.img3);
+        imgView4 = findViewById(R.id.img4);
+
+
+        //Get value từ trang Home
+        Intent intent = getIntent();
+        String img = intent.getStringExtra("IMAGE_URL");
+        String ten = intent.getStringExtra("TEN");
+        int gia = intent.getIntExtra("GIA",0);
+        String quycach = intent.getStringExtra("QUY_CACH");
+        String monngon = intent.getStringExtra("MON_NGON");
+        String xuatxu = intent.getStringExtra("XUAT_XU");
+        String tinhtrang = intent.getStringExtra("TINH_TRANG");
+        int soluongcon = intent.getIntExtra("SO_LUONG_CON", 0);
+        int soluongmua = Integer.parseInt(soLuong.getText().toString());
+
+        //Hien thi dữ liệu lên Detail
+        Picasso.get().load(img).into(imgProduct);
+        Picasso.get().load(img).into(imgView1);
+        Picasso.get().load(img).into(imgView2);
+        Picasso.get().load(img).into(imgView3);
+        Picasso.get().load(img).into(imgView4);
+        tenSanPham.setText(ten);
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+        donGia.setText(format.format(gia));
+        quyCach.setText(quycach);
+        tinhTrang.setText(tinhtrang);
+        monNgon.setText(monngon);
+        xuatXu.setText(xuatxu);
+        btnChon.setText(quycach);
+        soLuong.setText(String.valueOf(0));
+        //thêm sự kiện cho btn
+        btnChon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isCustomBackground) {
+                    btnChon.setBackgroundResource(R.drawable.btn1);
+                } else {
+                    btnChon.setBackgroundResource(R.drawable.costum_select);
+                }
+
+                // Đảo ngược trạng thái
+                isCustomBackground = !isCustomBackground;
+            }
+
+        });
+
+        //tăng giảm số lượng
+        updateButtons();
+
+        btnGiam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decreaseQuantity();
+            }
+        });
+
+        btnTang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                increaseQuantity();
+            }
+        });
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,13 +133,18 @@ public class DetailProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btncart.setOnClickListener(new View.OnClickListener() {
+        btnAddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCart();
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("cart");
+                int soCan = Integer.parseInt(soLuong.getText().toString());
+                int soTien = gia*soCan;
+                Cart cart = new Cart(img,ten,quycach,gia,soCan,soTien);
+                String path = String.valueOf(cart.getTen());
+                reference.child(path).setValue(cart);
                 Intent intent = new Intent(getApplicationContext(),CartActivity.class);
                 startActivity(intent);
-
             }
         });
         btnpay.setOnClickListener(new View.OnClickListener() {
@@ -59,18 +155,27 @@ public class DetailProductActivity extends AppCompatActivity {
             }
         });
 
-    }
-    public void addCart(){
-        if(list.size()>0) {
 
-        }else {
-            Cart cart = new Cart();
-            cart.setAnh(product.getAnh());
-            cart.setTen(product.getTen_san_pham());
-            cart.setQuyCach(product.getQuyCach());
-            cart.setGia(product.getGia());
-            cart.setSoCan(Long.parseLong(soLuong.getText().toString()));
-            list.add(cart);
+    }
+
+    private void decreaseQuantity() {
+        if (currentQuantity > MIN_QUANTITY) {
+            currentQuantity--;
+            soLuong.setText(String.valueOf(currentQuantity));
         }
+        updateButtons();
+    }
+
+    private void increaseQuantity() {
+        if (currentQuantity < MAX_QUANTITY) {
+            currentQuantity++;
+            soLuong.setText(String.valueOf(currentQuantity));
+        }
+        updateButtons();
+    }
+
+    private void updateButtons() {
+        btnGiam.setEnabled(currentQuantity > MIN_QUANTITY);
+        btnTang.setEnabled(currentQuantity < MAX_QUANTITY);
     }
 }

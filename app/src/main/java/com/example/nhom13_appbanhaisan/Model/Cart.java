@@ -2,10 +2,21 @@ package com.example.nhom13_appbanhaisan.Model;
 
 public class Cart {
     private String anh,ten,quyCach;
-    private String gia;
-    private long soCan;
-    private long soTien;
+    private int gia;
+    private int soCan;
+    private int soTien;
+    private boolean isSelected;
+
     public Cart(){}
+
+    public Cart(String anh, String ten, String quyCach, int gia, int soCan, int soTien) {
+        this.anh = anh;
+        this.ten = ten;
+        this.quyCach = quyCach;
+        this.gia = gia;
+        this.soCan = soCan;
+        this.soTien = soTien;
+    }
 
     public String getAnh() {
         return anh;
@@ -31,27 +42,34 @@ public class Cart {
         this.quyCach = quyCach;
     }
 
-    public String getGia() {
+    public int getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
-    public long getSoCan() {
+    public int getSoCan() {
         return soCan;
     }
 
-    public void setSoCan(long soCan) {
+    public void setSoCan(int soCan) {
         this.soCan = soCan;
     }
 
-    public long getSoTien() {
+    public int getSoTien() {
         return soTien;
     }
 
-    public void setSoTien(long soTien) {
+    public void setSoTien(int soTien) {
         this.soTien = soTien;
+    }
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }
