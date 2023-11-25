@@ -5,7 +5,6 @@ public class Cart {
     private int gia;
     private int soCan;
     private int soTien;
-    private boolean isSelected;
 
     public Cart(){}
 
@@ -64,12 +63,5 @@ public class Cart {
 
     public void setSoTien(int soTien) {
         this.soTien = soTien;
-    }
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
     }
 }

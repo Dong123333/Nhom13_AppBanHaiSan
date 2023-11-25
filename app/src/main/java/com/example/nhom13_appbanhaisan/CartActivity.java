@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity {
     private Button muaHang;
     CheckBox chonTatCa;
     CartAdapter adapter;
-    List<Cart> list;
+    List<Cart> list ;
     int currentTotal = 0;
     int selectedPosition = -1;
     FirebaseDatabase database;
@@ -98,11 +98,17 @@ public class CartActivity extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedPosition = adapter.getSelectedPosition();
-                if (selectedPosition != -1) {
-                    String itemName = adapter.getItem(selectedPosition).getTen();
-                    deleteItemFirebase(itemName);
-                    adapter.clearSelection();
+                if (!list.isEmpty()) {
+                    selectedPosition = adapter.getSelectedPosition();
+                    if (selectedPosition != -1 && selectedPosition < list.size()) {
+                        String itemName = list.get(selectedPosition).getTen();
+                        deleteItemFirebase(itemName);
+//                        adapter.clearSelection();
+                    } else {
+
+                    }
+                } else {
+                    selectedPosition = -1;
                 }
             }
         });
@@ -135,18 +141,26 @@ public class CartActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("cart");
         reference.child(itemName).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    if (selectedPosition >= 0 && selectedPosition < list.size()) {
-                        adapter.removeItem(selectedPosition);
-                        list.remove(selectedPosition); // Xóa item từ danh sách địa phương
-                    }
-                } else {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (task.isSuccessful()) {
+                            try {
+                                if (!list.isEmpty() && selectedPosition >= 0 && selectedPosition < list.size()) {
+                                    adapter.removeItem(selectedPosition);
+                                    list.remove(selectedPosition);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            } catch (Exception x) {
 
-                }
+                            }
+                        }
+                    }
+                });
             }
         });
+
     }
     public void getValueCartFromFirebase(){
         database = FirebaseDatabase.getInstance();
@@ -165,7 +179,9 @@ public class CartActivity extends AppCompatActivity {
                     gioHangTrong.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged();
+
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

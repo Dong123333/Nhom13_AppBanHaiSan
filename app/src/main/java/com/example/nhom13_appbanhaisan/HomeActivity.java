@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         productAdapter = new ProductAdapter(HomeActivity.this,arrayListProduct, new ProductAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(Product product) {
-            // Chuyển đến trang chi tiết và truyền dữ liệu
+                // Chuyển đến trang chi tiết và truyền dữ liệu
                 Intent intent = new Intent(HomeActivity.this, DetailProductActivity.class);
                 intent.putExtra("IMAGE_URL", product.getAnh());
                 intent.putExtra("TEN", product.getTen_san_pham());
@@ -104,8 +104,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-       getValueCategoryFromFirebase();
-       getValueProductFromFirebase();
+        getValueCategoryFromFirebase();
+        getValueProductFromFirebase();
 
     }
     public void getValueCategoryFromFirebase(){
