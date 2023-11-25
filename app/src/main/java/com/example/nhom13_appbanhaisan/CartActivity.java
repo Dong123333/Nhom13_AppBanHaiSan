@@ -2,7 +2,6 @@ package com.example.nhom13_appbanhaisan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,17 +16,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
-import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.greenrobot.eventbus.EventBus;
@@ -45,9 +41,9 @@ public class CartActivity extends AppCompatActivity {
     private Button muaHang;
     CheckBox chonTatCa;
     CartAdapter adapter;
-    List<Cart> list;
+    List<Cart> list ;
     int currentTotal = 0;
-    int selectedPosition = -1;
+    List<Integer> selectedPositions = new ArrayList<>() ;
     FirebaseDatabase database;
     DatabaseReference reference;
     @Override
@@ -66,44 +62,53 @@ public class CartActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         EventBus.getDefault().register(this);
         getValueCartFromFirebase();
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         chonTatCa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 if (isChecked==true){
                     int tongtien = 0;
                     for (int i = 0; i< list.size();i++){
                         tongtien+= list.get(i).getSoTien();
                     }
-                    NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+
                     tongTien.setText(format.format(tongtien));
                 }
                 else {
-                    tongTien.setText("0");
+                    tongTien.setText(format.format(0));
                 }
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.setSelectedPosition(position);
+                adapter.setSelectedPosition(selectedPositions);
             }
         });
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedPosition = adapter.getSelectedPosition();
-                if (selectedPosition != -1) {
-                    String itemName = adapter.getItem(selectedPosition).getTen();
-                    deleteItemFirebase(itemName);
-                    adapter.clearSelection();
+                if (!list.isEmpty()) {
+                    List<Integer> selectedPositions = adapter.getSelectedPosition();
+                    for(Integer position : selectedPositions){
+                        if (position != -1 && position < list.size()) {
+                            String itemName = list.get(position).getTen();
+                            deleteItemFirebase(itemName);
+                        } else {
+
+                        }
+                    }
+                } else {
                 }
+                tongTien.setText(format.format(0));
+                selectedPositions.clear();
             }
         });
     }
@@ -126,27 +131,32 @@ public class CartActivity extends AppCompatActivity {
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         tongTien.setText("" + format.format(newTotal));
     }
-    @Subscribe
-    public void onEvent(DeleteItemEvent event){
-        String itemName = event.getItemName();
-        deleteItemFirebase(itemName);
-    }
     private void deleteItemFirebase(String itemName) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("cart");
         reference.child(itemName).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    if (selectedPosition >= 0 && selectedPosition < list.size()) {
-                        adapter.removeItem(selectedPosition);
-                        list.remove(selectedPosition); // Xóa item từ danh sách địa phương
-                    }
-                } else {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (task.isSuccessful()) {
+                            try {
+                                for(Integer position : selectedPositions){
+                                    if (!list.isEmpty() && position >= 0 && position < list.size()) {
+                                        adapter.removeItem(position);
+                                        list.remove(position);
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                }
+                            } catch (Exception x) {
 
-                }
+                            }
+                        }
+                    }
+                });
             }
         });
+
     }
     public void getValueCartFromFirebase(){
         database = FirebaseDatabase.getInstance();
@@ -165,7 +175,9 @@ public class CartActivity extends AppCompatActivity {
                     gioHangTrong.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged();
+
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
