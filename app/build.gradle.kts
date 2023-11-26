@@ -45,4 +45,6 @@ dependencies {
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
     implementation("org.greenrobot:eventbus:3.2.0")
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("com.google.firebase:firebase-storage")
 }

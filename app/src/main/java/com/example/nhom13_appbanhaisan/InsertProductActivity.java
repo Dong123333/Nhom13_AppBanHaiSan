@@ -24,7 +24,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class UpdateProductActivity extends AppCompatActivity {
+public class InsertProductActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private EditText name,quyCach,gia,xuatXu,monNgon,soLuong;
     ImageView back,image;
@@ -33,12 +33,14 @@ public class UpdateProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_updateproduct);
+        setContentView(R.layout.activity_insertproduct);
         getView();
+        Intent intent = getIntent();
+        int productId = intent.getIntExtra("productId",0);
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setValueFirebase();
+                insertValueFirebase(productId);
                 finish();
             }
         });
@@ -56,18 +58,18 @@ public class UpdateProductActivity extends AppCompatActivity {
         });
     }
     public void getView(){
-        image = findViewById(R.id.imageUpdate);
-        name = findViewById(R.id.nameUpdate);
-        quyCach = findViewById(R.id.quyCachUpdate);
-        gia = findViewById(R.id.giaUpdate);
-        xuatXu = findViewById(R.id.xuatXuUpdate);
-        monNgon = findViewById(R.id.monNgonUpdate);
-        soLuong = findViewById(R.id.soLuongUpdate);
-        luu = findViewById(R.id.luuUpdate);
+        image = findViewById(R.id.imageInsert);
+        name = findViewById(R.id.nameInsert);
+        quyCach = findViewById(R.id.quyCachInsert);
+        gia = findViewById(R.id.giaInsert);
+        xuatXu = findViewById(R.id.xuatXuInsert);
+        monNgon = findViewById(R.id.monNgonInsert);
+        soLuong = findViewById(R.id.soLuongInsert);
+        luu = findViewById(R.id.luuInsert);
         back = findViewById(R.id.back);
-        upload = findViewById(R.id.loadImage);
+        upload = findViewById(R.id.loadImageInsert);
     }
-    public void setValueFirebase(){
+    public void insertValueFirebase(int id){
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         String timestamp = String.valueOf(System.currentTimeMillis());
@@ -87,10 +89,15 @@ public class UpdateProductActivity extends AppCompatActivity {
                                 String xuatxu = xuatXu.getText().toString();
                                 String monngon = monNgon.getText().toString();
                                 int soluong = Integer.parseInt(soLuong.getText().toString());
-                                Product product = new Product(imageUrl,ten,giasp,0,quycach,"Ngon,bổ,rẻ",monngon,"Còn hàng",xuatxu,soluong);
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference productsRef = database.getReference("products");
-                                productsRef.child(String.valueOf(product.getId())).setValue(product);
+                                DatabaseReference productsRef = database.getReference("products").child(String.valueOf(id));
+                                productsRef.child("anh").setValue(imageUrl);
+                                productsRef.child("ten_san_pham").setValue(ten);
+                                productsRef.child("quy_cach").setValue(quycach);
+                                productsRef.child("gia").setValue(giasp);
+                                productsRef.child("xuat_xu").setValue(xuatxu);
+                                productsRef.child("mon_ngon").setValue(monngon);
+                                productsRef.child("so_luong_ton_kho").setValue(soluong);
                             }
                         });
                     }
@@ -111,5 +118,4 @@ public class UpdateProductActivity extends AppCompatActivity {
             image.setImageURI(selectedImageUri);
         }
     }
-
 }

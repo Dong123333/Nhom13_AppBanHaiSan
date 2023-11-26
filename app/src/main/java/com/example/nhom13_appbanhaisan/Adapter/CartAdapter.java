@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
@@ -23,8 +22,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,14 +29,14 @@ public class CartAdapter extends ArrayAdapter<Cart> {
     Activity context;
     int resource;
     List<Cart> objects;
-    private int selectedPosition = -1;
+    private List<Integer> selectedPositions = new ArrayList<>();
 
-    public void setSelectedPosition(int position) {
-        selectedPosition = position;
+    public void setSelectedPosition(List<Integer> position) {
+        selectedPositions = position;
     }
 
-    public int getSelectedPosition() {
-        return selectedPosition;
+    public List<Integer> getSelectedPosition() {
+        return selectedPositions;
     }
 
     public CartAdapter(@NonNull Activity context, int resource, @NonNull List<Cart> objects) {
@@ -74,17 +71,10 @@ public class CartAdapter extends ArrayAdapter<Cart> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int itemPrice = getItem(position).getSoTien();
                 EventBus.getDefault().post(new UpdateTotalEvent(isChecked ? itemPrice : -itemPrice));
-                handleCheckboxClick(position);
+                selectedPositions.add(position);
             }
         });
         return convertView;
-    }
-    private void handleCheckboxClick(int position) {
-        selectedPosition = position;
-    }
-
-    public void clearSelection() {
-        selectedPosition = -1;
     }
     public void removeItem(int position) {
         if (objects != null && position >= 0 && position < objects.size()) {

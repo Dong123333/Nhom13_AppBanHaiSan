@@ -1,6 +1,9 @@
 package com.example.nhom13_appbanhaisan.Model;
 
 public class Product {
+    private static int nextId = 1;
+
+    private int id;
     private String anh;
     private String ten_san_pham;
     private int gia;
@@ -14,6 +17,7 @@ public class Product {
     public Product(){}
 
     public Product(String anh, String ten_san_pham, int gia, int so_luong_da_ban, String quy_cach, String mo_ta, String mon_ngon, String tinh_trang, String xuat_xu, int so_luong_ton_kho) {
+        this.id = nextId++;
         this.anh = anh;
         this.ten_san_pham = ten_san_pham;
         this.gia = gia;
@@ -24,6 +28,14 @@ public class Product {
         this.tinh_trang = tinh_trang;
         this.xuat_xu = xuat_xu;
         this.so_luong_ton_kho = so_luong_ton_kho;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAnh() {
