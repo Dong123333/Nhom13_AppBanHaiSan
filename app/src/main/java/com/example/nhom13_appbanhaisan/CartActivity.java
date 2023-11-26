@@ -99,8 +99,8 @@ public class CartActivity extends AppCompatActivity {
                     List<Integer> selectedPositions = adapter.getSelectedPosition();
                     for(Integer position : selectedPositions){
                         if (position != -1 && position < list.size()) {
-                            String itemName = list.get(position).getTen();
-                            deleteItemFirebase(itemName);
+                            int id = list.get(position).getId();
+                            deleteItemFirebase(id);
                         } else {
 
                         }
@@ -131,10 +131,10 @@ public class CartActivity extends AppCompatActivity {
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         tongTien.setText("" + format.format(newTotal));
     }
-    private void deleteItemFirebase(String itemName) {
+    private void deleteItemFirebase(int id) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("cart");
-        reference.child(itemName).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child(String.valueOf(id)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             public void onComplete(@NonNull Task<Void> task) {
                 runOnUiThread(new Runnable() {
                     @Override

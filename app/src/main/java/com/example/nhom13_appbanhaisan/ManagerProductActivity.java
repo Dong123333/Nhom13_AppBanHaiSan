@@ -70,7 +70,7 @@ public class ManagerProductActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(ManagerProductActivity.this, InsertProductActivity.class);
-                        intent.putExtra("productId", selectedProduct.getId());
+                        intent.putExtra("ID", selectedProduct.getId());
                         startActivity(intent);
                     }
                 });
@@ -129,7 +129,7 @@ public class ManagerProductActivity extends AppCompatActivity {
     }
     private int getProductIndexById(int productId) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getId()==productId) {
+            if (list.get(i).getId() == productId) {
                 return i;
             }
         }

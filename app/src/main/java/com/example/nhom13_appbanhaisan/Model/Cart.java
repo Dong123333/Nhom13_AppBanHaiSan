@@ -2,6 +2,7 @@ package com.example.nhom13_appbanhaisan.Model;
 
 public class Cart {
     private String anh,ten,quyCach;
+    private int id;
     private int gia;
     private int soCan;
     private int soTien;
@@ -15,6 +16,14 @@ public class Cart {
         this.gia = gia;
         this.soCan = soCan;
         this.soTien = soTien;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAnh() {

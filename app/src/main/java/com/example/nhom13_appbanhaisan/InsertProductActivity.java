@@ -36,7 +36,7 @@ public class InsertProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insertproduct);
         getView();
         Intent intent = getIntent();
-        int productId = intent.getIntExtra("productId",0);
+        int productId = intent.getIntExtra("ID",0);
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

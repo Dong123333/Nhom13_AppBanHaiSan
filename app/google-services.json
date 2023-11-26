@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "966689862325",
+    "firebase_url": "https://appbanhaisan-b09f0-default-rtdb.firebaseio.com",
+    "project_id": "appbanhaisan-b09f0",
+    "storage_bucket": "appbanhaisan-b09f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966689862325:android:09f52b3da78761b5d244fc",
+        "android_client_info": {
+          "package_name": "com.example.nhom13_appbanhaisan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC9547_34YUl_Bt4mPLynfQs92li7w1dI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
