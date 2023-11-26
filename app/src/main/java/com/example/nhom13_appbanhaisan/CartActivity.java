@@ -2,7 +2,6 @@ package com.example.nhom13_appbanhaisan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,13 +20,11 @@ import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.greenrobot.eventbus.EventBus;
@@ -104,6 +101,35 @@ public class CartActivity extends AppCompatActivity {
                         String itemName = list.get(selectedPosition).getTen();
                         deleteItemFirebase(itemName);
 //                        adapter.clearSelection();
+                    } else {
+
+                    }
+                } else {
+                    selectedPosition = -1;
+                }
+            }
+        });
+
+        muaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!list.isEmpty()) {
+                    selectedPosition = adapter.getSelectedPosition();
+                    if (selectedPosition != -1 && selectedPosition < list.size()) {
+                        String ten = list.get(selectedPosition).getTen();
+                        String quycach = list.get(selectedPosition).getQuyCach();
+                        int gia = list.get(selectedPosition).getGia();
+                        int can = list.get(selectedPosition).getSoCan();
+                        int tong = list.get(selectedPosition).getSoTien();
+                        String anh = list.get(selectedPosition).getAnh();
+                        Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                        intent.putExtra("TEN", ten);
+                        intent.putExtra("GIA", gia);
+                        intent.putExtra("CAN", can);
+                        intent.putExtra("TONG", tong);
+                        intent.putExtra("ANH", anh);
+                        intent.putExtra("QUYCACH", quycach);
+                        startActivity(intent);
                     } else {
 
                     }

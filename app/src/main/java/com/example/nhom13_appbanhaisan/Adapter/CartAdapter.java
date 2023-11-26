@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
@@ -22,9 +21,6 @@ import com.squareup.picasso.Picasso;
 import org.greenrobot.eventbus.EventBus;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -55,12 +51,12 @@ public class CartAdapter extends ArrayAdapter<Cart> {
         LayoutInflater inflater = this.context.getLayoutInflater();
         convertView = inflater.inflate(this.resource, null);
         Cart cart = this.objects.get(position);
-        ImageView image = convertView.findViewById(R.id.imageCart);
-        TextView ten = convertView.findViewById(R.id.nameCart);
+        ImageView image = convertView.findViewById(R.id.imgItemOrder);
+        TextView ten = convertView.findViewById(R.id.nameOrder);
         TextView quyCach = convertView.findViewById(R.id.quyCach);
-        TextView gia = convertView.findViewById(R.id.gia);
-        TextView soCan = convertView.findViewById(R.id.soCan);
-        TextView soTien = convertView.findViewById(R.id.soTien);
+        TextView gia = convertView.findViewById(R.id.giaOrder);
+        TextView soCan = convertView.findViewById(R.id.soCanOrder);
+        TextView soTien = convertView.findViewById(R.id.soTienOrder);
         Picasso.get().load(cart.getAnh()).into(image);
         ten.setText(cart.getTen());
         quyCach.setText("Quy cách: "+cart.getQuyCach());

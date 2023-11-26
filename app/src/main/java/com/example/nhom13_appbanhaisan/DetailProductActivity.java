@@ -11,16 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
 import com.example.nhom13_appbanhaisan.Model.Cart;
-import com.example.nhom13_appbanhaisan.Model.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class DetailProductActivity extends AppCompatActivity {
@@ -44,7 +40,6 @@ public class DetailProductActivity extends AppCompatActivity {
         //anh xa cac doi tuong
         back=findViewById(R.id.imageView);
         btnAddCart=findViewById(R.id.btnaddcart);
-        btnpay=findViewById(R.id.button6);
         soLuong = findViewById(R.id.indexquality);
         //textview
         imgProduct = findViewById(R.id.imgselect);
@@ -147,13 +142,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnpay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),OrderActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
     }
