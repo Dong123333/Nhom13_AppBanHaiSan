@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
-import com.example.nhom13_appbanhaisan.Event.DeleteItemEvent;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,7 +43,7 @@ public class CartActivity extends AppCompatActivity {
     CartAdapter adapter;
     List<Cart> list ;
     int currentTotal = 0;
-    int selectedPosition = -1;
+    List<Integer> selectedPositions = new ArrayList<>() ;
     FirebaseDatabase database;
     DatabaseReference reference;
     @Override
@@ -63,50 +62,53 @@ public class CartActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         EventBus.getDefault().register(this);
         getValueCartFromFirebase();
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         chonTatCa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 if (isChecked==true){
                     int tongtien = 0;
                     for (int i = 0; i< list.size();i++){
                         tongtien+= list.get(i).getSoTien();
                     }
-                    NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+
                     tongTien.setText(format.format(tongtien));
                 }
                 else {
-                    tongTien.setText("0");
+                    tongTien.setText(format.format(0));
                 }
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.setSelectedPosition(position);
+                adapter.setSelectedPosition(selectedPositions);
             }
         });
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!list.isEmpty()) {
-                    selectedPosition = adapter.getSelectedPosition();
-                    if (selectedPosition != -1 && selectedPosition < list.size()) {
-                        String itemName = list.get(selectedPosition).getTen();
-                        deleteItemFirebase(itemName);
-//                        adapter.clearSelection();
-                    } else {
+                    List<Integer> selectedPositions = adapter.getSelectedPosition();
+                    for(Integer position : selectedPositions){
+                        if (position != -1 && position < list.size()) {
+                            String itemName = list.get(position).getTen();
+                            deleteItemFirebase(itemName);
+                        } else {
 
+                        }
                     }
                 } else {
-                    selectedPosition = -1;
                 }
+                tongTien.setText(format.format(0));
+                selectedPositions.clear();
             }
         });
 
@@ -158,11 +160,6 @@ public class CartActivity extends AppCompatActivity {
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         tongTien.setText("" + format.format(newTotal));
     }
-    @Subscribe
-    public void onEvent(DeleteItemEvent event){
-        String itemName = event.getItemName();
-        deleteItemFirebase(itemName);
-    }
     private void deleteItemFirebase(String itemName) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("cart");
@@ -173,10 +170,12 @@ public class CartActivity extends AppCompatActivity {
                     public void run() {
                         if (task.isSuccessful()) {
                             try {
-                                if (!list.isEmpty() && selectedPosition >= 0 && selectedPosition < list.size()) {
-                                    adapter.removeItem(selectedPosition);
-                                    list.remove(selectedPosition);
-                                    adapter.notifyDataSetChanged();
+                                for(Integer position : selectedPositions){
+                                    if (!list.isEmpty() && position >= 0 && position < list.size()) {
+                                        adapter.removeItem(position);
+                                        list.remove(position);
+                                        adapter.notifyDataSetChanged();
+                                    }
                                 }
                             } catch (Exception x) {
 
