@@ -111,6 +111,35 @@ public class CartActivity extends AppCompatActivity {
                 selectedPositions.clear();
             }
         });
+
+        muaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!list.isEmpty()) {
+                    selectedPosition = adapter.getSelectedPosition();
+                    if (selectedPosition != -1 && selectedPosition < list.size()) {
+                        String ten = list.get(selectedPosition).getTen();
+                        String quycach = list.get(selectedPosition).getQuyCach();
+                        int gia = list.get(selectedPosition).getGia();
+                        int can = list.get(selectedPosition).getSoCan();
+                        int tong = list.get(selectedPosition).getSoTien();
+                        String anh = list.get(selectedPosition).getAnh();
+                        Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                        intent.putExtra("TEN", ten);
+                        intent.putExtra("GIA", gia);
+                        intent.putExtra("CAN", can);
+                        intent.putExtra("TONG", tong);
+                        intent.putExtra("ANH", anh);
+                        intent.putExtra("QUYCACH", quycach);
+                        startActivity(intent);
+                    } else {
+
+                    }
+                } else {
+                    selectedPosition = -1;
+                }
+            }
+        });
     }
     protected void onDestroy() {
         // Hủy đăng ký EventBus trong onDestroy hoặc onStop

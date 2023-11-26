@@ -21,7 +21,6 @@ import com.squareup.picasso.Picasso;
 import org.greenrobot.eventbus.EventBus;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,14 +28,14 @@ public class CartAdapter extends ArrayAdapter<Cart> {
     Activity context;
     int resource;
     List<Cart> objects;
-    private List<Integer> selectedPositions = new ArrayList<>();
+    private int selectedPosition = -1;
 
-    public void setSelectedPosition(List<Integer> position) {
-        selectedPositions = position;
+    public void setSelectedPosition(int position) {
+        selectedPosition = position;
     }
 
-    public List<Integer> getSelectedPosition() {
-        return selectedPositions;
+    public int getSelectedPosition() {
+        return selectedPosition;
     }
 
     public CartAdapter(@NonNull Activity context, int resource, @NonNull List<Cart> objects) {
@@ -52,12 +51,12 @@ public class CartAdapter extends ArrayAdapter<Cart> {
         LayoutInflater inflater = this.context.getLayoutInflater();
         convertView = inflater.inflate(this.resource, null);
         Cart cart = this.objects.get(position);
-        ImageView image = convertView.findViewById(R.id.imageCart);
-        TextView ten = convertView.findViewById(R.id.nameCart);
+        ImageView image = convertView.findViewById(R.id.imgItemOrder);
+        TextView ten = convertView.findViewById(R.id.nameOrder);
         TextView quyCach = convertView.findViewById(R.id.quyCach);
-        TextView gia = convertView.findViewById(R.id.gia);
-        TextView soCan = convertView.findViewById(R.id.soCan);
-        TextView soTien = convertView.findViewById(R.id.soTien);
+        TextView gia = convertView.findViewById(R.id.giaOrder);
+        TextView soCan = convertView.findViewById(R.id.soCanOrder);
+        TextView soTien = convertView.findViewById(R.id.soTienOrder);
         Picasso.get().load(cart.getAnh()).into(image);
         ten.setText(cart.getTen());
         quyCach.setText("Quy cách: "+cart.getQuyCach());
@@ -71,10 +70,17 @@ public class CartAdapter extends ArrayAdapter<Cart> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int itemPrice = getItem(position).getSoTien();
                 EventBus.getDefault().post(new UpdateTotalEvent(isChecked ? itemPrice : -itemPrice));
-                selectedPositions.add(position);
+                handleCheckboxClick(position);
             }
         });
         return convertView;
+    }
+    private void handleCheckboxClick(int position) {
+        selectedPosition = position;
+    }
+
+    public void clearSelection() {
+        selectedPosition = -1;
     }
     public void removeItem(int position) {
         if (objects != null && position >= 0 && position < objects.size()) {

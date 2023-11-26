@@ -49,7 +49,6 @@ public class DetailProductActivity extends AppCompatActivity {
         //anh xa cac doi tuong
         back=findViewById(R.id.imageView);
         btnAddCart=findViewById(R.id.btnaddcart);
-        btnpay=findViewById(R.id.button6);
         soLuong = findViewById(R.id.indexquality);
         //textview
         imgProduct = findViewById(R.id.imgselect);

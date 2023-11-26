@@ -351,8 +351,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="8dp"
-                    android:weightSum="2"
-                    >
+                    android:weightSum="1">
 
                     <Button
                         android:id="@+id/btnaddcart"
@@ -360,18 +359,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/btndefault"
+                        android:gravity="center"
                         android:text="Thêm vào giỏ hàng" />
 
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btndefault"
-                        android:text="Mua ngay" />
                 </LinearLayout>
 
             </LinearLayout>
