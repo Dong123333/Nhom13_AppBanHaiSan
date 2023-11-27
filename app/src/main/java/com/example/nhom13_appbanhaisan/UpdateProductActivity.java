@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,8 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.nhom13_appbanhaisan.Model.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -90,7 +94,23 @@ public class UpdateProductActivity extends AppCompatActivity {
                                 Product product = new Product(imageUrl,ten,giasp,0,quycach,"Ngon,bổ,rẻ",monngon,"Còn hàng",xuatxu,soluong);
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference productsRef = database.getReference("products");
-                                productsRef.child(String.valueOf(product.getId())).setValue(product);
+                                productsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        long count = dataSnapshot.getChildrenCount() + 1;
+                                        product.setId((int) count);
+                                        productsRef.child(String.valueOf(count)).setValue(product).addOnSuccessListener(aVoid -> {
+                                            Log.d("Firebase", "Sản phẩm mới đã được thêm vào Firebase. ID: " + count);
+                                        }).addOnFailureListener(e -> {
+                                            Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
+                                        });
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        // Xử lý lỗi nếu có
+                                        Log.e("Firebase", "Lỗi khi đọc dữ liệu từ Firebase: " + databaseError.getMessage());
+                                    }
+                                });
                             }
                         });
                     }

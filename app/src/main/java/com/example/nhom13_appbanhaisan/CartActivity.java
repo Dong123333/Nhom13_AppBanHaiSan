@@ -99,8 +99,8 @@ public class CartActivity extends AppCompatActivity {
                     List<Integer> selectedPositions = adapter.getSelectedPosition();
                     for(Integer position : selectedPositions){
                         if (position != -1 && position < list.size()) {
-                            String itemName = list.get(position).getTen();
-                            deleteItemFirebase(itemName);
+                            int id = list.get(position).getId();
+                            deleteItemFirebase(id);
                         } else {
 
                         }
@@ -109,6 +109,35 @@ public class CartActivity extends AppCompatActivity {
                 }
                 tongTien.setText(format.format(0));
                 selectedPositions.clear();
+            }
+        });
+
+        muaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!list.isEmpty()) {
+                    selectedPosition = adapter.getSelectedPosition();
+                    if (selectedPosition != -1 && selectedPosition < list.size()) {
+                        String ten = list.get(selectedPosition).getTen();
+                        String quycach = list.get(selectedPosition).getQuyCach();
+                        int gia = list.get(selectedPosition).getGia();
+                        int can = list.get(selectedPosition).getSoCan();
+                        int tong = list.get(selectedPosition).getSoTien();
+                        String anh = list.get(selectedPosition).getAnh();
+                        Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                        intent.putExtra("TEN", ten);
+                        intent.putExtra("GIA", gia);
+                        intent.putExtra("CAN", can);
+                        intent.putExtra("TONG", tong);
+                        intent.putExtra("ANH", anh);
+                        intent.putExtra("QUYCACH", quycach);
+                        startActivity(intent);
+                    } else {
+
+                    }
+                } else {
+                    selectedPosition = -1;
+                }
             }
         });
     }
@@ -131,10 +160,10 @@ public class CartActivity extends AppCompatActivity {
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         tongTien.setText("" + format.format(newTotal));
     }
-    private void deleteItemFirebase(String itemName) {
+    private void deleteItemFirebase(int id) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("cart");
-        reference.child(itemName).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child(String.valueOf(id)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             public void onComplete(@NonNull Task<Void> task) {
                 runOnUiThread(new Runnable() {
                     @Override

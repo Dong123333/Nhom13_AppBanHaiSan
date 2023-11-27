@@ -76,31 +76,33 @@
                     android:layout_height="45dp"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
+
                     <LinearLayout
-                        android:layout_width="115dp"
+                        android:id="@+id/viewTen"
+                        android:layout_width="137dp"
                         android:layout_height="45dp"
                         android:orientation="vertical">
+
                         <TextView
+                            android:id="@+id/txthoten"
                             android:layout_width="60dp"
                             android:layout_height="18dp"
-                            android:id="@+id/txthoten"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Họ tên"
-                            android:textSize="14sp"
                             android:textColor="@color/black"
+                            android:textSize="14sp"
 
                             />
-                        <EditText
-                            android:id="@+id/inputhoten"
-                            android:layout_width="115dp"
-                            android:layout_height="20dp"
-                            android:background="@drawable/inputtext_stroke"
-                            android:fontFamily="@font/roboto_regular"
-                            android:paddingLeft="5dp"
-                            android:paddingTop="2dp"
-                            android:layout_marginTop="5dp"
-                            android:textColorHint="@color/black"
-                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="132dp"
+                            android:layout_height="wrap_content"
+                            android:text="Huỳnh Văn Toàn"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp" />
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="115dp"
@@ -115,19 +117,13 @@
                             android:text="Số điện thoại"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
-                        <EditText
-                            android:layout_width="110dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/inputsdt"
-                            android:maxLines="1"
-                            android:maxLength="10"
-                            android:fontFamily="@font/roboto_regular"
-                            android:background="@drawable/inputtext_stroke"
-                            android:textSize="12sp"
-                            android:textColorHint="@color/black"
-                            android:layout_marginTop="5dp"
-                            android:paddingLeft="5dp"
-                            />
+
+                        <TextView
+                            android:id="@+id/viewSDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="0816368935" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -144,16 +140,13 @@
                         android:text="Số nhà, tên đường..."
                         android:textSize="12sp"
                         android:textColor="@color/black" />
-                    <EditText
-                        android:layout_width="310dp"
-                        android:layout_height="20dp"
-                        android:id="@+id/inputdc"
-                        android:fontFamily="@font/roboto_regular"
-                        android:background="@drawable/inputtext_stroke"
-                        android:textSize="12sp"
-                        android:textColorHint="@color/black"
-                        android:layout_marginTop="5dp"
-                        />
+
+                    <TextView
+                        android:id="@+id/viewTenDuong"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="67 Hà Huy Tập" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="320dp"
@@ -174,17 +167,13 @@
                             android:textSize="12sp"
                             android:textColor="@color/black"
                             />
-                        <EditText
-                            android:layout_width="86dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/inputtp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:hint="Đà Nẵng"
-                            android:background="@drawable/inputtext_stroke"
-                            android:textSize="12sp"
-                            android:textColorHint="@color/black"
-                            android:paddingLeft="10dp"
-                            android:drawableRight="@drawable/down" />
+
+                        <TextView
+                            android:id="@+id/viewTinh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Đà Nẵng" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="86dp"
@@ -199,18 +188,13 @@
                             android:text="Quận/Huyện"
                             android:textSize="12sp"
                             android:textColor="@color/black"/>
-                        <EditText
-                            android:layout_width="86dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/inputquan"
-                            android:fontFamily="@font/roboto_regular"
-                            android:hint="Hải Châu"
-                            android:background="@drawable/inputtext_stroke"
-                            android:textSize="12sp"
-                            android:textColorHint="@color/black"
-                            android:paddingLeft="10dp"
-                            android:drawableRight="@drawable/down"
-                            />
+
+                        <TextView
+                            android:id="@+id/viewQuan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Thanh Khê" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="86dp"
@@ -226,17 +210,13 @@
                             android:textSize="12sp"
                             android:textColor="@color/black"
                             />
-                        <EditText
-                            android:layout_width="86dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/inputphuong"
-                            android:fontFamily="@font/roboto_regular"
-                            android:hint="Thanh Bình"
-                            android:background="@drawable/inputtext_stroke"
-                            android:textSize="12sp"
-                            android:textColorHint="@color/black"
-                            android:drawableRight="@drawable/down"
-                            />
+
+                        <TextView
+                            android:id="@+id/viewPhuong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Chính Gián" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -278,396 +258,152 @@
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:id="@+id/anhhangone"
-                        android:layout_marginLeft="20dp"
-                        android:background="#C7F9F9"
-                        android:src="@drawable/squid1"
-                        />
-                    <LinearLayout
-                        android:layout_width="315dp"
-                        android:layout_height="75dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txttenhangone"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="Mực ống"
-                            android:textSize="13sp"
-                            android:layout_marginLeft="20dp"
-                            />
-                        <TextView
-                            android:layout_width="120dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtgiakgone"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="450.000/1kg"
-                            android:textSize="11sp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="5dp"
-                            />
-                        <TextView
-                            android:layout_width="120dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtgiaone"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="#FD1E00"
-                            android:text="450.000đ"
-                            android:textSize="14sp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="5dp"
-                            />
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/txtsoluongone"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="x1"
-                            android:textSize="12sp"
-                            android:layout_marginLeft="170dp"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:id="@+id/anhhangtwo"
-                        android:layout_marginLeft="20dp"
-                        android:background="#C7F9F9"
-                        android:src="@drawable/crab1"
-                        />
-                    <LinearLayout
-                        android:layout_width="315dp"
-                        android:layout_height="75dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="160dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txttenhangtwo"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="Cua hoàng đế"
-                            android:textSize="13sp"
-                            android:layout_marginLeft="20dp"
-                            />
-                        <TextView
-                            android:layout_width="190dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtquycach"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="Quy cách: Từ 1.5kg-2.5kg/con"
-                            android:textSize="11sp"
-                            android:layout_marginLeft="20dp"
 
-                            />
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtgiakgtwo"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="970.000/1kg"
-                            android:textSize="11sp"
-                            android:layout_marginLeft="20dp"
-                            />
-                        <TextView
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtgiatwo"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="#FD1E00"
-                            android:text="1.746.000đ"
-                            android:textSize="14sp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="2dp"
-                            />
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/txtsoluong2"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="x1.8"
-                            android:textSize="12sp"
-                            android:layout_marginLeft="170dp"
-                            android:layout_marginTop="-5dp"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
+                <ListView
+                    android:id="@+id/listPrOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp">
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:orientation="horizontal"
                     android:background="#C7F9F9"
+                    android:orientation="horizontal"
                     android:weightSum="3">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="2">
-                        <CheckBox
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:id="@+id/checkvoucher"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="10dp"/>
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
                         <TextView
+                            android:id="@+id/txtvanchuyen"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
-                            android:id="@+id/txtvanchuyen"
                             android:layout_marginTop="15dp"
                             android:background="#C7F9F9"
                             android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="Vận chuyển nhanh"
-                            android:textSize="14sp"
                             android:paddingLeft="10dp"
-                            />
+                            android:text="Phí vận chuyển"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_weight="1">
+
                         <TextView
+                            android:id="@+id/txtgiavanchuyen"
                             android:layout_width="60dp"
                             android:layout_height="15dp"
-                            android:id="@+id/txtgiavanchuyen"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:text="80.000đ"
-                            android:textSize="14sp"
                             android:layout_marginTop="15dp"
-                            android:layout_marginRight="15dp"/>
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="80.000đ"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:weightSum="3">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="2">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="15dp"
-                            android:id="@+id/txtluuy"
-                            android:text="Lưu ý cho người bán:"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:layout_marginTop="2dp"
-                            android:layout_marginLeft="10dp"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:layout_weight="1">
-                        <EditText
-                            android:layout_width="200dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/inputluuy"
-                            android:background="@drawable/inputtext_stroke"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginRight="2dp"/>
-                    </LinearLayout>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="20dp"
-                    android:weightSum="3">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="18dp"
-                            android:id="@+id/txttongtien"
-                            android:text="Tổng số tiền "
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:layout_marginLeft="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="18dp"
-                            android:id="@+id/txttongtien2"
-                            android:text="(2 sản phầm):"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_weight="2">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="15dp"
-                            android:layout_weight="1"
-                            android:id="@+id/tongtien"
-                            android:text="2.196.000đ"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="#FD1E00"
-                            android:textSize="14sp"
-                            android:layout_marginRight="2dp"/>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:background="@drawable/strokeblack"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp">
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="18dp"
-                        android:id="@+id/ship"
-                        android:src="@drawable/truck"
-                        android:layout_marginLeft="15dp"
-                        />
-                    <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="10dp"
-                        android:id="@+id/txtship"
-                        android:fontFamily="@font/roboto_bold"
-                        android:textColor="#FF0000"
-                        android:textSize="7sp"
-                        android:text="Voucher"
-                        android:layout_marginLeft="12sp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginRight="2dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:id="@+id/voucher"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="#361692"
-                        android:textSize="12sp"
-                        android:text="Shop voucher giảm đến 20% cho đơn hàng trên 2 triệu"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingTop="3dp"
-                        android:layout_marginTop="3dp"/>
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/next"
-                        android:layout_marginRight="2dp"/>
-                </LinearLayout>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="195dp"
                 android:orientation="vertical"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="30dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
                     <ImageView
+                        android:id="@+id/shopping"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:id="@+id/shopping"
-                        android:src="@drawable/shopping"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/shopping" />
+
                     <TextView
+                        android:id="@+id/txthoadon"
                         android:layout_width="100dp"
                         android:layout_height="20dp"
-                        android:id="@+id/txthoadon"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:text="Chi tiết hóa đơn"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="7dp"
-                        android:layout_marginLeft="10dp"/>
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Chi tiết hóa đơn"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
                     android:orientation="horizontal"
                     android:weightSum="3">
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_weight="1">
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
                         <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/txttonghoadon"
-                            android:layout_marginLeft="30dp"
+                            android:id="@+id/txttongtien"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="10dp"
                             android:fontFamily="@font/roboto_regular"
-                            android:text="Tổng hóa đơn:"
+                            android:text="Tổng số tiền "
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/demSP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="(2 sản phầm):"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
+                        android:layout_height="20dp"
                         android:layout_weight="2">
+
                         <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/tonghoadon"
+                            android:id="@+id/tongtienSPOrder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="15dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/roboto_regular"
-                            android:gravity="right"
                             android:text="2.196.000đ"
                             android:textColor="#FD1E00"
                             android:textSize="14sp" />
                     </LinearLayout>
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
@@ -675,137 +411,43 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:weightSum="3">
+
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="290dp"
                         android:layout_height="18dp"
                         android:layout_weight="1">
+
                         <TextView
+                            android:id="@+id/txttongvanchuyen"
                             android:layout_width="150dp"
                             android:layout_height="20dp"
-                            android:id="@+id/txttongvanchuyen"
+                            android:layout_marginLeft="10dp"
                             android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
                             android:text="Tổng tiền phí vận chuyển:"
-                            android:layout_marginLeft="30dp"/>
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="18dp"
                         android:layout_weight="2">
+
                         <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="20dp"
                             android:id="@+id/tongvanchuyen"
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="5dp"
                             android:fontFamily="@font/roboto_regular"
-                            android:textColor="#FD1E00"
-                            android:textSize="14sp"
                             android:gravity="right"
                             android:text="80.000đ"
-                            android:layout_marginRight="5dp"/>
-                    </LinearLayout>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:weightSum="3">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/txttongtiengiam"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:text="Tổng số tiền đã giảm:"
-                            android:layout_marginLeft="30dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_weight="2">
-                        <TextView
-                            android:layout_width="88dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/tonggiamgia"
-                            android:fontFamily="@font/roboto_regular"
                             android:textColor="#FD1E00"
-                            android:textSize="14sp"
-                            android:gravity="right"
-                            android:text="329.400đ"
-                            android:layout_marginRight="5dp"/>
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:weightSum="3">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/txttongthanhtoan"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:text="Tổng số tiền phải thanh toán:"
-                            android:layout_marginLeft="30dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:layout_weight="2">
-                    <TextView
-                        android:layout_width="90dp"
-                        android:layout_height="20dp"
-                        android:id="@+id/tongthanhtoan"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="#FD1E00"
-                        android:textSize="14sp"
-                        android:gravity="right"
-                        android:text="1.866.600đ"
 
-                        android:layout_marginRight="5dp"
-                        />
-                </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
-                    <CheckBox
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:id="@+id/checkdieukhoan"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="30dp"/>
-                    <TextView
-                        android:layout_width="170dp"
-                        android:layout_height="15dp"
-                        android:id="@+id/dieukhoan"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:text="Đồng ý với các điều khoản"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"/>
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

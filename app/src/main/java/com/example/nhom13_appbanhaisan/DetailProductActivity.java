@@ -3,19 +3,24 @@ package com.example.nhom13_appbanhaisan;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.Model.Product;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -44,7 +49,6 @@ public class DetailProductActivity extends AppCompatActivity {
         //anh xa cac doi tuong
         back=findViewById(R.id.imageView);
         btnAddCart=findViewById(R.id.btnaddcart);
-        btnpay=findViewById(R.id.button6);
         soLuong = findViewById(R.id.indexquality);
         //textview
         imgProduct = findViewById(R.id.imgselect);
@@ -141,8 +145,22 @@ public class DetailProductActivity extends AppCompatActivity {
                 int soCan = Integer.parseInt(soLuong.getText().toString());
                 int soTien = gia*soCan;
                 Cart cart = new Cart(img,ten,quycach,gia,soCan,soTien);
-                String path = String.valueOf(cart.getTen());
-                reference.child(path).setValue(cart);
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        long count = dataSnapshot.getChildrenCount() + 1;
+                        cart.setId((int) count);
+                        reference.child(String.valueOf(count)).setValue(cart).addOnSuccessListener(aVoid -> {
+                            Log.d("Firebase", "Sản phẩm mới đã được thêm vào Firebase. ID: " + count);
+                        }).addOnFailureListener(e -> {
+                            Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
+                        });
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 Intent intent = new Intent(getApplicationContext(),CartActivity.class);
                 startActivity(intent);
             }

@@ -136,7 +136,6 @@ public class HomeActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
                     arrayListProduct.add(product);
-                    setupOnClick(product);
                 }
                 productAdapter.notifyDataSetChanged();
 
@@ -148,20 +147,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    private void setupOnClick(Product product) {
-        listProduct1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
-                startActivity(intent);
-            }
-        });
-        listProduct2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+//    private void setupOnClick(Product product) {
+//        listProduct1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        listProduct2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(getApplicationContext(),DetailProductActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 }
