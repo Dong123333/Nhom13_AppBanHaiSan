@@ -97,14 +97,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!list.isEmpty()) {
                     List<Integer> selectedPositions = adapter.getSelectedPosition();
-                    for(Integer position : selectedPositions){
-                        if (position != -1 && position < list.size()) {
-                            int id = list.get(position).getId();
-                            deleteItemFirebase(id);
-                        } else {
 
-                        }
-                    }
                 } else {
                 }
                 tongTien.setText(format.format(0));
@@ -116,27 +109,29 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!list.isEmpty()) {
-                    selectedPosition = adapter.getSelectedPosition();
-                    if (selectedPosition != -1 && selectedPosition < list.size()) {
-                        String ten = list.get(selectedPosition).getTen();
-                        String quycach = list.get(selectedPosition).getQuyCach();
-                        int gia = list.get(selectedPosition).getGia();
-                        int can = list.get(selectedPosition).getSoCan();
-                        int tong = list.get(selectedPosition).getSoTien();
-                        String anh = list.get(selectedPosition).getAnh();
-                        Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
-                        intent.putExtra("TEN", ten);
-                        intent.putExtra("GIA", gia);
-                        intent.putExtra("CAN", can);
-                        intent.putExtra("TONG", tong);
-                        intent.putExtra("ANH", anh);
-                        intent.putExtra("QUYCACH", quycach);
-                        startActivity(intent);
-                    } else {
+                    List<Integer> selectedPositions = adapter.getSelectedPosition();
+                    for(Integer position : selectedPositions){
+                        if (position != -1 && position < list.size()) {
+                            String ten = list.get(position).getTen();
+                            String quycach = list.get(position).getQuyCach();
+                            int gia = list.get(position).getGia();
+                            int can = list.get(position).getSoCan();
+                            int tong = list.get(position).getSoTien();
+                            String anh = list.get(position).getAnh();
+                            Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                            intent.putExtra("TEN", ten);
+                            intent.putExtra("GIA", gia);
+                            intent.putExtra("CAN", can);
+                            intent.putExtra("TONG", tong);
+                            intent.putExtra("ANH", anh);
+                            intent.putExtra("QUYCACH", quycach);
+                            startActivity(intent);
+                        } else {
 
+                        }
                     }
                 } else {
-                    selectedPosition = -1;
+                    selectedPositions.clear();
                 }
             }
         });
