@@ -15,10 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.ManagerProductAdapter;
-import com.example.nhom13_appbanhaisan.Model.Category;
 import com.example.nhom13_appbanhaisan.Model.Product;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ManagerProductActivity extends AppCompatActivity {
     TextView them;
@@ -40,7 +36,7 @@ public class ManagerProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manager_product);
         them = findViewById(R.id.themSanPham);
         listView = findViewById(R.id.listManagerProduct);
-        back = findViewById(R.id.back);
+        back = findViewById(R.id.btnback);
 
         list = new ArrayList<>();
         adapter = new ManagerProductAdapter(ManagerProductActivity.this,R.layout.managerproduct_layout,list);

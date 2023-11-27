@@ -8,7 +8,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.OrderAdapter;
@@ -16,7 +15,6 @@ import com.example.nhom13_appbanhaisan.Model.Cart;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Locale;
 
 public class OrderActivity  extends AppCompatActivity {
@@ -34,7 +32,7 @@ public class OrderActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        back=findViewById(R.id.back);
+        back=findViewById(R.id.btnback);
         listOrder = findViewById(R.id.listPrOrder);
         arrOrder = new ArrayList<>();
         TextView thanhToan = findViewById(R.id.tratien) ;

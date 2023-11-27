@@ -8,15 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom13_appbanhaisan.Model.Product;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -66,7 +61,7 @@ public class InsertProductActivity extends AppCompatActivity {
         monNgon = findViewById(R.id.monNgonInsert);
         soLuong = findViewById(R.id.soLuongInsert);
         luu = findViewById(R.id.luuInsert);
-        back = findViewById(R.id.back);
+        back = findViewById(R.id.btnback);
         upload = findViewById(R.id.loadImageInsert);
     }
     public void insertValueFirebase(int id){

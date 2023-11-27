@@ -10,7 +10,7 @@
     android:orientation="horizontal"
     android:background="#89F7FE">
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/btnback"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:background="@drawable/arrow_left"

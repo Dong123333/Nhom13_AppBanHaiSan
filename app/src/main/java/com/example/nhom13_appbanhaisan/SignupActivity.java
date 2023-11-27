@@ -22,9 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class SignupActivity extends AppCompatActivity {
     private Button btndangki;
     private ImageView back, xemmk1, xemmk2;
@@ -36,7 +33,7 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         btndangki = findViewById(R.id.btndangki);
-        back=findViewById(R.id.back);
+        back=findViewById(R.id.btnback);
         xemmk1 = findViewById(R.id.xemmk1);
         xemmk2 = findViewById(R.id.xemmk2);
         txtsdt = findViewById(R.id.sdt);

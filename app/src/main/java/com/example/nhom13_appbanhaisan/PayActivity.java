@@ -2,6 +2,7 @@ package com.example.nhom13_appbanhaisan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,10 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Random;
-import android.os.CountDownTimer;
 public class PayActivity extends AppCompatActivity {
-    private ImageView back;
     private Button btnxacnhan;
     private CountDownTimer countDownTimer;
     private final long startTimeInMillis = 10 * 60 * 1000;
@@ -22,7 +22,7 @@ public class PayActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
-        back=findViewById(R.id.back);
+        ImageView back =findViewById(R.id.btnback);
         btnxacnhan=findViewById(R.id.xacnhan);
         Intent intent = getIntent();
         String tientt = intent.getStringExtra("tongtien");
@@ -35,6 +35,7 @@ public class PayActivity extends AppCompatActivity {
 
         String randomString = generateRandomString(7); //
         madonhang.setText(randomString);
+        startCountdownTimer();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -9,15 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Model.Product;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,7 +65,7 @@ public class UpdateProductActivity extends AppCompatActivity {
         monNgon = findViewById(R.id.monNgonUpdate);
         soLuong = findViewById(R.id.soLuongUpdate);
         luu = findViewById(R.id.luuUpdate);
-        back = findViewById(R.id.back);
+        back = findViewById(R.id.btnback);
         upload = findViewById(R.id.loadImage);
     }
     public void setValueFirebase(){

@@ -13,9 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
 import com.example.nhom13_appbanhaisan.Model.Cart;
-import com.example.nhom13_appbanhaisan.Model.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,14 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class DetailProductActivity extends AppCompatActivity {
     private ImageView back, imgProduct, imgView1, imgView2, imgView3, imgView4;
     private TextView tenSanPham, donGia, quyCach, tinhTrang, xuatXu, monNgon, soLuong;
-    private Button btnAddCart,btnpay, btnGiam, btnTang, btnChon;
+    private Button btnAddCart, btnGiam, btnTang, btnChon;
     private boolean isCustomBackground = false;
 
     private int currentQuantity = 0;
@@ -165,13 +161,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnpay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),OrderActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
     }
