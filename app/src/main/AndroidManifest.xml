@@ -55,10 +55,10 @@
             android:exported="false">
 
         </activity>
-<!--        <activity android:name=".UserAccountManagementActivity"-->
-<!--            android:exported="false">-->
+        <activity android:name=".UserAccountManagementActivity"
+            android:exported="false">
 
-<!--        </activity>-->
+        </activity>
 
         <activity android:name=".OrderActivity"
             android:exported="false">

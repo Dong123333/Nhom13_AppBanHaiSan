@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.nhom13_appbanhaisan.Model.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -90,44 +92,54 @@ public class SignupActivity extends AppCompatActivity {
                 String mk2txt = txtPw2.getText().toString();
                 reference.orderByChild("so_dien_thoai").equalTo(sdttxt).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(TextUtils.isEmpty(hotentxt)|TextUtils.isEmpty(sdttxt)|TextUtils.isEmpty(mk1txt)|TextUtils.isEmpty(mk2txt)){
-                            Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ các thông tin!", Toast.LENGTH_LONG).show();
-                        }else{
-                            if(!mk1txt.equals(mk2txt)){
-                                Toast.makeText(getApplicationContext(), "Mật khẩu sau khác mật khẩu trước!", Toast.LENGTH_LONG).show();
-                            }else {
-                                if (!checkBox.isChecked()){
-                                    Toast.makeText(SignupActivity.this, "Vui lòng chọn chấp nhận điều khoản!", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    if(!snapshot.exists()){
-                                        String key = reference.push().getKey();
-                                        Map<String, Object> userValues = new HashMap<>();
-                                        userValues.put("ho_ten", hotentxt);
-                                        userValues.put("so_dien_thoai", sdttxt);
-                                        userValues.put("mat_khau", mk1txt);
-                                        userValues.put("nhap_lai_mat_khau", mk2txt);
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            // Số điện thoại đã tồn tại, hiển thị thông báo và dừng kiểm tra
+                            Toast.makeText(getApplicationContext(), "Đã có tài khoản với số điện thoại này!", Toast.LENGTH_LONG).show();
+                        } else {
+                            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if(TextUtils.isEmpty(hotentxt)|TextUtils.isEmpty(sdttxt)|TextUtils.isEmpty(mk1txt)|TextUtils.isEmpty(mk2txt)){
+                                        Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ các thông tin!", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        if(!mk1txt.equals(mk2txt)){
+                                            Toast.makeText(getApplicationContext(), "Mật khẩu sau khác mật khẩu trước!", Toast.LENGTH_LONG).show();
+                                        }else {
+                                            if (!checkBox.isChecked()){
+                                                Toast.makeText(SignupActivity.this, "Vui lòng chọn chấp nhận điều khoản!", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                    Users users = new Users(hotentxt, sdttxt, mk1txt, mk2txt);
+                                                    // Đếm số lượng sản phẩm hiện tại để tạo ID mới
+                                                    long count = dataSnapshot.getChildrenCount() + 1;
 
-                                        reference.child(key).setValue(userValues);
+                                                    // Đặt ID mới cho sản phẩm
+                                                    users.setId((int) count);
 
-                                        Toast.makeText(getApplicationContext(), "Đăng ký thành công!", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-                                        startActivity(intent);
-                                        Toast.makeText(getApplicationContext(), "Vui lòng đăng nhập!", Toast.LENGTH_LONG).show();
-                                    }else {
-                                        Toast.makeText(getApplicationContext(), "Số điện thoại đã tồn tại!", Toast.LENGTH_LONG).show();
+                                                    // Thêm sản phẩm mới vào Firebase Realtime Database
+                                                    reference.child(String.valueOf(count)).setValue(users);
+                                                    Toast.makeText(getApplicationContext(), "Đăng ký thành công!", Toast.LENGTH_LONG).show();
+                                                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                                    startActivity(intent);
+                                                    Toast.makeText(getApplicationContext(), "Vui lòng đăng nhập!", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
                                     }
                                 }
-                            }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                         }
                     }
-
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Xử lý lỗi nếu có
+                        Log.e("Firebase", "Lỗi khi kiểm tra số điện thoại: " + databaseError.getMessage());
                     }
                 });
-
             }
         });
     }

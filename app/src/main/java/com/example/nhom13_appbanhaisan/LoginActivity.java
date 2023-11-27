@@ -21,34 +21,34 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     private ImageView back, xemmk;
-    private EditText txtSdt,txtPw;
+    private EditText txtSdt, txtPw;
     private Button btnlogin;
     boolean isABoolean;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        back=findViewById(R.id.back);
-        txtSdt=findViewById(R.id.sdt);
-        txtPw=findViewById(R.id.mk);
-        btnlogin=findViewById(R.id.btndangnhap);
+        back = findViewById(R.id.back);
+        txtSdt = findViewById(R.id.sdt);
+        txtPw = findViewById(R.id.mk);
+        btnlogin = findViewById(R.id.btndangnhap);
         xemmk = findViewById(R.id.xemmk);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),GetStartedActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GetStartedActivity.class);
                 startActivity(intent);
             }
         });
         xemmk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isABoolean){
+                if (!isABoolean) {
                     isABoolean = true;
                     txtPw.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     xemmk.setImageResource(R.drawable.removeeye);
-                }
-                else{
+                } else {
                     isABoolean = false;
                     txtPw.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     xemmk.setImageResource(R.drawable.xemmk);
@@ -58,30 +58,33 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference("users");
+
             @Override
             public void onClick(View v) {
                 String sdttxt = txtSdt.getText().toString();
                 String passtxt = txtPw.getText().toString();
-                if(TextUtils.isEmpty(sdttxt)){
+                if (TextUtils.isEmpty(sdttxt)) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập số điện thoại!", Toast.LENGTH_SHORT).show();
                     return;
-                }else if(TextUtils.isEmpty(passtxt)){
+                } else if (TextUtils.isEmpty(passtxt)) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
+                } else {
                     reference.orderByChild("so_dien_thoai").equalTo(sdttxt).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
-                                // Tài khoản tồn tại, kiểm tra mật khẩu
+//                                // Tài khoản tồn tại, kiểm tra mật khẩu
                                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                     String getpass = dataSnapshot.child("mat_khau").getValue(String.class);
-                                    if (getpass.equals(passtxt)) {
-                                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                                        if(sdttxt.equals("admin") && passtxt.equals("admin")){
+                                    String getsdt = dataSnapshot.child("so_dien_thoai").getValue(String.class);
+                                    if (getpass.equals(passtxt) && getsdt.equals(sdttxt)) {
+                                        if (sdttxt.equals("admin") && passtxt.equals("admin")) {
+                                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(getApplicationContext(), UserAccountManagementActivity.class);
                                             startActivity(intent);
-                                        }else{
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                             startActivity(intent);
                                         }
@@ -92,21 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(LoginActivity.this, "Số điện thoại sai!", Toast.LENGTH_SHORT).show();
                             }
-
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
                         }
                     });
-
                 }
-
             }
-
         });
-
     }
-
 }
