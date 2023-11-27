@@ -502,7 +502,7 @@
             android:id="@+id/tratien"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
-            android:text="Đặt hàng"
+            android:text="Thanh toán"
             android:textColor="#FD1E00"
             android:textSize="16sp" />
     </LinearLayout>

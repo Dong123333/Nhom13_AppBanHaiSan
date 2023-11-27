@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Adapter.OrderAdapter;
@@ -15,6 +16,7 @@ import com.example.nhom13_appbanhaisan.Model.Cart;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Locale;
 
 public class OrderActivity  extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class OrderActivity  extends AppCompatActivity {
 
 
     private ListView listOrder;
+
+
 
     ArrayList<Cart> arrOrder;
 
@@ -33,6 +37,7 @@ public class OrderActivity  extends AppCompatActivity {
         back=findViewById(R.id.back);
         listOrder = findViewById(R.id.listPrOrder);
         arrOrder = new ArrayList<>();
+        TextView thanhToan = findViewById(R.id.tratien) ;
         TextView soSanPham = findViewById(R.id.demSP);
         TextView tongTienSP = findViewById(R.id.tongtienSPOrder);
         TextView tongTienTT = findViewById(R.id.tientra);
@@ -76,5 +81,14 @@ public class OrderActivity  extends AppCompatActivity {
         soSanPham.setText(": "+format.format(adapter.getCount())+" sản phẩm");
         tongTienTT.setText(format.format(quantity+80000));
         Toast.makeText(OrderActivity.this,name, Toast.LENGTH_SHORT).show();
+        thanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PayActivity.class);
+                intent.putExtra("tongtien", tongTienTT.getText());
+                startActivity(intent);
+            }
+        });
+
     }
 }
