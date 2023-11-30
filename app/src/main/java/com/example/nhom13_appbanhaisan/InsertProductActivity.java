@@ -61,7 +61,7 @@ public class InsertProductActivity extends AppCompatActivity {
         monNgon = findViewById(R.id.monNgonInsert);
         soLuong = findViewById(R.id.soLuongInsert);
         luu = findViewById(R.id.luuInsert);
-        back = findViewById(R.id.btnback);
+        back = findViewById(R.id.backInsert);
         upload = findViewById(R.id.loadImageInsert);
     }
     public void insertValueFirebase(int id){

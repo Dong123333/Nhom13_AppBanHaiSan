@@ -1,60 +1,41 @@
 package com.example.nhom13_appbanhaisan.Model;
 
 public class Users {
-    private int id;
-    private String ho_va_ten;
-    private String so_dien_thoai;
-    private String mat_khau;
-    private String nhap_lai_mat_khau;
+    private String email;
+    private String fullName;
+    private String password;
 
     public Users() {
 
     }
 
-    public Users(String ho_va_ten, String so_dien_thoai, String mat_khau, String nhap_lai_mat_khau) {
-        this.ho_va_ten = ho_va_ten;
-        this.so_dien_thoai = so_dien_thoai;
-        this.mat_khau = mat_khau;
-        this.nhap_lai_mat_khau = nhap_lai_mat_khau;
+    public Users(String fullName, String email, String password) {
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getHo_va_ten() {
-        return ho_va_ten;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setHo_va_ten(String ho_va_ten) {
-        this.ho_va_ten = ho_va_ten;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getSo_dien_thoai() {
-        return so_dien_thoai;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSo_dien_thoai(String so_dien_thoai) {
-        this.so_dien_thoai = so_dien_thoai;
-    }
-
-    public String getMat_khau() {
-        return mat_khau;
-    }
-
-    public void setMat_khau(String mat_khau) {
-        this.mat_khau = mat_khau;
-    }
-
-    public String getNhap_lai_mat_khau() {
-        return nhap_lai_mat_khau;
-    }
-
-    public void setNhap_lai_mat_khau(String nhap_lai_mat_khau) {
-        this.nhap_lai_mat_khau = nhap_lai_mat_khau;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

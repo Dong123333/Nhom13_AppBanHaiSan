@@ -79,6 +79,7 @@
             android:layout_height="32dp"
             android:background="@drawable/home"/>
         <ImageView
+            android:id="@+id/btn_favourite"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"

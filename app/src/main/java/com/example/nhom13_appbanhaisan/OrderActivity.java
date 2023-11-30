@@ -56,6 +56,7 @@ public class OrderActivity  extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
+        int id = intent.getIntExtra("ID",0);
         String name = intent.getStringExtra("TEN");
         String anh = intent.getStringExtra("ANH");
         String quycach = intent.getStringExtra("QUYCACH");
@@ -78,12 +79,18 @@ public class OrderActivity  extends AppCompatActivity {
         tongTienSP.setText(Integer.toString(quantity));
         soSanPham.setText(": "+format.format(adapter.getCount())+" sản phẩm");
         tongTienTT.setText(format.format(quantity+80000));
-        Toast.makeText(OrderActivity.this,name, Toast.LENGTH_SHORT).show();
         thanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PayActivity.class);
                 intent.putExtra("tongtien", tongTienTT.getText());
+                intent.putExtra("tongtienchuaformat", tong+80000);
+                intent.putExtra("ID",id);
+                intent.putExtra("TEN", name);
+                intent.putExtra("GIA", gia);
+                intent.putExtra("CAN", can);
+                intent.putExtra("ANH", anh);
+                intent.putExtra("QUYCACH", quycach);
                 startActivity(intent);
             }
         });

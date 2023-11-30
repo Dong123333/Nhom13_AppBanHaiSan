@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -29,30 +30,28 @@
             android:textColorHint="@color/black"
             android:textSize="16dp"
             android:paddingLeft="20dp"
-            android:layout_weight="1"
-            />
-
-
+            android:layout_weight="1" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="42dp"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CCE5FF"
-        android:orientation="vertical">
-        <org.lucasr.twowayview.TwoWayView
-
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="42dp"
+        android:fillViewport="true"
+        android:background="#CCE5FF">
+        <com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView
             android:id="@+id/listSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal"/>
-    </LinearLayout>
-
-
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="25dp"
+            android:horizontalSpacing="10dp"
+            android:isScrollContainer="false"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="20dp" />
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -61,25 +61,29 @@
                 android:layout_width="69dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="16dp"
-                app:srcCompat="@drawable/image" />
+                app:srcCompat="@drawable/user" />
 
             <LinearLayout
-                android:padding="6dp"
-                android:layout_width="match_parent"
+                android:id="@+id/nameUser"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/hoten"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Username"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
                 <TextView
+                    android:id="@+id/loai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thành viên"
@@ -91,14 +95,42 @@
                 </TextView>
 
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/loginandregister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loginUser"
+                    android:text="Đăng nhập"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:background="@drawable/bk_minus"/>
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signupUser"
+                    android:text="Đăng ký"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:background="@drawable/bk_minus"/>
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/content"
-            android:background="@drawable/costum_linerlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="135dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -262,7 +294,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
@@ -280,7 +312,7 @@
                     <TextView
                         android:id="@+id/textView21"
                         android:layout_width="80dp"
-                        android:layout_height="50dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:layout_marginStart="16dp"
@@ -292,7 +324,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:padding="8dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
@@ -322,7 +354,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal"
@@ -330,7 +362,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:paddingRight="16dp"
@@ -350,7 +382,7 @@
                     <TextView
                         android:id="@+id/textView23"
                         android:layout_width="83dp"
-                        android:layout_height="45dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="14dp"
                         android:textColor="@color/black"
@@ -363,7 +395,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:padding="8dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
@@ -379,7 +411,7 @@
                     <TextView
                         android:id="@+id/textView29"
                         android:layout_width="75dp"
-                        android:layout_height="37dp"
+                        android:layout_height="34dp"
                         android:layout_marginStart="20dp"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
@@ -392,7 +424,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal"
@@ -400,7 +432,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -418,7 +450,7 @@
                     <TextView
                         android:id="@+id/textView30"
                         android:layout_width="81dp"
-                        android:layout_height="48dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="16dp"
                         android:textColor="@color/black"
@@ -429,7 +461,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
 
@@ -444,7 +476,7 @@
                     <TextView
                         android:id="@+id/textView31"
                         android:layout_width="74dp"
-                        android:layout_height="42dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="16dp"
                         android:textColor="@color/black"
@@ -453,31 +485,33 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="20dp"
-                >
 
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Đăng xuất"
-                    android:layout_marginBottom="20sp"
-                    android:background="@drawable/wapcontent"
-                    />
-            </LinearLayout>
 
 
 
         </LinearLayout>
 
 
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/showLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/logout"
+            android:text="Đăng xuất"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:background="@drawable/backgroungbtnadmin"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -492,6 +526,7 @@
             android:layout_height="32dp"
             android:background="@drawable/home"/>
         <ImageView
+            android:id="@+id/btn_favourite"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"

@@ -1,6 +1,8 @@
 package com.example.nhom13_appbanhaisan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,8 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.nhom13_appbanhaisan.Adapter.CartAdapter;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
+import com.example.nhom13_appbanhaisan.Model.Product;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,25 +36,26 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
 public class CartActivity extends AppCompatActivity {
     private ImageView btnback;
     private ListView listView;
-    private TextView tongTien,gioHangTrong,insert;
+    private TextView tongTien,gioHangTrong,insert,txtTotal;
     private Button muaHang;
     CheckBox chonTatCa;
     CartAdapter adapter;
     List<Cart> list ;
     int currentTotal = 0;
     List<Integer> selectedPositions = new ArrayList<>() ;
-    FirebaseDatabase database;
-    DatabaseReference reference;
+    private SharedPreferenceManager sharedPreferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        txtTotal = findViewById(R.id.totalCart);
         btnback = findViewById(R.id.btn_back);
         listView = findViewById(R.id.listCart);
         tongTien = findViewById(R.id.tongTien);
@@ -97,11 +103,23 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!list.isEmpty()) {
                     List<Integer> selectedPositions = adapter.getSelectedPosition();
+                    Iterator<Integer> iterator = selectedPositions.iterator();
 
-                } else {
+                    while (iterator.hasNext()) {
+                        Integer position = iterator.next();
+                        if (position != -1 && position < list.size()) {
+                            int id = list.get(position).getId();
+                            deleteItemFirebase(id);
+                        }
+
+                        // Loại bỏ phần tử khỏi selectedPositions sử dụng iterator.remove()
+                        iterator.remove();
+                    }
+
+                    // Cập nhật tổng tiền và thông báo thay đổi
+                    tongTien.setText(format.format(0));
+                    adapter.notifyDataSetChanged();
                 }
-                tongTien.setText(format.format(0));
-                selectedPositions.clear();
             }
         });
 
@@ -112,6 +130,7 @@ public class CartActivity extends AppCompatActivity {
                     List<Integer> selectedPositions = adapter.getSelectedPosition();
                     for(Integer position : selectedPositions){
                         if (position != -1 && position < list.size()) {
+                            int id = list.get(position).getId();
                             String ten = list.get(position).getTen();
                             String quycach = list.get(position).getQuyCach();
                             int gia = list.get(position).getGia();
@@ -119,6 +138,7 @@ public class CartActivity extends AppCompatActivity {
                             int tong = list.get(position).getSoTien();
                             String anh = list.get(position).getAnh();
                             Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                            intent.putExtra("ID",id);
                             intent.putExtra("TEN", ten);
                             intent.putExtra("GIA", gia);
                             intent.putExtra("CAN", can);
@@ -135,6 +155,7 @@ public class CartActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
     protected void onDestroy() {
         // Hủy đăng ký EventBus trong onDestroy hoặc onStop
@@ -156,58 +177,75 @@ public class CartActivity extends AppCompatActivity {
         tongTien.setText("" + format.format(newTotal));
     }
     private void deleteItemFirebase(int id) {
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("cart");
-        reference.child(String.valueOf(id)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            public void onComplete(@NonNull Task<Void> task) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (task.isSuccessful()) {
-                            try {
-                                for(Integer position : selectedPositions){
-                                    if (!list.isEmpty() && position >= 0 && position < list.size()) {
-                                        adapter.removeItem(position);
-                                        list.remove(position);
-                                        adapter.notifyDataSetChanged();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
+            userCartRef.child(String.valueOf(id)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                public void onComplete(@NonNull Task<Void> task) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (task.isSuccessful()) {
+                                try {
+                                    for (Integer position : selectedPositions) {
+                                        if (!list.isEmpty() && position >= 0 && position < list.size()) {
+                                            adapter.removeItem(position);
+                                            list.remove(position);
+                                            adapter.notifyDataSetChanged();
+                                        }
                                     }
-                                }
-                            } catch (Exception x) {
+                                } catch (Exception x) {
 
+                                }
                             }
                         }
-                    }
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
 
     }
     public void getValueCartFromFirebase(){
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("cart");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Cart cart = dataSnapshot.getValue(Cart.class);
-                    list.add(cart);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
+            userCartRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    list.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        Cart cart = dataSnapshot.getValue(Cart.class);
+                        list.add(cart);
+                    }
+                    if(list.size() == 0){
+                        gioHangTrong.setVisibility(View.VISIBLE);
+                    } else {
+                        gioHangTrong.setVisibility(View.GONE);
+                    }
+                    adapter.notifyDataSetChanged();
+                    calculateTotalQuantity();
                 }
-                if(list.size() == 0){
-                    gioHangTrong.setVisibility(View.VISIBLE);
-                } else {
-                    gioHangTrong.setVisibility(View.GONE);
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(CartActivity.this,"error",Toast.LENGTH_SHORT).show();
                 }
-                adapter.notifyDataSetChanged();
+            });
+        }
+        else {
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+        }
 
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CartActivity.this,"error",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
-
+    public void calculateTotalQuantity() {
+        int total = adapter.getCount();
+        txtTotal.setText("("+total+")");
+        sharedPreferenceManager = SharedPreferenceManager.getInstance(this);
+        sharedPreferenceManager.setSharedValue(String.valueOf(total));
+    }
 }

@@ -65,7 +65,7 @@ public class UpdateProductActivity extends AppCompatActivity {
         monNgon = findViewById(R.id.monNgonUpdate);
         soLuong = findViewById(R.id.soLuongUpdate);
         luu = findViewById(R.id.luuUpdate);
-        back = findViewById(R.id.btnback);
+        back = findViewById(R.id.backUpdate);
         upload = findViewById(R.id.loadImage);
     }
     public void setValueFirebase(){

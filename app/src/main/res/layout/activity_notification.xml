@@ -11,6 +11,7 @@
         android:background="#33DAFF"
         android:orientation="horizontal">
         <ImageView
+            android:id="@+id/backNoti"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/arrow"
@@ -312,6 +313,7 @@
             android:layout_height="32dp"
             android:background="@drawable/home"/>
         <ImageView
+            android:id="@+id/btn_favourite"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"

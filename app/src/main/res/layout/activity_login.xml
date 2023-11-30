@@ -48,7 +48,7 @@
                     android:layout_height="30dp"
                     android:paddingTop="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="Số điện thoại"
+                    android:text="Email"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="14sp"
                     android:layout_gravity="center"
@@ -58,7 +58,7 @@
                     android:layout_height="50dp"
                     android:id="@+id/sdt"
                     android:maxLines="1"
-                    android:maxHeight="1dp"
+                    android:singleLine="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:paddingTop="15dp"
@@ -88,13 +88,13 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:paddingTop="15dp"
                         android:paddingBottom="15dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="20dp"
                         android:background="@drawable/input_round"
-                        android:inputType="textPassword"
-                        />
+                        android:inputType="textPassword"/>
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -116,57 +116,26 @@
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14dp"
                 android:layout_gravity="right"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btndangnhap"
-                android:layout_marginTop="30dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Đăng nhập"
-                android:textSize="16sp"
-                android:textAllCaps="false"
-                android:gravity="center"
-                android:background="@drawable/btnlogin_round"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:id="@+id/hoac"
-                android:text="Hoặc"
-                android:textSize="16dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/roboto_regular"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/group"
-                android:gravity="center"
-                android:layout_marginTop="20dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/google"
-                    />
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/fb"/>
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/tiktok" />
-            </LinearLayout>
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btndangnhap"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Đăng nhập"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/btnlogin_round"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
 </RelativeLayout>

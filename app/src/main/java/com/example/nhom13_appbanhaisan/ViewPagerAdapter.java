@@ -1,5 +1,7 @@
 package com.example.nhom13_appbanhaisan;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -12,15 +14,22 @@ import com.example.nhom13_appbanhaisan.Fragment.WaitForConfirmationFragment;
 import com.example.nhom13_appbanhaisan.Fragment.WaitingForDeliveryFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    private Bundle bundle;
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,Bundle dataBundle) {
         super(fragmentActivity);
+        this.bundle = dataBundle;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        Fragment fragment;
         switch(position){
-            case 0: return new WaitForConfirmationFragment();
+            case 0: {
+                fragment = new WaitForConfirmationFragment();
+                fragment.setArguments(bundle);
+                return fragment;
+            }
             case 1: return new WaitingForDeliveryFragment();
             case 2: return new DeliveryFragment();
             case 3: return new DeliveredFragment();

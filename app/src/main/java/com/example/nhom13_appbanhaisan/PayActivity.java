@@ -7,9 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.example.nhom13_appbanhaisan.Fragment.WaitForConfirmationFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 public class PayActivity extends AppCompatActivity {
@@ -25,6 +33,13 @@ public class PayActivity extends AppCompatActivity {
         ImageView back =findViewById(R.id.btnback);
         btnxacnhan=findViewById(R.id.xacnhan);
         Intent intent = getIntent();
+        int id = intent.getIntExtra("ID",0);
+        String name = intent.getStringExtra("TEN");
+        String anh = intent.getStringExtra("ANH");
+        String quycach = intent.getStringExtra("QUYCACH");
+        int gia = intent.getIntExtra("GIA", 0);
+        int can = intent.getIntExtra("CAN", 0);
+        int tienchuaformat = intent.getIntExtra("tongtienchuaformat",0);
         String tientt = intent.getStringExtra("tongtien");
         TextView tien = findViewById(R.id.tientra) ;
         tien.setText(tientt) ;
@@ -46,7 +61,14 @@ public class PayActivity extends AppCompatActivity {
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                deleteProductFromFirebase(id);
+                Intent intent = new Intent(getApplicationContext(), PurchaseOrderActivity.class);
+                intent.putExtra("TEN", name);
+                intent.putExtra("GIA", gia);
+                intent.putExtra("CAN", can);
+                intent.putExtra("TONG", tienchuaformat);
+                intent.putExtra("ANH", anh);
+                intent.putExtra("QUYCACH", quycach);
                 startActivity(intent);
             }
         });
@@ -91,5 +113,14 @@ public class PayActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
+    }
+    private void deleteProductFromFirebase(int productId) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
+            userCartRef.child(String.valueOf(productId)).removeValue();
+        }
     }
 }

@@ -8,12 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom13_appbanhaisan.Model.Cart;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -136,34 +139,41 @@ public class DetailProductActivity extends AppCompatActivity {
         btnAddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                database = FirebaseDatabase.getInstance();
-                reference = database.getReference("cart");
-                int soCan = Integer.parseInt(soLuong.getText().toString());
-                int soTien = gia*soCan;
-                Cart cart = new Cart(img,ten,quycach,gia,soCan,soTien);
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        long count = dataSnapshot.getChildrenCount() + 1;
-                        cart.setId((int) count);
-                        reference.child(String.valueOf(count)).setValue(cart).addOnSuccessListener(aVoid -> {
-                            Log.d("Firebase", "Sản phẩm mới đã được thêm vào Firebase. ID: " + count);
-                        }).addOnFailureListener(e -> {
-                            Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
-                        });
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
 
+                if (currentUser == null) {
+                    Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    String userId = currentUser.getUid();
+                    DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
+                    int soCan = Integer.parseInt(soLuong.getText().toString());
+                    int soTien = gia * soCan;
+                    Cart cart = new Cart(img, ten, quycach, gia, soCan, soTien);
+                    userCartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            long count = snapshot.getChildrenCount() + 1;
+                            cart.setId((int) count);
+                            userCartRef.child(String.valueOf(count)).setValue(cart)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(DetailProductActivity.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
+                                    });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                     }
-                });
-                Intent intent = new Intent(getApplicationContext(),CartActivity.class);
-                startActivity(intent);
-            }
+                }
         });
-
-
-
     }
 
     private void decreaseQuantity() {

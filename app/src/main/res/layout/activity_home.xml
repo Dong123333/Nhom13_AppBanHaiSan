@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     tools:context=".HomeActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         android:weightSum="3"
         android:background="#33DAFF">
-        <EditText
+        <TextView
             android:id="@+id/input_search"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -21,12 +21,29 @@
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:drawableLeft="@drawable/search"/>
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/cart"
-            android:layout_marginTop="28dp"
-            android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
+            <ImageView
+                android:id="@+id/cart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/cart"
+                android:layout_marginTop="28dp" />
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:text="1"
+                android:gravity="center"
+                android:textColor="#FF0000"
+                android:background="@drawable/circle"/>
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/btn_chat"
             android:layout_width="32dp"
@@ -35,19 +52,19 @@
             android:layout_marginTop="28dp"
             android:layout_weight="1"/>
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="42dp"
         android:fillViewport="true">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="match_parent"
             android:background="#CCE5FF"
             android:orientation="vertical">
-
-            <org.lucasr.twowayview.TwoWayView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,62 +73,71 @@
                 android:orientation="horizontal" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Có thể bạn sẽ thích"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/arrow_right"/>
-            </LinearLayout>
-           <org.lucasr.twowayview.TwoWayView
-               android:id="@+id/listProduct1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_marginLeft="20dp"
-               android:orientation="horizontal"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Dành cho bạn"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/arrow_right"/>
+                    android:background="@drawable/arrow_right" />
             </LinearLayout>
-            <org.lucasr.twowayview.TwoWayView
-                android:id="@+id/listProduct2"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listProductForYou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginBottom="20dp"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Tất cả sản phẩm"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/arrow_right" />
+
+            </LinearLayout>
+            <com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView
+                android:id="@+id/listProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="25dp"
+                android:horizontalSpacing="10dp"
+                android:isScrollContainer="false"
+                android:numColumns="2"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="20dp"/>
+
         </LinearLayout>
     </ScrollView>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="42dp"
@@ -120,10 +146,12 @@
         android:gravity="center"
         android:background="@drawable/color_gradient">
         <ImageView
+            android:id="@+id/btn_home"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/home"/>
         <ImageView
+            android:id="@+id/btn_favourite"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="50dp"

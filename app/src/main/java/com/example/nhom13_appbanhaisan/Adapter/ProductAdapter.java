@@ -50,7 +50,6 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         sold.setText("Đã bán "+product.getSo_luong_da_ban());
         Picasso.get().load(product.getAnh()).into(img);
 
-        // Gọi sự kiện click khi item được nhấn
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

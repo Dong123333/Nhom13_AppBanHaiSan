@@ -1,6 +1,5 @@
 package com.example.nhom13_appbanhaisan.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,21 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CartAdapter extends ArrayAdapter<Cart> {
+public class WaitAdapter extends ArrayAdapter<Cart> {
     Context context;
     int resource;
     List<Cart> objects;
-    private List<Integer> selectedPositions = new ArrayList<>();
 
-    public void setSelectedPosition(List<Integer> position) {
-        selectedPositions = position;
-    }
-
-    public List<Integer> getSelectedPosition() {
-        return selectedPositions;
-    }
-
-    public CartAdapter(@NonNull Context context, int resource, @NonNull List<Cart> objects) {
+    public WaitAdapter(@NonNull Context context, int resource, @NonNull List<Cart> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource = resource;
@@ -66,23 +56,7 @@ public class CartAdapter extends ArrayAdapter<Cart> {
         gia.setText("Giá: "+format.format(cart.getGia()));
         soCan.setText(cart.getSoCan() + "kg");
         soTien.setText(format.format(cart.getSoTien()));
-        CheckBox checkBox = convertView.findViewById(R.id.checkboxCart);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int itemPrice = getItem(position).getSoTien();
-                EventBus.getDefault().post(new UpdateTotalEvent(isChecked ? itemPrice : -itemPrice));
-                selectedPositions.add(position);
-            }
-        });
         return convertView;
-    }
-
-    public void removeItem(int position) {
-        if (objects != null && position >= 0 && position < objects.size()) {
-            objects.remove(position);
-            notifyDataSetChanged();
-        }
     }
     public int getCount() {
         return super.getCount();
