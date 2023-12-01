@@ -47,7 +47,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/backgroungbtnadmin"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="32dp"
@@ -71,7 +72,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/backgroungbtnadmin"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -101,7 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal"
                 android:background="@drawable/backgroungbtnadmin">
                 <ImageView
@@ -128,7 +131,8 @@
                 android:background="@drawable/backgroungbtnadmin"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp">
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -157,7 +161,8 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/backgroungbtnadmin">
                 <ImageView
                     android:layout_width="32dp"
@@ -183,7 +188,8 @@
                 android:layout_alignParentRight="true"
                 android:orientation="horizontal"
                 android:background="@drawable/backgroungbtnadmin"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp">
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
