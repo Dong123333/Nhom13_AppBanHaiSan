@@ -135,8 +135,8 @@
                 android:id="@+id/checkboxdk"/>
             <TextView
                 android:id="@+id/dieukhoan0"
-                android:layout_width="135dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginLeft="6dp"
                 android:text="Tôi đồng ý với các"
@@ -145,17 +145,18 @@
                 android:textSize="16dp" />
             <TextView
                 android:id="@+id/dieukhoan"
-                android:layout_width="80dp"
-                android:layout_height="20dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="điều khoản"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="#CCCC00"
                 android:textSize="16dp" />
             <TextView
                 android:id="@+id/dieukhoan1"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="sau"
                 android:fontFamily="@font/roboto_regular"
@@ -166,9 +167,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/btndangki"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:textColor="@android:color/white"
             android:text="Đăng kí"
             android:fontFamily="@font/roboto_regular"
