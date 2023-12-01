@@ -1,7 +1,9 @@
 package com.example.nhom13_appbanhaisan.Model;
 
+import com.google.firebase.database.Exclude;
+
 public class Product {
-    private int id;
+    @Exclude private String id;
     private String anh;
     private String ten_san_pham;
     private int gia;
@@ -27,11 +29,12 @@ public class Product {
         this.so_luong_ton_kho = so_luong_ton_kho;
     }
 
-    public int getId() {
+    @Exclude
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -2,6 +2,7 @@ package com.example.nhom13_appbanhaisan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -10,7 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.nhom13_appbanhaisan.Fragment.WaitForConfirmationFragment;
+import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class PurchaseOrderActivity extends AppCompatActivity {
     private ImageView back;
     private TabLayout tabLayout;
@@ -23,21 +29,9 @@ public class PurchaseOrderActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
         Intent intent = getIntent();
-        String name = intent.getStringExtra("TEN");
-        String anh = intent.getStringExtra("ANH");
-        String quycach = intent.getStringExtra("QUYCACH");
-        int gia = intent.getIntExtra("GIA", 0);
-        int can = intent.getIntExtra("CAN", 0);
-        int tientt = intent.getIntExtra("TONG",0);
-
         Bundle bundle = new Bundle();
-        bundle.putString("TEN", name);
-        bundle.putString("ANH", anh);
-        bundle.putString("QUYCACH", quycach);
-        bundle.putInt("TONGTIEN", tientt);
-        bundle.putInt("GIA", gia);
-        bundle.putInt("CAN", can);
-
+        List<Cart> selectedItems = intent.getParcelableArrayListExtra("SELECTED_ITEMS_PURCHASE");
+        bundle.putParcelableArrayList("SELECTED_ITEMS_WAIT", (ArrayList<? extends Parcelable>) selectedItems);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this,bundle);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

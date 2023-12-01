@@ -31,7 +31,7 @@ public class InsertProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insertproduct);
         getView();
         Intent intent = getIntent();
-        int productId = intent.getIntExtra("ID",0);
+        String productId = intent.getStringExtra("ID");
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +64,7 @@ public class InsertProductActivity extends AppCompatActivity {
         back = findViewById(R.id.backInsert);
         upload = findViewById(R.id.loadImageInsert);
     }
-    public void insertValueFirebase(int id){
+    public void insertValueFirebase(String id){
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         String timestamp = String.valueOf(System.currentTimeMillis());
@@ -85,7 +85,7 @@ public class InsertProductActivity extends AppCompatActivity {
                                 String monngon = monNgon.getText().toString();
                                 int soluong = Integer.parseInt(soLuong.getText().toString());
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference productsRef = database.getReference("products").child(String.valueOf(id));
+                                DatabaseReference productsRef = database.getReference("products").child(id);
                                 productsRef.child("anh").setValue(imageUrl);
                                 productsRef.child("ten_san_pham").setValue(ten);
                                 productsRef.child("quy_cach").setValue(quycach);

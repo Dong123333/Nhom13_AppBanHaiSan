@@ -27,9 +27,15 @@ public class SplashScreenActivity extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Intent intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if (currentUser.getEmail().equals("admin@gmail.com")){
+                        Intent intent = new Intent(SplashScreenActivity.this, UserAccountManagementActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }
 
             }

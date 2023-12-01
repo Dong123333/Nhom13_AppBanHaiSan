@@ -134,42 +134,42 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_gravity="center"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="3"
-                android:orientation="horizontal">
+                android:layout_marginBottom="10dp">
 
-
-                <ImageView
-
-                    android:id="@+id/imageView8"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="16dp"
-                    app:srcCompat="@drawable/list" />
-
-                <TextView
-                    android:id="@+id/textView4"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="center"
-                    android:text="Đơn mua"
-                    android:textColor="@color/black" />
+                    android:layout_alignParentLeft="true">
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/list" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:text="Đơn mua"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="110dp"
-                    android:layout_gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
                     android:text="Xem lịch sử mua hàng >"
                     android:textColor="@color/black" />
-
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,7 +183,7 @@
                     android:id="@+id/choxacnhan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -191,14 +191,15 @@
                         android:id="@+id/imageView18"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="30dp"
-                        app:srcCompat="@drawable/choxacnhan" />
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/choxacnhan" />
 
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_gravity="center_horizontal"
                         android:textColor="@color/black"
                         android:text="Đang chờ xác nhận"
                         android:textSize="10sp" />
@@ -215,15 +216,15 @@
                         android:id="@+id/imageView19"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="35dp"
-                        app:srcCompat="@drawable/cholayhang" />
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/cholayhang" />
 
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
                         android:text="Chờ lấy hàng"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
@@ -241,15 +242,15 @@
                         android:id="@+id/imageView20"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="40dp"
-                        app:srcCompat="@drawable/danggiao" />
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/danggiao" />
 
                     <TextView
                         android:id="@+id/textView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="35dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
                         android:text="Đang giao"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
@@ -266,15 +267,15 @@
                         android:id="@+id/imageView21"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="40dp"
-                        app:srcCompat="@drawable/danhgia" />
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/danhgia" />
 
                     <TextView
                         android:id="@+id/textView20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="35dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
                         android:text="Đánh giá"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
@@ -293,29 +294,28 @@
                 android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/wapcontent"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
+                    android:background="@drawable/wapcontent">
 
                     <ImageView
                         android:id="@+id/imageView23"
                         android:layout_width="28dp"
                         android:layout_height="23dp"
                         android:layout_gravity="center"
-                        android:layout_marginStart="12dp"
-                        app:srcCompat="@drawable/thietlap" />
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/thietlap" />
 
                     <TextView
                         android:id="@+id/textView21"
-                        android:layout_width="80dp"
-                        android:layout_height="34dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="Thiết lập tài khoản" />
 
                 </LinearLayout>
@@ -323,9 +323,8 @@
                 <LinearLayout
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:padding="8dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
 
@@ -333,15 +332,16 @@
                         android:id="@+id/imageView25"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/security" />
+                        android:src="@drawable/security" />
 
                     <TextView
                         android:id="@+id/textView22"
-                        android:layout_width="62dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:text="Bảo mật xác thực" />
@@ -361,30 +361,27 @@
                 android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:paddingRight="16dp"
-                    android:background="@drawable/wapcontent"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp"
-                    >
+                    android:background="@drawable/wapcontent">
 
                     <ImageView
                         android:id="@+id/imageView32"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
-                        app:srcCompat="@drawable/quyenriengtu" />
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/quyenriengtu" />
 
                     <TextView
                         android:id="@+id/textView23"
-                        android:layout_width="83dp"
-                        android:layout_height="34dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="14dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:textColor="@color/black"
                         android:text="Quyền riêng tư"
                         android:textAlignment="center" />
@@ -394,9 +391,8 @@
                 <LinearLayout
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:padding="8dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
 
@@ -404,15 +400,16 @@
                         android:id="@+id/imageView37"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/history" />
+                        android:src="@drawable/history" />
 
                     <TextView
                         android:id="@+id/textView29"
-                        android:layout_width="75dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:text="Lịch sử hoạt động
@@ -431,11 +428,9 @@
                 android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/wapcontent">
 
@@ -444,15 +439,16 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
-                        app:srcCompat="@drawable/dulieucanhan" />
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/dulieucanhan" />
 
                     <TextView
                         android:id="@+id/textView30"
-                        android:layout_width="81dp"
-                        android:layout_height="34dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:textColor="@color/black"
                         android:text="Xóa dữ liệu cá nhân" />
                 </LinearLayout>
@@ -460,8 +456,8 @@
                 <LinearLayout
                     android:layout_weight="1"
                     android:background="@drawable/wapcontent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
 
@@ -469,16 +465,17 @@
                         android:id="@+id/imageView38"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/email" />
+                        android:src="@drawable/email" />
 
                     <TextView
                         android:id="@+id/textView31"
-                        android:layout_width="74dp"
-                        android:layout_height="34dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:textColor="@color/black"
                         android:text="Báo cáo phản hồi" />
                 </LinearLayout>

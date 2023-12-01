@@ -7,13 +7,13 @@
     tools:context=".CartActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:background="#89F7FE"
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@drawable/arrow_left"/>
@@ -47,6 +47,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"
+                android:layout_centerVertical="true"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Xóa"
                 android:clickable="true"
@@ -66,7 +67,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="48dp">
         <TextView
             android:id="@+id/gioHangTrong"
@@ -83,25 +84,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </RelativeLayout>
-
-
     <LinearLayout
-        android:layout_width="260dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:background="@drawable/bk_footer"
-        android:weightSum="3">
+        android:orientation="horizontal">
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
             <CheckBox
                 android:id="@+id/chonTatCa"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,48 +108,47 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Chọn tất cả"
                 android:textSize="12sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"
                 android:text="Tổng thanh toán"
                 android:textSize="12sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000" />
+
             <TextView
                 android:id="@+id/tongTien"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"
                 android:text="0đ"
                 android:textSize="14sp"
-                android:textColor="#FD1E00"/>
+                android:textColor="#FD1E00" />
         </LinearLayout>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="#66A6FF">
         <Button
             android:id="@+id/muaHang"
-            android:layout_width="152dp"
-            android:layout_height="48dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
             android:fontFamily="@font/roboto_regular"
             android:text="Mua hàng"
             android:textSize="16sp"
             android:textColor="#FD1E00"
-            android:background="@drawable/bk_purchase"/>
+            android:textAllCaps="false"
+            android:background="@drawable/bk_purchase" />
     </LinearLayout>
 
 </RelativeLayout>

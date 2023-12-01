@@ -10,12 +10,12 @@
         android:background="#33DAFF">
         <ImageView
             android:id="@+id/backFavourite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/arrow_left"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:paddingLeft="10dp" />
+            android:layout_marginLeft="10dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

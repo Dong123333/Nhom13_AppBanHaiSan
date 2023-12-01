@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class GetStartedActivity extends AppCompatActivity {
     private Button btnlogin,btnsignup;
     private TextView btnlater;
@@ -35,9 +37,13 @@ public class GetStartedActivity extends AppCompatActivity {
         btnlater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
+
     }
 }

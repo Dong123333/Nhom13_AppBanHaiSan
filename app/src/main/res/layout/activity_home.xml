@@ -50,6 +50,7 @@
             android:layout_height="32dp"
             android:src="@drawable/chat"
             android:layout_marginTop="28dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -98,7 +99,7 @@
                 android:id="@+id/listProductForYou"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"/>
 
             <LinearLayout
@@ -128,13 +129,14 @@
                 android:id="@+id/listProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:horizontalSpacing="10dp"
                 android:isScrollContainer="false"
                 android:numColumns="2"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="20dp"/>
+                android:verticalSpacing="10dp"/>
 
         </LinearLayout>
     </ScrollView>

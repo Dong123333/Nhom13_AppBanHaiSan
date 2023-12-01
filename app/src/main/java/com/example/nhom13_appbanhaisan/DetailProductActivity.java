@@ -151,13 +151,11 @@ public class DetailProductActivity extends AppCompatActivity {
                     DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
                     int soCan = Integer.parseInt(soLuong.getText().toString());
                     int soTien = gia * soCan;
-                    Cart cart = new Cart(img, ten, quycach, gia, soCan, soTien);
                     userCartRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            long count = snapshot.getChildrenCount() + 1;
-                            cart.setId((int) count);
-                            userCartRef.child(String.valueOf(count)).setValue(cart)
+                            Cart cart = new Cart(img, ten, quycach, gia, soCan, soTien);
+                            userCartRef.push().setValue(cart)
                                     .addOnSuccessListener(aVoid -> {
                                         Toast.makeText(DetailProductActivity.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                                     })

@@ -16,7 +16,9 @@ import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderAdapter extends ArrayAdapter<Cart> {
     Activity context;
@@ -28,32 +30,23 @@ public class OrderAdapter extends ArrayAdapter<Cart> {
         this.resource=resource;
         this.objects=objects;
     }
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-
         LayoutInflater inflater = this.context.getLayoutInflater();
         convertView = inflater.inflate(this.resource,null);
-
         ImageView img = convertView.findViewById(R.id.imgItemOrder) ;
         TextView name = convertView.findViewById(R.id.nameOrder);
         TextView gia = convertView.findViewById(R.id.giaOrder);
         TextView can = convertView.findViewById(R.id.soCanOrder);
         TextView tien = convertView.findViewById(R.id.soTienOrder);
-
         Cart cartOrder = this.objects.get(position);
-
-
         Picasso.get().load(cartOrder.getAnh()).into(img);
         name.setText(cartOrder.getTen());
-        gia.setText("Giá: "+cartOrder.getGia()+"đ");
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+        gia.setText("Giá: "+format.format(cartOrder.getGia()));
         can.setText("Số kg: "+cartOrder.getSoCan()+"kg");
-        tien.setText(cartOrder.getSoTien()+"đ");
-
-
+        tien.setText(format.format(cartOrder.getSoTien()));
         return convertView;
     }
 }
-

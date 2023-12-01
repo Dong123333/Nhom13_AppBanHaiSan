@@ -89,6 +89,7 @@ public class ManagerProductActivity extends AppCompatActivity {
                 list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
+                    product.setId(dataSnapshot.getKey());
                     list.add(product);
                 }
                 adapter.notifyDataSetChanged();
@@ -100,7 +101,7 @@ public class ManagerProductActivity extends AppCompatActivity {
             }
         });
     }
-    private void showDeleteConfirmationDialog(final int productId) {
+    private void showDeleteConfirmationDialog(final String productId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Bạn có chắc muốn xóa sản phẩm này?")
                 .setPositiveButton("Có", new DialogInterface.OnClickListener() {
@@ -119,13 +120,13 @@ public class ManagerProductActivity extends AppCompatActivity {
                 });
         builder.create().show();
     }
-    private void deleteProductFromFirebase(int productId) {
+    private void deleteProductFromFirebase(String productId) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("products");
-        reference.child(String.valueOf(productId)).removeValue();
+        reference.child(productId).removeValue();
     }
-    private int getProductIndexById(int productId) {
+    private int getProductIndexById(String productId) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getId() == productId) {
+            if (list.get(i).getId().equals(productId)) {
                 return i;
             }
         }

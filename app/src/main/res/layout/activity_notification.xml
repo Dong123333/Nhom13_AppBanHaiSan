@@ -5,25 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".NotificationActivity"
     android:background="@drawable/color_gradient">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#33DAFF"
-        android:orientation="horizontal">
+        android:layout_alignParentTop="true"
+        android:background="#33DAFF">
         <ImageView
             android:id="@+id/backNoti"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/arrow"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"/>
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/arrow_left"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thông báo"
-            android:layout_gravity="center"
-            android:layout_marginLeft="110dp"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
             android:textSize="20sp"
             android:textColor="#000000" />
@@ -32,10 +31,10 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/chat"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="110dp"/>
-    </LinearLayout>
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="32dp"
@@ -76,6 +75,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"
@@ -111,8 +111,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="65dp"
@@ -147,6 +147,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"
@@ -183,6 +184,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"
@@ -218,6 +220,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"
@@ -253,6 +256,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="65dp"

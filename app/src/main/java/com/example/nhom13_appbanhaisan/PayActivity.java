@@ -3,6 +3,7 @@ package com.example.nhom13_appbanhaisan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,13 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.nhom13_appbanhaisan.Fragment.WaitForConfirmationFragment;
+import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 public class PayActivity extends AppCompatActivity {
+    private ImageView back;
     private Button btnxacnhan;
     private CountDownTimer countDownTimer;
     private final long startTimeInMillis = 10 * 60 * 1000;
@@ -30,46 +35,35 @@ public class PayActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
-        ImageView back =findViewById(R.id.btnback);
         btnxacnhan=findViewById(R.id.xacnhan);
+        back = findViewById(R.id.btnback);
         Intent intent = getIntent();
-        int id = intent.getIntExtra("ID",0);
-        String name = intent.getStringExtra("TEN");
-        String anh = intent.getStringExtra("ANH");
-        String quycach = intent.getStringExtra("QUYCACH");
-        int gia = intent.getIntExtra("GIA", 0);
-        int can = intent.getIntExtra("CAN", 0);
-        int tienchuaformat = intent.getIntExtra("tongtienchuaformat",0);
-        String tientt = intent.getStringExtra("tongtien");
+        List<String> id = intent.getStringArrayListExtra("SELECTED_ITEMS_ID_PAY");
+        List<Cart> selectedItems = intent.getParcelableArrayListExtra("SELECTED_ITEMS_PAY");
+        String tientt = intent.getStringExtra("TONGTIEN");
         TextView tien = findViewById(R.id.tientra) ;
         tien.setText(tientt) ;
         TextView madonhang = findViewById(R.id.madh) ;
-         thoigian = findViewById(R.id.time);
-
-
-
+        thoigian = findViewById(R.id.time);
         String randomString = generateRandomString(7); //
         madonhang.setText(randomString);
         startCountdownTimer();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),OrderActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteProductFromFirebase(id);
-                Intent intent = new Intent(getApplicationContext(), PurchaseOrderActivity.class);
-                intent.putExtra("TEN", name);
-                intent.putExtra("GIA", gia);
-                intent.putExtra("CAN", can);
-                intent.putExtra("TONG", tienchuaformat);
-                intent.putExtra("ANH", anh);
-                intent.putExtra("QUYCACH", quycach);
-                startActivity(intent);
+                for(int i = 0 ; i < id.size(); i++){
+                    String idCart = id.get(i);
+                    deleteProductFromFirebase(idCart);
+                }
+                Intent newIntent = new Intent(getApplicationContext(), PurchaseOrderActivity.class);
+                newIntent.putParcelableArrayListExtra("SELECTED_ITEMS_PURCHASE", (ArrayList<? extends Parcelable>) selectedItems);
+                startActivity(newIntent);
             }
         });
     }
@@ -114,13 +108,13 @@ public class PayActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    private void deleteProductFromFirebase(int productId) {
+    private void deleteProductFromFirebase(String productId) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
             DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
-            userCartRef.child(String.valueOf(productId)).removeValue();
+            userCartRef.child(productId).removeValue();
         }
     }
 }

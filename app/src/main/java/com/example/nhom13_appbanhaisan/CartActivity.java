@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -108,12 +109,19 @@ public class CartActivity extends AppCompatActivity {
                     while (iterator.hasNext()) {
                         Integer position = iterator.next();
                         if (position != -1 && position < list.size()) {
-                            int id = list.get(position).getId();
+                            String id = list.get(position).getId();
                             deleteItemFirebase(id);
                         }
 
                         // Loại bỏ phần tử khỏi selectedPositions sử dụng iterator.remove()
                         iterator.remove();
+                    }
+                    if(chonTatCa.isChecked()==true){
+                        for(int i = listView.getCount() - 1 ; i >=0 ; i--){
+                            String id = list.get(i).getId();
+                            deleteItemFirebase(id);
+                            list.remove(i);
+                        }
                     }
 
                     // Cập nhật tổng tiền và thông báo thay đổi
@@ -127,27 +135,47 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!list.isEmpty()) {
-                    List<Integer> selectedPositions = adapter.getSelectedPosition();
-                    for(Integer position : selectedPositions){
-                        if (position != -1 && position < list.size()) {
-                            int id = list.get(position).getId();
-                            String ten = list.get(position).getTen();
-                            String quycach = list.get(position).getQuyCach();
-                            int gia = list.get(position).getGia();
-                            int can = list.get(position).getSoCan();
-                            int tong = list.get(position).getSoTien();
-                            String anh = list.get(position).getAnh();
+                    if(chonTatCa.isChecked()==true) {
+                        List<String> idCart = new ArrayList<>();
+                        List<Cart> selectedItems = new ArrayList<>();
+                        for (int i = listView.getCount() - 1; i >= 0; i--) {
+                            String id = list.get(i).getId();
+                            String ten = list.get(i).getTen();
+                            String quycach = list.get(i).getQuyCach();
+                            int gia = list.get(i).getGia();
+                            int can = list.get(i).getSoCan();
+                            int tong = list.get(i).getSoTien();
+                            String anh = list.get(i).getAnh();
                             Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
-                            intent.putExtra("ID",id);
-                            intent.putExtra("TEN", ten);
-                            intent.putExtra("GIA", gia);
-                            intent.putExtra("CAN", can);
-                            intent.putExtra("TONG", tong);
-                            intent.putExtra("ANH", anh);
-                            intent.putExtra("QUYCACH", quycach);
+                            selectedItems.add(new Cart(anh, ten, quycach, gia, can, tong));
+                            idCart.add(id);
+                            intent.putStringArrayListExtra("SELECTED_ITEMS_ID", (ArrayList<String>) idCart);
+                            intent.putParcelableArrayListExtra("SELECTED_ITEMS", (ArrayList<? extends Parcelable>) selectedItems);
                             startActivity(intent);
-                        } else {
-
+                        }
+                    }
+                    else {
+                        List<Cart> selectedItems = new ArrayList<>();
+                        List<String> idCart = new ArrayList<>();
+                        List<Integer> selectedPositions = adapter.getSelectedPosition();
+                        Iterator<Integer> iterator = selectedPositions.iterator();
+                        while (iterator.hasNext()) {
+                            Integer position = iterator.next();
+                            if (position != -1 && position < list.size()) {
+                                String id = list.get(position).getId();
+                                String ten = list.get(position).getTen();
+                                String quycach = list.get(position).getQuyCach();
+                                int gia = list.get(position).getGia();
+                                int can = list.get(position).getSoCan();
+                                int tong = list.get(position).getSoTien();
+                                String anh = list.get(position).getAnh();
+                                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                                selectedItems.add(new Cart(anh, ten, quycach, gia, can, tong));
+                                idCart.add(id);
+                                intent.putStringArrayListExtra("SELECTED_ITEMS_ID", (ArrayList<String>) idCart);
+                                intent.putParcelableArrayListExtra("SELECTED_ITEMS", (ArrayList<? extends Parcelable>) selectedItems);
+                                startActivity(intent);
+                            }
                         }
                     }
                 } else {
@@ -176,13 +204,13 @@ public class CartActivity extends AppCompatActivity {
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         tongTien.setText("" + format.format(newTotal));
     }
-    private void deleteItemFirebase(int id) {
+    private void deleteItemFirebase(String id) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
             DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
-            userCartRef.child(String.valueOf(id)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            userCartRef.child(id).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                 public void onComplete(@NonNull Task<Void> task) {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -219,6 +247,7 @@ public class CartActivity extends AppCompatActivity {
                     list.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                         Cart cart = dataSnapshot.getValue(Cart.class);
+                        cart.setId(dataSnapshot.getKey());
                         list.add(cart);
                     }
                     if(list.size() == 0){

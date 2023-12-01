@@ -2,54 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/color_gradient"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:orientation="horizontal"
-    android:background="#89F7FE">
-    <ImageView
-        android:id="@+id/btnback"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/arrow_left"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:id="@+id/textdathang"
-        android:text="Đặt hàng"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="20dp"
-        />
-
-</LinearLayout>
-
+    android:background="@drawable/color_gradient">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#89F7FE">
+        <ImageView
+            android:id="@+id/btnbackOrder"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/arrow_left"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textdathang"
+            android:text="Đặt hàng"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="710dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="50dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="710dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/color_gradient"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="5dp">
                 <LinearLayout
-                    android:layout_width="180dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="5dp">
                     <ImageView
@@ -60,11 +55,12 @@
                         android:layout_marginLeft="10dp"
                         />
                     <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:id="@+id/textdcdh"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Địa chỉ nhận hàng"
+                        android:layout_gravity="center_vertical"
                         android:textSize="14sp"
                         android:textColor="@color/black"
                         android:layout_marginLeft="10dp"
@@ -72,21 +68,21 @@
                         />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
-
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="30dp">
                     <LinearLayout
                         android:id="@+id/viewTen"
-                        android:layout_width="137dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/txthoten"
-                            android:layout_width="60dp"
-                            android:layout_height="18dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Họ tên"
                             android:textColor="@color/black"
@@ -96,7 +92,7 @@
 
                         <TextView
                             android:id="@+id/textView6"
-                            android:layout_width="132dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Huỳnh Văn Toàn"
                             android:textColor="@color/black"
@@ -105,14 +101,14 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="115dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="85dp">
                         <TextView
                             android:id="@+id/textsdt"
-                            android:layout_width="100dp"
-                            android:layout_height="18dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Số điện thoại"
                             android:textColor="@color/black"
@@ -127,14 +123,14 @@
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="5dp">
                     <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:id="@+id/txtdc"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Số nhà, tên đường..."
@@ -149,18 +145,18 @@
                         android:text="67 Hà Huy Tập" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="35dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="5dp">
                     <LinearLayout
-                        android:layout_width="86dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
-                            android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/txttp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Tỉnh/TP"
@@ -170,19 +166,19 @@
 
                         <TextView
                             android:id="@+id/viewTinh"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:text="Đà Nẵng" />
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="86dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="25dp">
                         <TextView
-                            android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/txtquan"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Quận/Huyện"
@@ -191,19 +187,19 @@
 
                         <TextView
                             android:id="@+id/viewQuan"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:text="Thanh Khê" />
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="86dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="25dp">
                         <TextView
-                            android:layout_width="86dp"
-                            android:layout_height="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/txtphuong"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Phường/Xã"
@@ -213,7 +209,7 @@
 
                         <TextView
                             android:id="@+id/viewPhuong"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:text="Chính Gián" />
@@ -235,37 +231,32 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/icon"
-                    android:layout_marginTop="-10dp"
-                    />
+                    android:background="@drawable/icon"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/appname"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
                     android:text="SEA FOOD STORE"
                     android:textSize="14sp"
-                    android:paddingTop="5dp"
-                    />
+                    android:paddingTop="5dp"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:orientation="vertical">
-
-                <ListView
-                    android:id="@+id/listPrOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
+            <com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView
+                android:id="@+id/listPrOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:isScrollContainer="false"
+                android:numColumns="1"
+                android:stretchMode="columnWidth"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -282,14 +273,14 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/txtvanchuyen"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:background="#C7F9F9"
                             android:fontFamily="@font/roboto_regular"
@@ -301,13 +292,12 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1">
-
                         <TextView
                             android:id="@+id/txtgiavanchuyen"
-                            android:layout_width="60dp"
-                            android:layout_height="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:layout_marginRight="15dp"
                             android:fontFamily="@font/roboto_regular"
@@ -321,14 +311,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="195dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -341,35 +331,33 @@
 
                     <TextView
                         android:id="@+id/txthoadon"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="7dp"
+                        android:layout_gravity="center_vertical"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Chi tiết hóa đơn"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/txttongtien"
                             android:layout_width="wrap_content"
-                            android:layout_height="18dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Tổng số tiền "
@@ -379,7 +367,7 @@
                         <TextView
                             android:id="@+id/demSP"
                             android:layout_width="wrap_content"
-                            android:layout_height="18dp"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:text="(2 sản phầm):"
                             android:textColor="@color/black"
@@ -387,16 +375,13 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_weight="2">
-
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
                         <TextView
                             android:id="@+id/tongtienSPOrder"
-                            android:layout_width="wrap_content"
-                            android:layout_height="15dp"
-                            android:layout_marginRight="2dp"
-                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:text="2.196.000đ"
                             android:textColor="#FD1E00"
@@ -406,52 +391,44 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="18dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
                     android:weightSum="3">
 
                     <LinearLayout
-                        android:layout_width="290dp"
-                        android:layout_height="18dp"
-                        android:layout_weight="1">
-
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
                         <TextView
                             android:id="@+id/txttongvanchuyen"
-                            android:layout_width="150dp"
-                            android:layout_height="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:fontFamily="@font/roboto_regular"
                             android:text="Tổng tiền phí vận chuyển:"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                     </LinearLayout>
-
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_weight="2">
-
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
                         <TextView
                             android:id="@+id/tongvanchuyen"
-                            android:layout_width="100dp"
-                            android:layout_height="20dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
-                            android:gravity="right"
                             android:text="80.000đ"
                             android:textColor="#FD1E00"
                             android:textSize="14sp" />
                     </LinearLayout>
-
-
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
@@ -464,28 +441,25 @@
         android:orientation="vertical"
         android:background="@drawable/strokett1"
         android:gravity="right"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
         <TextView
-            android:layout_width="150dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/txttratien"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:text="Tổng thanh toán"
-            android:gravity="center"
-            />
+            android:gravity="center" />
         <TextView
-            android:layout_width="150dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/tientra"
             android:fontFamily="@font/roboto_regular"
             android:text="1.866.600đ"
             android:textColor="#FD1E00"
             android:textSize="14sp"
-            android:gravity="center"
-            />
+            android:gravity="center" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -493,14 +467,12 @@
         android:id="@+id/dathang"
         android:layout_gravity="center"
         android:background="@drawable/strokett2"
-        android:layout_weight="2"
-        >
-
+        android:layout_weight="2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/tratien"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
             android:text="Thanh toán"
             android:textColor="#FD1E00"

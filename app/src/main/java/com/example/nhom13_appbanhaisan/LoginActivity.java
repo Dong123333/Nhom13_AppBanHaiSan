@@ -75,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = txtEmail.getText().toString();
-                String password = txtPassword.getText().toString();
+                String email = txtEmail.getText().toString().trim();
+                String password = txtPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                                         String getEmail = dataSnapshot.child("email").getValue(String.class);
                                                         String getName = dataSnapshot.child("fullName").getValue(String.class);
                                                         saveUserInfo(getName);
-                                                        if ("admin@gmail.com".equals(getEmail)) {
+                                                        if (("admin@gmail.com").trim().equals(getEmail)) {
                                                             Toast.makeText(LoginActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                                                             Intent intent = new Intent(LoginActivity.this, UserAccountManagementActivity.class);
                                                             startActivity(intent);

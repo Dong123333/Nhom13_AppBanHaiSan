@@ -94,13 +94,7 @@ public class UpdateProductActivity extends AppCompatActivity {
                                 productsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        long count = dataSnapshot.getChildrenCount() + 1;
-                                        product.setId((int) count);
-                                        productsRef.child(String.valueOf(count)).setValue(product).addOnSuccessListener(aVoid -> {
-                                            Log.d("Firebase", "Sản phẩm mới đã được thêm vào Firebase. ID: " + count);
-                                        }).addOnFailureListener(e -> {
-                                            Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
-                                        });
+                                        productsRef.push().setValue(product);
                                     }
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
