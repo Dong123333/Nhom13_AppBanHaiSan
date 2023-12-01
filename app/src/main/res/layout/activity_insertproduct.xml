@@ -71,6 +71,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Tên hải sản"
                     android:textColor="#000000"
@@ -78,8 +79,11 @@
 
                 <EditText
                     android:id="@+id/nameInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />
@@ -94,6 +98,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Quy cách"
                     android:textColor="#000000"
@@ -101,8 +106,11 @@
 
                 <EditText
                     android:id="@+id/quyCachInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />
@@ -117,6 +125,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Xuất xứ"
                     android:textColor="#000000"
@@ -124,8 +133,11 @@
 
                 <EditText
                     android:id="@+id/xuatXuInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />
@@ -140,6 +152,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Món ngon"
                     android:textColor="#000000"
@@ -147,8 +160,11 @@
 
                 <EditText
                     android:id="@+id/monNgonInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />
@@ -163,6 +179,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Số lượng"
                     android:textColor="#000000"
@@ -170,8 +187,11 @@
 
                 <EditText
                     android:id="@+id/soLuongInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />
@@ -186,6 +206,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Giá"
                     android:textColor="#000000"
@@ -193,8 +214,11 @@
 
                 <EditText
                     android:id="@+id/giaInsert"
-                    android:layout_width="250dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:background="@drawable/input_round" />

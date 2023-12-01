@@ -25,7 +25,7 @@
     </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="170dp"
         android:orientation="vertical">
         <TextView
@@ -37,57 +37,63 @@
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="180dp"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/backgroungbtnadmin">
-                <ImageView
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/user" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:text="Tạo mới tài khoản"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:textSize="16dp" />
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="80dp"
                 android:background="@drawable/backgroungbtnadmin"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/history"
+                    android:src="@drawable/user" />
 
-                   />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xem lịch sủ\nhoạt động"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    />
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Tạo mới tài khoản"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/backgroungbtnadmin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/history" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Xem lịch sủ\nhoạt động"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -95,6 +101,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="180dp"
@@ -105,7 +113,6 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/suathongtin"
-
                     android:layout_marginLeft="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -124,12 +131,11 @@
                 android:background="@drawable/backgroungbtnadmin"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp">
+                android:layout_marginLeft="10dp">
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/thongke"
-
                     android:layout_marginLeft="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -142,13 +148,13 @@
                     android:layout_marginRight="10dp"/>
             </LinearLayout>
         </LinearLayout>
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal">
             <LinearLayout
                 android:id="@+id/managerProduct"
@@ -176,7 +182,7 @@
                 android:layout_width="180dp"
                 android:layout_height="80dp"
                 android:background="@drawable/backgroungbtnadmin"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="32dp"
