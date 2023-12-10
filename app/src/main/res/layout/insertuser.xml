@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InsertUserActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#33DAFF">
+        <ImageView
+            android:id="@+id/backInsertUser"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_left"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Sửa Hồ sơ"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/btnLuu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Lưu"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#66FFFF">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageInsertUser"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:src="@drawable/user" />
+
+            <TextView
+                android:id="@+id/insertImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center_horizontal"
+                android:text="Chạm vào để thay đổi"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bk_voucher">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Họ và tên"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/hoVaTen"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Nhập họ và tên"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bk_voucher">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Giới tính"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/gioiTinh"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Nhập giới tính"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bk_voucher">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Ngày sinh"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/ngaySinh"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Nhập ngày sinh"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bk_voucher">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:text="Điện thoại"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/soDienThoai"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Nhập số điện thoại"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

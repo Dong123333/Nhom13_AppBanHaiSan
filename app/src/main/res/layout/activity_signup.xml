@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity"
+    tools:context=".LoginActivity"
     android:background="@drawable/color_gradient">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/btnback"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/arrow_left"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="48dp"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/btnback"
-            android:src="@drawable/arrow_left"
-            android:layout_margin="15dp"/>
         <FrameLayout
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/icon"/>
-        <TextView
-            android:id="@+id/dangki"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Đăng kí"
-            android:textSize="34sp"
-            android:textAlignment="center"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/black"/>
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/icon"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Đăng ký"
+                android:textSize="34sp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/black"/>
+        </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +58,7 @@
                 android:layout_marginRight="10dp"
                 android:paddingTop="15dp"
                 android:hint="Họ và tên"
+                android:inputType="text"
                 android:singleLine="true"
                 android:paddingBottom="15dp"
                 android:paddingLeft="20dp"
@@ -111,8 +124,7 @@
                     android:paddingRight="20dp"
                     android:background="@drawable/input_round"
                     android:hint="Nhập lại mật khẩu"
-                    android:inputType="textPassword"
-                    />
+                    android:inputType="textPassword" />
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -122,63 +134,88 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="30dp"/>
             </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp">
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/checkboxdk"/>
+                <TextView
+                    android:id="@+id/dieukhoan0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="6dp"
+                    android:text="Tôi đồng ý với các"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/dieukhoan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="điều khoản"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="#CCCC00"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/dieukhoan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="sau"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp">
-            <CheckBox
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/checkboxdk"/>
-            <TextView
-                android:id="@+id/dieukhoan0"
-                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="6dp"
-                android:text="Tôi đồng ý với các"
+                android:id="@+id/signUp"
+                android:textColor="@android:color/white"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/black"
-                android:textSize="16dp" />
-            <TextView
-                android:id="@+id/dieukhoan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="điều khoản"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="#CCCC00"
-                android:textSize="16dp" />
-            <TextView
-                android:id="@+id/dieukhoan1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="sau"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:text="Đăng ký"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/btnlogin_round"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
         </LinearLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/btndangki"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/white"
-            android:text="Đăng kí"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:background="@drawable/btnlogin_round"
-
-            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bạn đã có tài khoản?"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Đăng nhập ngay"
+            android:textSize="14sp"
+            android:textColor="#0000FF"
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
 </RelativeLayout>

@@ -25,94 +25,32 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/gioHang"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cart"/>
     </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
         android:fillViewport="true">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imgback"
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="100dp"
-                    app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
-
-                <ImageView
-                    android:id="@+id/imgselect"
-                    android:layout_width="250dp"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="33dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_weight="0.5"
-                    app:srcCompat="@drawable/ca" />
-
-                <ImageView
-                    android:id="@+id/nextimg"
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginEnd="16dp"
-                    app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
+            <ImageView
+                android:id="@+id/imgselect"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/img1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_weight="0.9"
-                    app:srcCompat="@drawable/ca" />
-
-                <ImageView
-                    android:id="@+id/img2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ca" />
-
-                <ImageView
-                    android:id="@+id/img3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ca" />
-
-                <ImageView
-                    android:id="@+id/img4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ca" />
-
-            </LinearLayout>
-
+                android:src="@drawable/ca" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -123,7 +61,6 @@
                 android:background="@drawable/wapcontent"
                 android:orientation="vertical"
                 android:padding="6dp">
-
                 <TextView
                     android:id="@+id/nameproduct"
                     android:layout_width="match_parent"
@@ -289,6 +226,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -335,28 +273,6 @@
                         android:text="+"
                         android:textSize="20sp" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:weightSum="1">
-
-                    <Button
-                        android:id="@+id/btnaddcart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btndefault"
-                        android:gravity="center"
-                        android:text="Thêm vào giỏ hàng" />
-
-                </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -372,7 +288,6 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:text="Nhận xét"
@@ -380,18 +295,16 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/edtComment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
-                    android:ems="10"
                     android:hint="Nhập nhận xét của bạn....."
                     android:textColor="@color/black"
-                    android:inputType="text" />
+                    android:inputType="text"/>
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/btnComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -401,121 +314,83 @@
                     android:text="Nhận xét" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+            <com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView
+                android:id="@+id/listComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="20sp"
-                android:padding="16dp"
-                android:background="@drawable/wapcontent"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <ImageView
-                        android:id="@+id/imageView16"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/thietlap" />
-
-                    <TextView
-                        android:id="@+id/username"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginTop="22dp"
-                        android:text="Username"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageView12"
-                        android:layout_width="66dp"
-                        android:layout_height="65dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="14dp"
-                        app:srcCompat="@drawable/ca" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/black"
-                        android:text="Cá mú có nhiều xương, thân hình dẹp và miệng rộng. Có nhiều đốm vàng trên thân cá mà dân biển còn gọi là bông hay sao" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    >
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_weight="9"
-                        app:srcCompat="@drawable/heart"
-                        android:layout_marginTop="14dp"
-                        android:gravity="end"
-                        />
-
-                    <TextView
-                        android:id="@+id/textView24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="14dp"
-                        android:layout_weight="1"
-                        android:textColor="@color/black"
-                        android:text="phản hồi"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Xem Thêm"
-                    android:textColor="@color/black"
-                    android:gravity="center"
-                    />
-
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
-
-            </LinearLayout>
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:isScrollContainer="false"
+                android:numColumns="1"
+                android:stretchMode="columnWidth"
+                android:background="@drawable/wapcontent"/>
         </LinearLayout>
 
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/bk_purchase">
+        <LinearLayout
+            android:id="@+id/addFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/bk_purchase">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/heart" />
+            <TextView
+                android:id="@+id/tongTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"
+                android:text="Thêm vào yêu thích"
+                android:textSize="10sp"
+                android:textColor="#FD1E00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addCart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/shopping_cart" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Thêm vào giỏ hàng"
+                android:textAlignment="center"
+                android:textColor="#FD1E00"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnBuy"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Mua hàng"
+            android:textSize="16sp"
+            android:textColor="#FD1E00"
+            android:textAllCaps="false"
+            android:background="@drawable/bk_purchase" />
+    </LinearLayout>
 </RelativeLayout>

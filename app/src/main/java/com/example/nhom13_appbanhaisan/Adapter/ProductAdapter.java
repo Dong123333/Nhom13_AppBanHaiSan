@@ -12,13 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Model.Product;
 import com.example.nhom13_appbanhaisan.R;
+import com.squareup.picasso.Cache;
+import com.squareup.picasso.LruCache;
+import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
+
+import okhttp3.OkHttpClient;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
     Activity context;
@@ -44,11 +51,16 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView price = convertView.findViewById(R.id.price);
         TextView sold = convertView.findViewById(R.id.sold);
         Product product = this.objects.get(position);
-        name.setText(Html.fromHtml(product.getTen_san_pham(), Html.FROM_HTML_MODE_LEGACY));
+        name.setText(product.getTen_san_pham());
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         price.setText(format.format(product.getGia()));
         sold.setText("Đã bán "+product.getSo_luong_da_ban());
-        Picasso.get().load(product.getAnh()).into(img);
+        Glide.with(context)
+                .load(product.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(img);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

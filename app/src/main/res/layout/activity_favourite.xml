@@ -7,6 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentTop="true"
         android:background="#33DAFF">
         <ImageView
             android:id="@+id/backFavourite"
@@ -28,8 +29,10 @@
 
     </RelativeLayout>
     <LinearLayout
+        android:id="@+id/favTrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_centerInParent="true">
         <TextView
             android:layout_width="wrap_content"
@@ -37,5 +40,32 @@
             android:text="Trống"
             android:textSize="24sp"
             android:textColor="@color/black"/>
+
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#CCE5FF">
+            <com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView
+                android:id="@+id/listFavourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:horizontalSpacing="10dp"
+                android:isScrollContainer="false"
+                android:numColumns="2"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="10dp" />
+        </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.example.nhom13_appbanhaisan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Parcelable;
@@ -20,8 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 public class PayActivity extends AppCompatActivity {
@@ -51,18 +54,46 @@ public class PayActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i = 0 ; i < id.size(); i++){
-                    String idCart = id.get(i);
-                    deleteProductFromFirebase(idCart);
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                String userId = currentUser.getUid();
+                String madh = madonhang.getText().toString();
+                String tongtien = tien.getText().toString();
+                if(id != null){
+                    for(int i = 0 ; i < id.size(); i++){
+                        String idCart = id.get(i);
+                        deleteProductFromFirebase(idCart);
+                    }
                 }
-                Intent newIntent = new Intent(getApplicationContext(), PurchaseOrderActivity.class);
-                newIntent.putParcelableArrayListExtra("SELECTED_ITEMS_PURCHASE", (ArrayList<? extends Parcelable>) selectedItems);
+                if(selectedItems != null && !selectedItems.isEmpty()){
+                    DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("wait");
+                    for (Cart selectedItem : selectedItems) {
+                        String anh = selectedItem.getAnh();
+                        String name = selectedItem.getTen();
+                        String quycach = selectedItem.getQuyCach();
+                        int tongtt = selectedItem.getSoTien();
+                        int gia = selectedItem.getGia();
+                        int can = selectedItem.getSoCan();
+                        Cart cart = new Cart(anh, name, quycach, gia, can, tongtt);
+                        userCartRef.push().setValue(cart);
+                    }
+                }
+                DatabaseReference notification = FirebaseDatabase.getInstance().getReference("users").child(userId).child("notifications");
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("madh", madh);
+                hashMap.put("trangthaidonhang", "Đang chờ xác nhận");
+                hashMap.put("tongtien", tongtien);
+                notification.push().setValue(hashMap);
+                Toast.makeText(PayActivity.this,"Đặt hàng thành công",Toast.LENGTH_SHORT).show();
+                Intent newIntent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(newIntent);
             }
         });

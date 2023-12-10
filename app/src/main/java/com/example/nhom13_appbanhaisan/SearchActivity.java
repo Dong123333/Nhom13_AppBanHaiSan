@@ -43,7 +43,6 @@ public class SearchActivity extends AppCompatActivity {
 
     ProductAdapter searchAdapter;
     ArrayList<Product> arrayListSearch;
-    private Collator collator = Collator.getInstance(new Locale("vi", "VN"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +57,12 @@ public class SearchActivity extends AppCompatActivity {
 
         arrayListProduct = new ArrayList<>();
 
-        //set sự kiện click vào sản phẩm để truyền sang trang chi tiêết
         arrayListSearch = new ArrayList<>();
         searchAdapter = new ProductAdapter(SearchActivity.this, arrayListSearch, new ProductAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Product product) {
                 Intent intent = new Intent(SearchActivity.this, DetailProductActivity.class);
+                intent.putExtra("ID",product.getId());
                 intent.putExtra("IMAGE_URL", product.getAnh());
                 intent.putExtra("TEN", product.getTen_san_pham());
                 intent.putExtra("GIA", product.getGia());
@@ -113,6 +112,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
+                    product.setId(dataSnapshot.getKey());
                     arrayListProduct.add(product);
                 }
             }

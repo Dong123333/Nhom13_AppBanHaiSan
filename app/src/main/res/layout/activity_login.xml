@@ -1,141 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@drawable/color_gradient">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/btnback"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/arrow_left"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="48dp"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/btnback"
-            android:src="@drawable/arrow_left"
-            android:layout_margin="15dp"/>
         <FrameLayout
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/icon"/>
-        <TextView
-            android:id="@+id/dangnhap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Đăng nhập"
-            android:textSize="34sp"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/black"/>
+               android:id="@+id/logo"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="200dp"
+                   android:src="@drawable/icon"/>
+               <TextView
+                   android:id="@+id/dangnhap"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="70dp"
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:text="Đăng nhập"
+                   android:textSize="34sp"
+                   android:fontFamily="@font/roboto_bold"
+                   android:textColor="@color/black"/>
+        </FrameLayout>
+        <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginTop="25dp"
+               android:layout_marginBottom="15dp">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp">
+                   <TextView
+                       android:id="@+id/textsdt"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:text="Email"
+                       android:fontFamily="@font/roboto_regular"
+                       android:textSize="14sp" />
+                   <EditText
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:id="@+id/sdt"
+                       android:maxLines="1"
+                       android:singleLine="true"
+                       android:paddingTop="15dp"
+                       android:paddingBottom="15dp"
+                       android:paddingLeft="10dp"
+                       android:background="@drawable/input_round"/>
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp">
+                   <TextView
+                       android:id="@+id/textmk"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:text="Mật khẩu"
+                       android:fontFamily="@font/roboto_regular"
+                       android:textSize="14sp" />
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <EditText
+                           android:id="@+id/mk"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:maxLines="1"
+                           android:singleLine="true"
+                           android:paddingTop="15dp"
+                           android:paddingBottom="15dp"
+                           android:paddingLeft="10dp"
+                           android:paddingRight="20dp"
+                           android:background="@drawable/input_round"
+                           android:inputType="textPassword"/>
+                       <ImageView
+                           android:layout_width="24dp"
+                           android:layout_height="24dp"
+                           android:src="@drawable/xemmk"
+                           android:id="@+id/xemmk"
+                           android:layout_alignParentRight="true"
+                           android:layout_centerVertical="true"
+                           android:layout_marginRight="30dp"/>
+                   </RelativeLayout>
+               </LinearLayout>
+               <TextView
+                   android:id="@+id/quenmk"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:gravity="right"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginRight="20dp"
+                   android:text="Quên mật khẩu?"
+                   android:fontFamily="@font/roboto_regular"
+                   android:textSize="14dp"
+                   android:layout_gravity="right"/>
+           </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp">
-            <TextView
-                android:id="@+id/textsdt"
+            android:orientation="vertical">
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Email"
+                android:id="@+id/btndangnhap"
+                android:textColor="@android:color/white"
                 android:fontFamily="@font/roboto_regular"
-                android:textSize="14sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/sdt"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/input_round"/>
+                android:text="Đăng nhập"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/btnlogin_round"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp">
-            <TextView
-                android:id="@+id/textmk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
-                android:text="Mật khẩu"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/roboto_regular"
-                android:textSize="14sp"
-                android:layout_gravity="center" />
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/mk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="20dp"
-                    android:background="@drawable/input_round"
-                    android:inputType="textPassword"/>
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/xemmk"
-                    android:id="@+id/xemmk"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="30dp"/>
-            </RelativeLayout>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/quenmk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:text="Quên mật khẩu?"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="14dp"
-            android:layout_gravity="right"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp">
-        <Button
-            android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btndangnhap"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Đăng nhập"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:background="@drawable/btnlogin_round"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:text="Bạn chưa có tài khoản?"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/btnSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Đăng ký ngay"
+            android:textSize="14sp"
+            android:textColor="#0000FF"
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
 </RelativeLayout>

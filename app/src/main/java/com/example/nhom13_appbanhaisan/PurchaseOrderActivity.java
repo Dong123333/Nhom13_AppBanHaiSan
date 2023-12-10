@@ -28,11 +28,7 @@ public class PurchaseOrderActivity extends AppCompatActivity {
         back=findViewById(R.id.btn_back);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
-        Intent intent = getIntent();
-        Bundle bundle = new Bundle();
-        List<Cart> selectedItems = intent.getParcelableArrayListExtra("SELECTED_ITEMS_PURCHASE");
-        bundle.putParcelableArrayList("SELECTED_ITEMS_WAIT", (ArrayList<? extends Parcelable>) selectedItems);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this,bundle);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

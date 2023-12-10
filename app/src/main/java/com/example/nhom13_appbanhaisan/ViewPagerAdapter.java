@@ -14,22 +14,15 @@ import com.example.nhom13_appbanhaisan.Fragment.WaitForConfirmationFragment;
 import com.example.nhom13_appbanhaisan.Fragment.WaitingForDeliveryFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
-    private Bundle bundle;
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,Bundle dataBundle) {
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
-        this.bundle = dataBundle;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        Fragment fragment;
         switch(position){
-            case 0: {
-                fragment = new WaitForConfirmationFragment();
-                fragment.setArguments(bundle);
-                return fragment;
-            }
+            case 0: return new WaitForConfirmationFragment();
             case 1: return new WaitingForDeliveryFragment();
             case 2: return new DeliveryFragment();
             case 3: return new DeliveredFragment();

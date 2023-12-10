@@ -59,16 +59,25 @@ public class OrderActivity  extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CartActivity.class);
-                startActivity(intent);
+               finish();
             }
         });
 
         Intent intent = getIntent();
+        String img = intent.getStringExtra("IMAGE");
+        String ten = intent.getStringExtra("TEN");
+        int gia = intent.getIntExtra("GIA",0);
+        String quycach = intent.getStringExtra("QUYCACH");
+        int socan = intent.getIntExtra("SOCAN",0);
+        int sotien = intent.getIntExtra("SOTIEN",0);
         List<String> id = intent.getStringArrayListExtra("SELECTED_ITEMS_ID");
         List<Cart> selectedItems = intent.getParcelableArrayListExtra("SELECTED_ITEMS");
         if (selectedItems != null && !selectedItems.isEmpty()) {
             arrOrder.addAll(selectedItems);
+            adapter.notifyDataSetChanged();
+        }else {
+            Cart cart = new Cart(img,ten,quycach,gia,socan,sotien);
+            arrOrder.add(cart);
             adapter.notifyDataSetChanged();
         }
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));

@@ -91,6 +91,7 @@ public class CartActivity extends AppCompatActivity {
                 else {
                     tongTien.setText(format.format(0));
                 }
+                adapter.setSelectAll(isChecked);
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

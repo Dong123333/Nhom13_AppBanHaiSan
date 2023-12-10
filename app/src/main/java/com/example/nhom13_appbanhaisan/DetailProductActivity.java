@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nhom13_appbanhaisan.Adapter.CommentAdapter;
+import com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView;
 import com.example.nhom13_appbanhaisan.Model.Cart;
+import com.example.nhom13_appbanhaisan.Model.Comment;
+import com.example.nhom13_appbanhaisan.Model.Product;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,19 +31,27 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class DetailProductActivity extends AppCompatActivity {
-    private ImageView back, imgProduct, imgView1, imgView2, imgView3, imgView4;
+    private ImageView back, imgProduct, gioHang;
+    private EditText editTextComment;
     private TextView tenSanPham, donGia, quyCach, tinhTrang, xuatXu, monNgon, soLuong;
-    private Button btnAddCart, btnGiam, btnTang, btnChon;
+    private Button btnGiam, btnTang, btnChon,btnBuy,btnComment;
+    private LinearLayout btnAddFavourite,btnAddCart;
     private boolean isCustomBackground = false;
+    private ExpandableHeightGridView list;
+    private List<Comment> commentList;
+    private CommentAdapter adapter;
 
     private int currentQuantity = 0;
     private static final int MAX_QUANTITY = 10;
     private static final int MIN_QUANTITY = 0;
-    FirebaseDatabase database;
-    DatabaseReference reference;
+    FirebaseAuth mAuth;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -47,8 +61,11 @@ public class DetailProductActivity extends AppCompatActivity {
 
         //anh xa cac doi tuong
         back=findViewById(R.id.imageView);
-        btnAddCart=findViewById(R.id.btnaddcart);
+        btnAddCart=findViewById(R.id.addCart);
+        btnAddFavourite = findViewById(R.id.addFavourite);
         soLuong = findViewById(R.id.indexquality);
+        gioHang = findViewById(R.id.gioHang);
+        editTextComment = findViewById(R.id.edtComment);
         //textview
         imgProduct = findViewById(R.id.imgselect);
         tenSanPham = findViewById(R.id.nameproduct);
@@ -61,12 +78,15 @@ public class DetailProductActivity extends AppCompatActivity {
         btnGiam = findViewById(R.id.btnGiam);
         btnTang = findViewById(R.id.btnTang);
         btnChon = findViewById(R.id.btn_select);
-        //hinh anh
-        imgView1 = findViewById(R.id.img1);
-        imgView2 = findViewById(R.id.img2);
-        imgView3 = findViewById(R.id.img3);
-        imgView4 = findViewById(R.id.img4);
+        btnBuy = findViewById(R.id.btnBuy);
+        btnComment = findViewById(R.id.btnComment);
 
+        list = (ExpandableHeightGridView) findViewById(R.id.listComment);
+        list.setExpanded(true);
+        commentList = new ArrayList<>();
+        adapter = new CommentAdapter(DetailProductActivity.this,R.layout.comment_layout,commentList);
+        list.setAdapter(adapter);
+        getComment();
 
         //Get value từ trang Home
         Intent intent = getIntent();
@@ -78,14 +98,11 @@ public class DetailProductActivity extends AppCompatActivity {
         String xuatxu = intent.getStringExtra("XUAT_XU");
         String tinhtrang = intent.getStringExtra("TINH_TRANG");
         int soluongcon = intent.getIntExtra("SO_LUONG_CON", 0);
+        int soluongban = intent.getIntExtra("SO_LUONG_DA_BAN",0);
         int soluongmua = Integer.parseInt(soLuong.getText().toString());
 
         //Hien thi dữ liệu lên Detail
         Picasso.get().load(img).into(imgProduct);
-        Picasso.get().load(img).into(imgView1);
-        Picasso.get().load(img).into(imgView2);
-        Picasso.get().load(img).into(imgView3);
-        Picasso.get().load(img).into(imgView4);
         tenSanPham.setText(ten);
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         donGia.setText(format.format(gia));
@@ -139,7 +156,7 @@ public class DetailProductActivity extends AppCompatActivity {
         btnAddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth = FirebaseAuth.getInstance();
                 FirebaseUser currentUser = mAuth.getCurrentUser();
 
                 if (currentUser == null) {
@@ -150,27 +167,124 @@ public class DetailProductActivity extends AppCompatActivity {
                     String userId = currentUser.getUid();
                     DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("cart");
                     int soCan = Integer.parseInt(soLuong.getText().toString());
-                    int soTien = gia * soCan;
+                    if(soCan != 0){
+                        int soTien = gia * soCan;
+                        userCartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                Cart cart = new Cart(img, ten, quycach, gia, soCan, soTien);
+                                userCartRef.push().setValue(cart)
+                                        .addOnSuccessListener(aVoid -> {
+                                            Toast.makeText(DetailProductActivity.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Log.e("Firebase", "Lỗi" + e.getMessage());
+                                        });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    else {
+                        Toast.makeText(DetailProductActivity.this, "Vui lòng nhập số lượng", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        });
+        gioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                if (currentUser == null) {
+                    Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), CartActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        btnAddFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                if (currentUser == null) {
+                    Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    String userId = currentUser.getUid();
+                    DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("favourite");
                     userCartRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Cart cart = new Cart(img, ten, quycach, gia, soCan, soTien);
-                            userCartRef.push().setValue(cart)
-                                    .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(DetailProductActivity.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
-                                    })
+                            Product product = new Product(img,ten,gia,soluongban,quycach,"Ngon, bổ, rẻ",monngon,tinhtrang,xuatxu,soluongcon);
+                            userCartRef.push().setValue(product).addOnSuccessListener(aVoid -> {
+                                Toast.makeText(DetailProductActivity.this, "Đã thêm sản phẩm yêu thích", Toast.LENGTH_SHORT).show();
+                            })
                                     .addOnFailureListener(e -> {
-                                        Log.e("Firebase", "Lỗi khi thêm sản phẩm mới vào Firebase: " + e.getMessage());
+                                        Log.e("Firebase", "Lỗi" + e.getMessage());
                                     });
-                        }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
+                            }
                     });
+                }
+            }
+        });
+        btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                if (currentUser == null) {
+                    Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    int soCan = Integer.parseInt(soLuong.getText().toString());
+                    if (soCan != 0) {
+                        int soTien = gia * soCan;
+                        Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                        intent.putExtra("IMAGE", img);
+                        intent.putExtra("TEN", ten);
+                        intent.putExtra("QUYCACH", quycach);
+                        intent.putExtra("GIA", gia);
+                        intent.putExtra("SOCAN", soCan);
+                        intent.putExtra("SOTIEN", soTien);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(DetailProductActivity.this, "Vui lòng nhập số lượng", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+        btnComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                if (currentUser == null) {
+                    Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    addComment();
+                }
+            }
         });
     }
 
@@ -193,5 +307,63 @@ public class DetailProductActivity extends AppCompatActivity {
     private void updateButtons() {
         btnGiam.setEnabled(currentQuantity > MIN_QUANTITY);
         btnTang.setEnabled(currentQuantity < MAX_QUANTITY);
+    }
+    private void addComment(){
+        String decription = editTextComment.getText().toString();
+        if(decription != null && !decription.isEmpty()){
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+            String formatDate = dateFormat.format(calendar.getTime());
+            Intent intent = getIntent();
+            String id = intent.getStringExtra("ID");
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user != null){
+                String userId = user.getUid();
+                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("account");
+                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            String name = snapshot.child("fullName").getValue(String.class);
+                            String image = snapshot.child("image").getValue(String.class);
+                            Comment comment = new Comment(image,name,decription,formatDate);
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("comment").child(id);
+                            reference.push().setValue(comment);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                editTextComment.setText("");
+            }
+        }else {
+            Toast.makeText(DetailProductActivity.this,"Vui lòng nhập bình luận của bạn",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    private void getComment(){
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("ID");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("comment").child(id);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                commentList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Comment comment = dataSnapshot.getValue(Comment.class);
+                    commentList.add(comment);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

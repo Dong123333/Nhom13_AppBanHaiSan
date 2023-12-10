@@ -1,5 +1,6 @@
 package com.example.nhom13_appbanhaisan;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,12 +28,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class LoginActivity extends AppCompatActivity {
     private ImageView back, xemmk;
     private EditText txtPassword, txtEmail;
     private Button btnlogin;
-    private TextView quenmk;
+    private TextView quenmk,signup;
     boolean isABoolean;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,20 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin = findViewById(R.id.btndangnhap);
         xemmk = findViewById(R.id.xemmk);
         quenmk =findViewById(R.id.quenmk);
+        signup = findViewById(R.id.btnSignup);
+        mAuth = FirebaseAuth.getInstance();
+        SharedPreferences preferences = getSharedPreferences("your_prefs", MODE_PRIVATE);
+        String savedEmail = preferences.getString("saved_email", "");
+        txtEmail.setText(savedEmail);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,12 +98,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                   mAuth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                        FirebaseUser user = mAuth.getCurrentUser();
                                         if (user != null) {
                                             String userId = user.getUid();
                                             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("account");
@@ -94,14 +111,11 @@ public class LoginActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                     if (dataSnapshot.exists()) {
-                                                        String getEmail = dataSnapshot.child("email").getValue(String.class);
-                                                        String getName = dataSnapshot.child("fullName").getValue(String.class);
-                                                        saveUserInfo(getName);
-                                                        if (("admin@gmail.com").trim().equals(getEmail)) {
+                                                        if (("admin@gmail.com").trim().equals(user.getEmail())) {
                                                             Toast.makeText(LoginActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                                                             Intent intent = new Intent(LoginActivity.this, UserAccountManagementActivity.class);
                                                             startActivity(intent);
-                                                        } else if (email.equals(getEmail)) {
+                                                        } else if (email.equals(user.getEmail())) {
                                                             Toast.makeText(LoginActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                                                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                                             startActivity(intent);
@@ -111,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                                 @Override
                                                 public void onCancelled(@NonNull DatabaseError error) {
-
+                                                    Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -121,13 +135,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
                 }
-            }
+
+                }
         });
-    }
-    private void saveUserInfo(String fullName) {
-        SharedPreferences sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("full_name", fullName);
-        editor.apply();
     }
 }

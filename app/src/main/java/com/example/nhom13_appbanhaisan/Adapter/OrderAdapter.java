@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
@@ -41,7 +43,12 @@ public class OrderAdapter extends ArrayAdapter<Cart> {
         TextView can = convertView.findViewById(R.id.soCanOrder);
         TextView tien = convertView.findViewById(R.id.soTienOrder);
         Cart cartOrder = this.objects.get(position);
-        Picasso.get().load(cartOrder.getAnh()).into(img);
+        Glide.with(context)
+                .load(cartOrder.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(img);
         name.setText(cartOrder.getTen());
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         gia.setText("Giá: "+format.format(cartOrder.getGia()));

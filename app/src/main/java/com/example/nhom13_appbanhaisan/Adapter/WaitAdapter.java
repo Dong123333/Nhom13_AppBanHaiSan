@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Event.UpdateTotalEvent;
 import com.example.nhom13_appbanhaisan.Model.Cart;
 import com.example.nhom13_appbanhaisan.R;
@@ -49,7 +51,12 @@ public class WaitAdapter extends ArrayAdapter<Cart> {
         TextView gia = convertView.findViewById(R.id.giaOrder);
         TextView soCan = convertView.findViewById(R.id.soCanOrder);
         TextView soTien = convertView.findViewById(R.id.soTienOrder);
-        Picasso.get().load(cart.getAnh()).into(image);
+        Glide.with(context)
+                .load(cart.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(image);
         ten.setText(cart.getTen());
         quyCach.setText("Quy cách: "+cart.getQuyCach());
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));

@@ -13,10 +13,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nhom13_appbanhaisan.Model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SignupActivity extends AppCompatActivity {
     private Button btndangki;
     private ImageView back, xemmk1, xemmk2;
+    private TextView login;
     private EditText txtPassword, txtConfirmPassword, txtEmail, txtFullName;
     boolean isABoolean;
     private CheckBox checkBox;
@@ -37,7 +40,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        btndangki = findViewById(R.id.btndangki);
+        btndangki = findViewById(R.id.signUp);
         back=findViewById(R.id.btnback);
         xemmk1 = findViewById(R.id.xemmk1);
         xemmk2 = findViewById(R.id.xemmk2);
@@ -46,6 +49,15 @@ public class SignupActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.password1);
         txtConfirmPassword = findViewById(R.id.password2);
         checkBox = findViewById(R.id.checkboxdk);
+        login = findViewById(R.id.btnLogin);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         xemmk1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,29 +105,25 @@ public class SignupActivity extends AppCompatActivity {
                     String fullName = txtFullName.getText().toString();
 
                     if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword) || TextUtils.isEmpty(fullName)) {
-                        // Kiểm tra xem các trường đã được nhập đầy đủ hay chưa
                         Toast.makeText(SignupActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                     } else if (password.length() < 6) {
                         Toast.makeText(getApplicationContext(), "Mật khẩu cần ít nhất 6 ký tự!", Toast.LENGTH_LONG).show();
                         
                     } else if (!password.equals(confirmPassword)) {
-                        // Kiểm tra xem mật khẩu và mật khẩu xác nhận có khớp nhau không
                         Toast.makeText(SignupActivity.this, "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
                     } else if (!checkBox.isChecked()) {
                         Toast.makeText(SignupActivity.this, "Vui lòng chấp nhận điều khoản!", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Thực hiện đăng ký tài khoản trong Firebase Authentication
                         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-                                            // Lưu thông tin người dùng vào Realtime Database
                                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                             if (user != null) {
                                                 String userId = user.getUid();
                                                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("account");
-                                                Users users = new Users(fullName,email,password);
+                                                Users users = new Users("",fullName,"","","");
                                                 userRef.setValue(users);
                                             }
                                             Toast.makeText(SignupActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
@@ -123,10 +131,11 @@ public class SignupActivity extends AppCompatActivity {
                                             startActivity(intent);
 
                                         } else {
-                                            Toast.makeText(SignupActivity.this, "Đã có tài khoản này", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignupActivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
+
                     }
                 }
             });

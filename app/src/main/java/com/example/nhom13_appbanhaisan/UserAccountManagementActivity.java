@@ -11,13 +11,16 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class UserAccountManagementActivity extends  AppCompatActivity{
     private Button button;
-    private LinearLayout btnmanagerProduct;
+    private LinearLayout btnmanagerProduct,btnmanagerAccount,btnmanagerMS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_account_management);
         button = findViewById(R.id.btndangxuatadmin);
         btnmanagerProduct = findViewById(R.id.managerProduct);
+        btnmanagerAccount = findViewById(R.id.managerAccount);
+        btnmanagerMS = findViewById(R.id.managerMS);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +35,20 @@ public class UserAccountManagementActivity extends  AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserAccountManagementActivity.this, ManagerProductActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnmanagerAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserAccountManagementActivity.this, ManagerAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnmanagerMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserAccountManagementActivity.this, ManagerMSActivity.class);
                 startActivity(intent);
             }
         });

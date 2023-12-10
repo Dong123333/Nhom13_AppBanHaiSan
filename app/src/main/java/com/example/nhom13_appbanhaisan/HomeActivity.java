@@ -18,6 +18,7 @@ import com.example.nhom13_appbanhaisan.Adapter.ProductForYouAdapter;
 import com.example.nhom13_appbanhaisan.Library.ExpandableHeightGridView;
 import com.example.nhom13_appbanhaisan.Model.Category;
 import com.example.nhom13_appbanhaisan.Model.Product;
+import com.example.nhom13_appbanhaisan.Model.RecyclerViewItemClickListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,8 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements RecyclerViewItemClickListener {
     private ImageView btncart,btnNoti,btnMenu,btnChat,btnCart,btnHome,btnFavourite;
     private TextView txtTotal,inputSearch;
     private RecyclerView listCategory, listProductForYou;
@@ -35,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<Category> arrayListCategory;
     ArrayList<Product> arrayListProduct;
     ArrayList<Product> arrayListProductForYou;
+    List<String> loai;
     CategoryAdapter categoryAdapter;
     ProductAdapter productAdapter;
     ProductForYouAdapter productAdapterForYou;
@@ -59,13 +62,15 @@ public class HomeActivity extends AppCompatActivity {
         listProductForYou= findViewById(R.id.listProductForYou);
         arrayListCategory = new ArrayList<>();
         arrayListProduct = new ArrayList<>();
+        loai = new ArrayList<>();
         arrayListProductForYou = new ArrayList<>();
-        categoryAdapter = new CategoryAdapter(HomeActivity.this,arrayListCategory);
+        categoryAdapter = new CategoryAdapter(HomeActivity.this,arrayListCategory,this);
         productAdapter = new ProductAdapter(HomeActivity.this,arrayListProduct, new ProductAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(Product product) {
                 // Chuyển đến trang chi tiết và truyền dữ liệu
                 Intent intent = new Intent(HomeActivity.this, DetailProductActivity.class);
+                intent.putExtra("ID",product.getId());
                 intent.putExtra("IMAGE_URL", product.getAnh());
                 intent.putExtra("TEN", product.getTen_san_pham());
                 intent.putExtra("GIA", product.getGia());
@@ -82,6 +87,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Product product) {
                 Intent intent = new Intent(HomeActivity.this, DetailProductActivity.class);
+                intent.putExtra("ID",product.getId());
                 intent.putExtra("IMAGE_URL", product.getAnh());
                 intent.putExtra("TEN", product.getTen_san_pham());
                 intent.putExtra("GIA", product.getGia());
@@ -146,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -157,6 +163,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         getValueCategoryFromFirebase();
         getValueProductFromFirebase();
         getValueProductForYouFromFirebase();
@@ -185,6 +192,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Category category = dataSnapshot.getValue(Category.class);
+                    String name = dataSnapshot.child("ten_san_pham").getValue(String.class);
+                    loai.add(name);
                     arrayListCategory.add(category);
                 }
                 categoryAdapter.notifyDataSetChanged();
@@ -204,6 +213,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
+                    product.setId(dataSnapshot.getKey());
                     arrayListProduct.add(product);
                 }
                 productAdapter.notifyDataSetChanged();
@@ -224,6 +234,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
+                    product.setId(dataSnapshot.getKey());
                     arrayListProductForYou.add(product);
                 }
                 productAdapterForYou.notifyDataSetChanged();
@@ -235,5 +246,13 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this,"error",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(getApplicationContext(),CategorySortActivity.class);
+        String category = loai.get(position);
+        intent.putExtra("LOAI",category);
+        startActivity(intent);
     }
 }

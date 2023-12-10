@@ -38,7 +38,7 @@
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/roboto_regular"
                 android:text="490.000VNĐ"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textColor="#FD1E00"/>
             <TextView
                 android:id="@+id/sold"
@@ -49,7 +49,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:text="Đã bán 1k+"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textColor="#000000"/>
         </RelativeLayout>
     </LinearLayout>

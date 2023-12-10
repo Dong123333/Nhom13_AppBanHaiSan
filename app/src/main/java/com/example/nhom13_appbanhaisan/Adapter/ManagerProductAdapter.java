@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Model.Product;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
@@ -26,7 +28,7 @@ public class ManagerProductAdapter extends ArrayAdapter<Product> {
     List<Product> objects;
 
     public ManagerProductAdapter(@NonNull Activity context,int resource, @NonNull List<Product> objects) {
-        super(context, R.layout.product_layout, objects);
+        super(context, resource, objects);
         this.context = context;
         this.resource = resource;
         this.objects = objects;
@@ -48,7 +50,12 @@ public class ManagerProductAdapter extends ArrayAdapter<Product> {
         price.setText("Giá: "+format.format(product.getGia()));
         quycach.setText("Quy cách: " + product.getQuy_cach());
         soluong.setText("Số lượng: "+product.getSo_luong_ton_kho());
-        Picasso.get().load(product.getAnh()).into(img);
+        Glide.with(context)
+                .load(product.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(img);
         return convertView;
     }
 }

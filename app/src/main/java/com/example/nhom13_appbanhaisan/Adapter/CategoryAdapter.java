@@ -14,7 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Model.Category;
+import com.example.nhom13_appbanhaisan.Model.RecyclerViewItemClickListener;
 import com.example.nhom13_appbanhaisan.R;
 import com.squareup.picasso.Picasso;
 
@@ -24,10 +27,12 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     Context context;
     ArrayList<Category> list;
+    private RecyclerViewItemClickListener itemClickListener;
 
-    public CategoryAdapter(Context context, ArrayList<Category> list) {
+    public CategoryAdapter(Context context, ArrayList<Category> list,RecyclerViewItemClickListener itemClickListener) {
         this.context = context;
         this.list = list;
+        this.itemClickListener = itemClickListener;
     }
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
@@ -37,6 +42,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             super(itemView);
             img = itemView.findViewById(R.id.imageCategory);
             name = itemView.findViewById(R.id.nameCategory);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (itemClickListener != null) {
+                        itemClickListener.onItemClick(getAdapterPosition());
+                    }
+                }
+            });
 
         }
     }
@@ -52,12 +65,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         Category category = list.get(position);
         holder.name.setText(category.getTen_san_pham());
-        Picasso.get().load(category.getAnh()).into(holder.img);
+        Glide.with(context)
+                .load(category.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(holder.img);
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
 
 }

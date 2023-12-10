@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nhom13_appbanhaisan.Adapter.ProductAdapter.OnItemClickListener;
 import com.example.nhom13_appbanhaisan.Model.Category;
 import com.example.nhom13_appbanhaisan.Model.Product;
@@ -47,7 +49,12 @@ public class ProductForYouAdapter extends RecyclerView.Adapter<ProductForYouAdap
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         holder.price.setText(format.format(product.getGia()));
         holder.sold.setText("Đã bán "+product.getSo_luong_da_ban());
-        Picasso.get().load(product.getAnh()).into(holder.img);
+        Glide.with(context)
+                .load(product.getAnh())
+                .apply(new RequestOptions()
+                        .override(800, 800)
+                        .fitCenter())
+                .into(holder.img);
     }
 
     @Override

@@ -48,37 +48,8 @@ public class WaitForConfirmationFragment extends Fragment {
         list = new ArrayList<>();
         adapter = new WaitAdapter(getContext(), R.layout.wait_layout, list);
         listView.setAdapter(adapter);
-        setValueFirebase();
         getValueFirebase();
         return view;
-    }
-    public void setValueFirebase(){
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            ArrayList<Cart> selectedItems = bundle.getParcelableArrayList("SELECTED_ITEMS_WAIT");
-            if (selectedItems != null) {
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                FirebaseUser currentUser = mAuth.getCurrentUser();
-
-                if (currentUser != null) {
-                    String userId = currentUser.getUid();
-                    DatabaseReference userCartRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("wait");
-
-                    for (Cart selectedItem : selectedItems) {
-                        String anh = selectedItem.getAnh();
-                        String name = selectedItem.getTen();
-                        String quycach = selectedItem.getQuyCach();
-                        int tongtt = selectedItem.getSoTien();
-                        int gia = selectedItem.getGia();
-                        int can = selectedItem.getSoCan();
-
-                        Cart cart = new Cart(anh, name, quycach, gia, can, tongtt);
-                        userCartRef.push().setValue(cart);
-                        bundle.putParcelableArrayList("SELECTED_ITEMS_WAIT", null);
-                    }
-                }
-            }
-        }
     }
     public void getValueFirebase(){
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
